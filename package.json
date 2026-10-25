@@ -1,0 +1,14 @@
+{
+  "name": "bomscope-sbom-explorer",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Browser-local CycloneDX and SPDX SBOM viewer with version search and dependency exploration",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node checks.mjs && node version-checks.mjs",
+    "check": "node --check dist/app.mjs && node --check dist/engine.mjs && node --check dist/version-search.mjs"
+  }
+}
