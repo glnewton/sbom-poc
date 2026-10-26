@@ -299,6 +299,12 @@ The collector should resolve from the **observed artifact** into captured build 
 
 If D is missing, unrecognized, ambiguous, or described only by a mismatched SBOM, report an unresolved version. If the only evidence is Lambda `python3.11`, report family-only precision. If the evidence is EC2 installed software, retain host-installed scope. Never fill these gaps using a latest pipeline or a similarly named package.
 
+## Repository fallback when metadata is incomplete
+
+Use the official GitLab **Repository Tree API** (`GET /projects/:id/repository/tree`) to enumerate approved files at the full build commit, then the **Repository Files API** (`GET /projects/:id/repository/files/:file_path`, or `/raw`) to retrieve their contents with the same `ref`. Preserve project/instance identity, commit, file path, blob/content hash, scope, and collection status. Never substitute the default branch for an observed build commit.
+
+[Repository version evidence](repository-version-evidence.md#collect-source-files-using-official-gitlab-apis) supplies authentication, concrete requests, pagination/error handling, field meanings, monorepo constraints, and the implemented browser-local analyzer. Exact source pins, lock entries, minimum requirements, and image hints remain separate from artifact or process evidence. ServiceNow supplies application/service association; AWS supplies deployed-asset identity; GitLab supplies build revision and source files. A source pin alone cannot resolve a deployed-version Unknown.
+
 ## 6. Feed the proof of concept without mislabeling real data
 
 Today's `buildPortfolio` requires `schema_version: 1` and `simulated: true`. **Do not relabel real captures as simulated to bypass that check.** A live/offline-real mode, access controls, sanitization policy, and appropriate UI labels must be implemented before loading real enterprise data into this public demo.

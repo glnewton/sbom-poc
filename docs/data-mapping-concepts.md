@@ -125,3 +125,9 @@ A mapping profile resolves `CUSTOMER-42` to a scoped application identity and tr
 The conclusion comes from the same conceptual chain as the demo, even though the fields differ. If the workload only supplies `image:latest`, the application and environment can still resolve, but its exact runtime remains unknown until immutable artifact evidence or another suitable observation is available.
 
 See [Data mapping adapters](data-mapping-adapters.md) for a proposed contract and onboarding workflow.
+
+## Repository-derived evidence
+
+When version information is absent elsewhere, model a source observation with scoped project identity, immutable revision, repository path, source locator, component, raw expression, precision, and dependency/build scope. A source revision can have many observations and can produce many different artifacts. Map monorepo paths to deployable services explicitly. Keep declarations and lock entries separate from artifact inventory; no matching build link means no environment attribution.
+
+The POC now implements bounded repository-file analysis and simulated exact-build links. The [repository evidence guide](repository-version-evidence.md) explains this behavior and the official GitLab API collection design. Local selections have unverified commit identity; source ranges never become exact deployed versions.

@@ -42,8 +42,8 @@ function render(){
   $('#nav').innerHTML=Object.entries(enterpriseViews).map(navItem).join('')+'<div class="fleet-nav-label">SBOM DOCUMENT</div>'+Object.entries(views).map(navItem).join('');
   const definition=(isFleet?enterpriseViews:views)[view];
   $('#page-title').textContent=definition[1];$('#page-description').textContent=definition[2];
-  $('#doc-name').textContent=isFleet?'Application portfolio':model.name;
-  $('#sample-badge').textContent=isFleet?'Simulated data':documentContext?'Simulated artifact SBOM':isSample?'Sample data':model.format;
+  $('#doc-name').textContent=view==='repository'?'Repository evidence':isFleet?'Application portfolio':model.name;
+  $('#sample-badge').textContent=view==='repository'?'Source file analysis':isFleet?'Simulated data':documentContext?'Simulated artifact SBOM':isSample?'Sample data':model.format;
   $('.page-heading .eyebrow').textContent=isFleet?'APPLICATION → BUILD → DEPLOYMENT':'SOFTWARE SUPPLY CHAIN · EXPLORER';
   $('#export').textContent=isFleet?'↓ Export view':'↓ Export report';
   document.body.classList.toggle('fleet-mode',isFleet);

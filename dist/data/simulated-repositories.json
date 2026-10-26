@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "simulated": true,
+  "samples": [
+    {
+      "id": "302-prod",
+      "label": "report-builder · prod build · SBOM missing",
+      "context": {
+        "projectId": 302,
+        "commit": "9253732f83c7c90ba73e435e01aec53c97fbba3e",
+        "source": "gitlab-snapshot",
+        "simulated": true,
+        "capturedAt": "2026-10-26T12:00:00Z"
+      },
+      "files": [
+        {
+          "path": ".python-version",
+          "content": "3.11.9\n"
+        },
+        {
+          "path": "requirements.txt",
+          "content": "pandas==2.1.4\nnumpy==1.26.4\nrequests>=2.31,<3\n"
+        },
+        {
+          "path": "Dockerfile",
+          "content": "FROM python:3.11.9-slim AS runtime\nCOPY . /app\n"
+        }
+      ]
+    },
+    {
+      "id": "302-uat",
+      "label": "report-builder · UAT build · NumPy SBOM version missing",
+      "context": {
+        "projectId": 302,
+        "commit": "624c492624c29443b78a41bb088ef4ea68a9ffb0",
+        "source": "gitlab-snapshot",
+        "simulated": true,
+        "capturedAt": "2026-10-26T12:00:00Z"
+      },
+      "files": [
+        {
+          "path": ".python-version",
+          "content": "3.12.7\n"
+        },
+        {
+          "path": "requirements.txt",
+          "content": "pandas==2.2.3\nnumpy==2.0.2\nrequests==2.32.3\n"
+        }
+      ]
+    },
+    {
+      "id": "102-prod",
+      "label": "customer-web · prod build · runtime requirement and lockfile",
+      "context": {
+        "projectId": 102,
+        "commit": "14d483c056506afd7461600ed8b5349c3c01e651",
+        "source": "gitlab-snapshot",
+        "simulated": true,
+        "capturedAt": "2026-10-26T12:00:00Z"
+      },
+      "files": [
+        {
+          "path": ".nvmrc",
+          "content": "20.18.0\n"
+        },
+        {
+          "path": "package.json",
+          "content": "{\n  \"name\": \"customer-web\",\n  \"engines\": {\n    \"node\": \">=18\"\n  },\n  \"dependencies\": {\n    \"react\": \"^18.3.0\"\n  },\n  \"devDependencies\": {\n    \"vite\": \"^5.4.0\"\n  }\n}"
+        },
+        {
+          "path": "package-lock.json",
+          "content": "{\n  \"name\": \"customer-web\",\n  \"lockfileVersion\": 3,\n  \"packages\": {\n    \"\": {\n      \"name\": \"customer-web\"\n    },\n    \"node_modules/react\": {\n      \"version\": \"18.3.1\"\n    },\n    \"node_modules/vite\": {\n      \"version\": \"5.4.8\",\n      \"dev\": true\n    }\n  }\n}"
+        },
+        {
+          "path": "Dockerfile",
+          "content": "FROM node:20.18.0 AS build\nRUN npm ci\nFROM nginx:1.27\nCOPY --from=build /app/dist /usr/share/nginx/html\n"
+        }
+      ]
+    },
+    {
+      "id": "302-unbound",
+      "label": "report-builder · newer branch commit · no observed deployment",
+      "context": {
+        "projectId": 302,
+        "commit": "ffffffffffffffffffffffffffffffffffffffff",
+        "source": "gitlab-snapshot",
+        "simulated": true,
+        "capturedAt": "2026-10-26T12:00:00Z"
+      },
+      "files": [
+        {
+          "path": ".python-version",
+          "content": "3.13.0\n"
+        },
+        {
+          "path": "requirements.txt",
+          "content": "numpy==2.1.2\npandas>=2.2\n"
+        },
+        {
+          "path": "pyproject.toml",
+          "content": "[project]\nrequires-python = \">=3.12\"\n"
+        }
+      ]
+    }
+  ]
+}

@@ -15,6 +15,7 @@ Version search supports exact or partial package names, common runtime aliases, 
 - **Applications:** four business applications, nine GitLab projects, and 31 running AWS workloads.
 - **Deployed versions:** filter by application, environment, service, runtime/library, and version condition. Inspect the underlying asset, build, and SBOM evidence or export it to CSV.
 - **Environment matrix:** compare versions across dev, UAT, and prod, including coexisting versions during a rollout.
+- **Repository evidence:** derive runtime/library versions from simulated commit snapshots or browser-local repository files; retain exact pins, constraints, source locations, and deployment linkage separately.
 - **Data sources:** inspect and download the fictional API snapshots, build manifests, and SBOMs.
 
 Try **Atlas Customer Platform → prod → customer-api → Python < 3.11**. The simulated running tasks record 3.10.14 and 3.10.15; UAT uses 3.11.10.
@@ -26,6 +27,12 @@ All records are synthetic. Missing artifact evidence, partial Lambda runtime ver
 Start with [the official API integration guide](docs/official-api-integration-guide.md). It provides authentication and read permissions, ServiceNow application/relationship requests, GitLab build and exact-job SBOM downloads, AWS ECS/Lambda/EC2/SSM commands, and a field-by-field join from a deployed asset to its component versions. It explains the build-manifest bridge and the organization-specific mappings that the vendors do not supply automatically.
 
 The site remains a synthetic proof of concept. The guide is an implementation walkthrough; live credentials, collectors, and a real-data loading mode have not been added.
+
+## Derive missing versions from a repository
+
+Choose **Repository evidence** to inspect runtime pins, npm manifests/lockfiles, Python requirements, Go declarations, and Dockerfiles. Local folder/file selection stays in the browser. Search source findings with version thresholds and export their provenance. A source commit links to a workload only through its validated build; source pins never silently become deployed-version facts.
+
+See [repository version evidence](docs/repository-version-evidence.md) for supported formats, limits, evidence semantics, monorepo mapping, and official GitLab tree/file API examples at an immutable commit. Live GitLab cloning/collection is not implemented.
 
 ## Data mapping and integration concepts
 
@@ -69,9 +76,11 @@ The tests cover application/build/asset correlation, environment isolation, mixe
 - `dist/index.html`, `dist/style.css`, and `dist/app.mjs`: the interface and browser interactions.
 - `dist/engine.mjs`: SBOM normalization and dependency analysis.
 - `dist/version-search.mjs`: runtime/package matching and version comparison.
+- `dist/repository/`: editable source-file analyzer and repository evidence UI.
 - `dist/enterprise/`: editable application-portfolio UI, adapters, and correlation logic.
 - `scripts/generate-demo.mjs`: deterministic simulated source-data generator.
 - `dist/data/simulated-enterprise.json`: generated simulation fixture.
-- `checks.mjs`, `version-checks.mjs`, and `enterprise-checks.mjs`: analysis tests.
+- `scripts/generate-repository-demo.mjs` and `dist/data/simulated-repositories.json`: deterministic repository snapshots.
+- `checks.mjs`, `version-checks.mjs`, `enterprise-checks.mjs`, and `repository-checks.mjs`: analysis tests.
 - `.openai/hosting.json`: configuration for the existing hosted Site. Other static hosts can serve `dist/` directly.
 

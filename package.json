@@ -8,8 +8,8 @@
     "node": ">=18"
   },
   "scripts": {
-    "test": "node checks.mjs && node version-checks.mjs && node enterprise-checks.mjs",
-    "check": "node --check dist/app.mjs && node --check dist/engine.mjs && node --check dist/version-search.mjs && node --check dist/enterprise/model.js && node --check dist/enterprise/ui.js",
-    "demo:generate": "node scripts/generate-demo.mjs"
+    "test": "node checks.mjs && node version-checks.mjs && node enterprise-checks.mjs && node repository-checks.mjs",
+    "check": "node --check dist/app.mjs && node --check dist/engine.mjs && node --check dist/version-search.mjs && node --check dist/enterprise/model.js && node --check dist/enterprise/ui.js && node --check dist/repository/analyzer.mjs && node --check dist/repository/ui.mjs",
+    "demo:generate": "node scripts/generate-demo.mjs && node scripts/generate-repository-demo.mjs"
   }
 }

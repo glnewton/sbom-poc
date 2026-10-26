@@ -160,3 +160,9 @@ A future implementation can preserve existing views while replacing the extracti
 - [Simulation generator](../scripts/generate-demo.mjs)
 - [Current enterprise checks](../enterprise-checks.mjs)
 - [Source API references and fixture details](simulated-data-model.md#api-references-used-for-the-shapes)
+
+## Repository evidence adapter extension
+
+Add a source-files adapter after build correlation, using GitLab Repository Tree and Repository Files APIs at the full build commit. Its profile should specify source instance/project, service build targets and subdirectories, allowlisted files, inherited-config rules, supported parsers, byte/count limits, and missing/denied-file handling. Preserve native blob IDs/content hashes, requested revision, file-last-change revision, capture time, parser revision and collection completeness. Keep unsupported files visible.
+
+Normalize findings into version observations with `precision`, `scope`, `path`, and `locator`; keep source pins separate from SBOM, host and process observations. The POC implements local parsing plus simulated build-commit association, not live collection or configurable adapter profiles. See [the repository collection and derivation guide](repository-version-evidence.md) for official requests and the exact implementation boundary.

@@ -72,3 +72,7 @@ The source adapters and joins are in `dist/enterprise/model.js`. The UI is in `d
 - [AWS ECS Container](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_Container.html)
 - [AWS Lambda GetFunction](https://docs.aws.amazon.com/lambda/latest/api/API_GetFunction.html)
 - [AWS Systems Manager inventory schema](https://docs.aws.amazon.com/systems-manager/latest/userguide/inventory-schema.html)
+
+## Supplemental repository snapshots
+
+`dist/data/simulated-repositories.json` contains four synthetic source snapshots. `scripts/generate-repository-demo.mjs` derives three snapshot identities from the existing validated build commits; a fourth has a deliberately unbound newer revision. Files are analyzed at runtime by `dist/repository/analyzer.mjs`, rather than storing precomputed findings. The source findings never modify the enterprise snapshot or its deployed-version results. See [repository version evidence](repository-version-evidence.md) for scenarios, file formats, and correlation rules.
