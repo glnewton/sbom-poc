@@ -2,13 +2,24 @@
 
 [Open the live viewer](https://sbom-explorer.bushyswan4.chatgpt.site/)
 
-Static, browser-local SBOM viewer. Serve `dist/` using any static HTTP server. No login, backend, analytics, third-party scripts, or persisted SBOM data.
+Browser-local application deployment explorer and SBOM viewer. The landing page uses simulated ServiceNow business applications, GitLab builds, and AWS assets to explore exact runtime and library versions across dev, UAT, and prod. Serve `dist/` using any static HTTP server. No login, backend, analytics, third-party scripts, or persisted SBOM data.
 
 Supports CycloneDX JSON and SPDX 2.x JSON. Views: summary, searchable component inventory, package/runtime version search, dependency graph and reverse impact, licenses, supplied vulnerabilities and VEX, structural quality, release comparison, raw document. Export Markdown reports, CSV inventories and changes, and original JSON.
 
 Limits: 32 MB input; graph displays up to 120 nodes; component tables paginate at 50 rows. XML and SPDX 3 JSON-LD are unsupported. No external vulnerability lookup, schema conformance validation, or artifact completeness verification. Comparison covers component identities, version sets and same-version licenses. It does not compare dependency edges or findings. Duplicate references resolve to the first occurrence. Example vulnerability IDs are deliberately illustrative.
 
 Version search supports exact or partial package names, common runtime aliases, numeric dotted releases, and recognized SemVer prereleases. It groups matching, other, and uncomparable versions separately, shows dependency paths, and exports all query results as CSV. Runtime matching uses component names; package ecosystem metadata alone is not evidence of a runtime version. Missing runtime records do not establish absence from the application. Component versions take priority over package URL versions. Java runtime checks map legacy 1.x notation for Java 1 through 8; Go runtime checks accept a go prefix. Unsupported distro revisions and ecosystem-specific version formats require manual comparison.
+
+## Simulated application portfolio
+
+- **Applications:** four business applications, nine GitLab projects, and 31 running AWS workloads.
+- **Deployed versions:** filter by application, environment, service, runtime/library, and version condition. Inspect the underlying asset, build, and SBOM evidence or export it to CSV.
+- **Environment matrix:** compare versions across dev, UAT, and prod, including coexisting versions during a rollout.
+- **Data sources:** inspect and download the fictional API snapshots, build manifests, and SBOMs.
+
+Try **Atlas Customer Platform → prod → customer-api → Python < 3.11**. The simulated running tasks record 3.10.14 and 3.10.15; UAT uses 3.11.10.
+
+All records are synthetic. Missing artifact evidence, partial Lambda runtime versions, and EC2 installed-software observations are explicitly labeled. See [the data model and correlation rules](docs/simulated-data-model.md) for source schemas, limitations, and instructions to extend the simulation. Regenerate the fixture with `npm run demo:generate`.
 
 ## Run locally
 
@@ -33,13 +44,16 @@ npm test
 npm run check
 ```
 
-The tests cover SBOM normalization, dependency traversal, cycles, unresolved references, release comparisons, runtime aliases, version comparisons, and missing or unsupported versions.
+The tests cover application/build/asset correlation, environment isolation, mixed rollouts, missing or ambiguous evidence, Lambda runtime precision, EC2 inventory scope, SBOM normalization, dependency traversal, cycles, unresolved references, release comparisons, runtime aliases, version comparisons, and missing or unsupported versions.
 
 ## Project files
 
 - `dist/index.html`, `dist/style.css`, and `dist/app.mjs`: the interface and browser interactions.
 - `dist/engine.mjs`: SBOM normalization and dependency analysis.
 - `dist/version-search.mjs`: runtime/package matching and version comparison.
-- `checks.mjs` and `version-checks.mjs`: analysis tests.
+- `dist/enterprise/`: editable application-portfolio UI, adapters, and correlation logic.
+- `scripts/generate-demo.mjs`: deterministic simulated source-data generator.
+- `dist/data/simulated-enterprise.json`: generated simulation fixture.
+- `checks.mjs`, `version-checks.mjs`, and `enterprise-checks.mjs`: analysis tests.
 - `.openai/hosting.json`: configuration for the existing hosted Site. Other static hosts can serve `dist/` directly.
 

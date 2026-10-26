@@ -1,0 +1,5944 @@
+{
+  "schema_version": 1,
+  "simulated": true,
+  "snapshot_at": "2026-10-26T12:00:00Z",
+  "description": "Deterministic synthetic API-shaped snapshots. No customer data and no live API connections.",
+  "servicenow": {
+    "captured_at": "2026-10-26T12:00:00Z",
+    "endpoint": "/api/now/table/cmdb_ci_business_app",
+    "businessApplications": {
+      "result": [
+        {
+          "sys_id": "7c82602500857aa6ed0cf38c4c3e4ec6",
+          "number": "APM001001",
+          "name": "Atlas Customer Platform",
+          "application_manager": {
+            "display_value": "Customer engineering",
+            "value": "b8a6db052753421549d3b9cc3f5fa3d6"
+          },
+          "business_criticality": "1 - most critical",
+          "short_description": "Customer portal, Python APIs, and notification delivery.",
+          "install_status": "1",
+          "sys_updated_on": "2026-10-25 16:30:00",
+          "u_gitlab_project_ids": "101,102,103"
+        },
+        {
+          "sys_id": "b6c4ac412ac8822355239dd717c11ca5",
+          "number": "APM001002",
+          "name": "Meridian Payments",
+          "application_manager": {
+            "display_value": "Payments engineering",
+            "value": "eff4b607b4d91699f28ca2554553d6ad"
+          },
+          "business_criticality": "1 - most critical",
+          "short_description": "Java payment processing and settlement services.",
+          "install_status": "1",
+          "sys_updated_on": "2026-10-25 16:30:00",
+          "u_gitlab_project_ids": "201,202"
+        },
+        {
+          "sys_id": "8a62e967fcd6dfa5d75308c37808b466",
+          "number": "APM001003",
+          "name": "Beacon Analytics",
+          "application_manager": {
+            "display_value": "Data platform",
+            "value": "07355150121f744ec37ec00805e8f8ef"
+          },
+          "business_criticality": "2 - somewhat critical",
+          "short_description": "Python ingestion and analytical reporting workloads.",
+          "install_status": "1",
+          "sys_updated_on": "2026-10-25 16:30:00",
+          "u_gitlab_project_ids": "301,302"
+        },
+        {
+          "sys_id": "c1d64b2d4cb30f1be788cc4d246ddd9f",
+          "number": "APM001004",
+          "name": "Harbor Operations",
+          "application_manager": {
+            "display_value": "Enterprise systems",
+            "value": "ff2fcbb146e72dfa958e5dd37d1d97cb"
+          },
+          "business_criticality": "3 - less critical",
+          "short_description": "Internal operations portal and legacy batch processing.",
+          "install_status": "1",
+          "sys_updated_on": "2026-10-25 16:30:00",
+          "u_gitlab_project_ids": "401,402"
+        }
+      ]
+    }
+  },
+  "gitlab": {
+    "captured_at": "2026-10-26T12:00:00Z",
+    "projects": [
+      {
+        "id": 101,
+        "name": "customer-api",
+        "path": "customer-api",
+        "path_with_namespace": "demo/customer-api",
+        "default_branch": "main",
+        "web_url": "https://gitlab.example.test/demo/customer-api",
+        "topics": [
+          "simulated",
+          "business-app:APM001001"
+        ]
+      },
+      {
+        "id": 102,
+        "name": "customer-web",
+        "path": "customer-web",
+        "path_with_namespace": "demo/customer-web",
+        "default_branch": "main",
+        "web_url": "https://gitlab.example.test/demo/customer-web",
+        "topics": [
+          "simulated",
+          "business-app:APM001001"
+        ]
+      },
+      {
+        "id": 103,
+        "name": "notification-handler",
+        "path": "notification-handler",
+        "path_with_namespace": "demo/notification-handler",
+        "default_branch": "main",
+        "web_url": "https://gitlab.example.test/demo/notification-handler",
+        "topics": [
+          "simulated",
+          "business-app:APM001001"
+        ]
+      },
+      {
+        "id": 201,
+        "name": "payment-gateway",
+        "path": "payment-gateway",
+        "path_with_namespace": "demo/payment-gateway",
+        "default_branch": "main",
+        "web_url": "https://gitlab.example.test/demo/payment-gateway",
+        "topics": [
+          "simulated",
+          "business-app:APM001002"
+        ]
+      },
+      {
+        "id": 202,
+        "name": "settlement-worker",
+        "path": "settlement-worker",
+        "path_with_namespace": "demo/settlement-worker",
+        "default_branch": "main",
+        "web_url": "https://gitlab.example.test/demo/settlement-worker",
+        "topics": [
+          "simulated",
+          "business-app:APM001002"
+        ]
+      },
+      {
+        "id": 301,
+        "name": "event-ingestion",
+        "path": "event-ingestion",
+        "path_with_namespace": "demo/event-ingestion",
+        "default_branch": "main",
+        "web_url": "https://gitlab.example.test/demo/event-ingestion",
+        "topics": [
+          "simulated",
+          "business-app:APM001003"
+        ]
+      },
+      {
+        "id": 302,
+        "name": "report-builder",
+        "path": "report-builder",
+        "path_with_namespace": "demo/report-builder",
+        "default_branch": "main",
+        "web_url": "https://gitlab.example.test/demo/report-builder",
+        "topics": [
+          "simulated",
+          "business-app:APM001003"
+        ]
+      },
+      {
+        "id": 401,
+        "name": "operations-portal",
+        "path": "operations-portal",
+        "path_with_namespace": "demo/operations-portal",
+        "default_branch": "main",
+        "web_url": "https://gitlab.example.test/demo/operations-portal",
+        "topics": [
+          "simulated",
+          "business-app:APM001004"
+        ]
+      },
+      {
+        "id": 402,
+        "name": "legacy-batch",
+        "path": "legacy-batch",
+        "path_with_namespace": "demo/legacy-batch",
+        "default_branch": "main",
+        "web_url": "https://gitlab.example.test/demo/legacy-batch",
+        "topics": [
+          "simulated",
+          "business-app:APM001004"
+        ]
+      }
+    ],
+    "environments": [
+      {
+        "id": 1010,
+        "project_id": 101,
+        "name": "development",
+        "slug": "dev",
+        "state": "available",
+        "tier": "development"
+      },
+      {
+        "id": 1011,
+        "project_id": 101,
+        "name": "user-acceptance",
+        "slug": "uat",
+        "state": "available",
+        "tier": "testing"
+      },
+      {
+        "id": 1012,
+        "project_id": 101,
+        "name": "production",
+        "slug": "prod",
+        "state": "available",
+        "tier": "production"
+      },
+      {
+        "id": 1020,
+        "project_id": 102,
+        "name": "development",
+        "slug": "dev",
+        "state": "available",
+        "tier": "development"
+      },
+      {
+        "id": 1021,
+        "project_id": 102,
+        "name": "user-acceptance",
+        "slug": "uat",
+        "state": "available",
+        "tier": "testing"
+      },
+      {
+        "id": 1022,
+        "project_id": 102,
+        "name": "production",
+        "slug": "prod",
+        "state": "available",
+        "tier": "production"
+      },
+      {
+        "id": 1030,
+        "project_id": 103,
+        "name": "development",
+        "slug": "dev",
+        "state": "available",
+        "tier": "development"
+      },
+      {
+        "id": 1031,
+        "project_id": 103,
+        "name": "user-acceptance",
+        "slug": "uat",
+        "state": "available",
+        "tier": "testing"
+      },
+      {
+        "id": 1032,
+        "project_id": 103,
+        "name": "production",
+        "slug": "prod",
+        "state": "available",
+        "tier": "production"
+      },
+      {
+        "id": 2010,
+        "project_id": 201,
+        "name": "development",
+        "slug": "dev",
+        "state": "available",
+        "tier": "development"
+      },
+      {
+        "id": 2011,
+        "project_id": 201,
+        "name": "user-acceptance",
+        "slug": "uat",
+        "state": "available",
+        "tier": "testing"
+      },
+      {
+        "id": 2012,
+        "project_id": 201,
+        "name": "production",
+        "slug": "prod",
+        "state": "available",
+        "tier": "production"
+      },
+      {
+        "id": 2020,
+        "project_id": 202,
+        "name": "development",
+        "slug": "dev",
+        "state": "available",
+        "tier": "development"
+      },
+      {
+        "id": 2021,
+        "project_id": 202,
+        "name": "user-acceptance",
+        "slug": "uat",
+        "state": "available",
+        "tier": "testing"
+      },
+      {
+        "id": 2022,
+        "project_id": 202,
+        "name": "production",
+        "slug": "prod",
+        "state": "available",
+        "tier": "production"
+      },
+      {
+        "id": 3010,
+        "project_id": 301,
+        "name": "development",
+        "slug": "dev",
+        "state": "available",
+        "tier": "development"
+      },
+      {
+        "id": 3011,
+        "project_id": 301,
+        "name": "user-acceptance",
+        "slug": "uat",
+        "state": "available",
+        "tier": "testing"
+      },
+      {
+        "id": 3012,
+        "project_id": 301,
+        "name": "production",
+        "slug": "prod",
+        "state": "available",
+        "tier": "production"
+      },
+      {
+        "id": 3020,
+        "project_id": 302,
+        "name": "development",
+        "slug": "dev",
+        "state": "available",
+        "tier": "development"
+      },
+      {
+        "id": 3021,
+        "project_id": 302,
+        "name": "user-acceptance",
+        "slug": "uat",
+        "state": "available",
+        "tier": "testing"
+      },
+      {
+        "id": 3022,
+        "project_id": 302,
+        "name": "production",
+        "slug": "prod",
+        "state": "available",
+        "tier": "production"
+      },
+      {
+        "id": 4010,
+        "project_id": 401,
+        "name": "development",
+        "slug": "dev",
+        "state": "available",
+        "tier": "development"
+      },
+      {
+        "id": 4011,
+        "project_id": 401,
+        "name": "user-acceptance",
+        "slug": "uat",
+        "state": "available",
+        "tier": "testing"
+      },
+      {
+        "id": 4012,
+        "project_id": 401,
+        "name": "production",
+        "slug": "prod",
+        "state": "available",
+        "tier": "production"
+      },
+      {
+        "id": 4020,
+        "project_id": 402,
+        "name": "development",
+        "slug": "dev",
+        "state": "available",
+        "tier": "development"
+      },
+      {
+        "id": 4021,
+        "project_id": 402,
+        "name": "user-acceptance",
+        "slug": "uat",
+        "state": "available",
+        "tier": "testing"
+      },
+      {
+        "id": 4022,
+        "project_id": 402,
+        "name": "production",
+        "slug": "prod",
+        "state": "available",
+        "tier": "production"
+      }
+    ],
+    "pipelines": [
+      {
+        "id": 8001,
+        "project_id": 101,
+        "sha": "e180b1b46ebc0c1b9bf502bd1927c1eeba46dc94",
+        "ref": "main",
+        "status": "success",
+        "created_at": "2026-10-25T09:00:00Z",
+        "updated_at": "2026-10-25T09:12:00Z"
+      },
+      {
+        "id": 8002,
+        "project_id": 101,
+        "sha": "7879da846dcf409d53dcb50a5460a529dd22f0d2",
+        "ref": "v2.2.0",
+        "status": "success",
+        "created_at": "2026-10-25T09:00:00Z",
+        "updated_at": "2026-10-25T09:12:00Z"
+      },
+      {
+        "id": 8003,
+        "project_id": 101,
+        "sha": "4fe170c90f1c8b19bd20f4fe3b16f717bbee162e",
+        "ref": "v2.1.0",
+        "status": "success",
+        "created_at": "2026-10-25T09:00:00Z",
+        "updated_at": "2026-10-25T09:12:00Z"
+      },
+      {
+        "id": 8004,
+        "project_id": 101,
+        "sha": "03e7e9e4d28dcecc729b2d561e44260d6d8d8541",
+        "ref": "v2.0.0",
+        "status": "success",
+        "created_at": "2026-10-25T09:00:00Z",
+        "updated_at": "2026-10-25T09:12:00Z"
+      },
+      {
+        "id": 8005,
+        "project_id": 102,
+        "sha": "b2b1c49ee2c7672b392b679411649ef1d2070a40",
+        "ref": "main",
+        "status": "success",
+        "created_at": "2026-10-25T09:00:00Z",
+        "updated_at": "2026-10-25T09:12:00Z"
+      },
+      {
+        "id": 8006,
+        "project_id": 102,
+        "sha": "4527cbc18bee909621af2629114e7bc67c7f0615",
+        "ref": "v3.2.0",
+        "status": "success",
+        "created_at": "2026-10-25T09:00:00Z",
+        "updated_at": "2026-10-25T09:12:00Z"
+      },
+      {
+        "id": 8007,
+        "project_id": 102,
+        "sha": "14d483c056506afd7461600ed8b5349c3c01e651",
+        "ref": "v3.1.0",
+        "status": "success",
+        "created_at": "2026-10-25T09:00:00Z",
+        "updated_at": "2026-10-25T09:12:00Z"
+      },
+      {
+        "id": 8008,
+        "project_id": 102,
+        "sha": "89ac3e656e85120a5e7e8c9ec4cb843933bd571c",
+        "ref": "v3.0.0",
+        "status": "success",
+        "created_at": "2026-10-25T09:00:00Z",
+        "updated_at": "2026-10-25T09:12:00Z"
+      },
+      {
+        "id": 8009,
+        "project_id": 103,
+        "sha": "d95eba692d8eedebfba4ced3bad045ea526c39bd",
+        "ref": "main",
+        "status": "success",
+        "created_at": "2026-10-25T09:00:00Z",
+        "updated_at": "2026-10-25T09:12:00Z"
+      },
+      {
+        "id": 8010,
+        "project_id": 103,
+        "sha": "6bb0fe4d82d77f7057e23cae96ba6cf2aec18e46",
+        "ref": "v4.2.0",
+        "status": "success",
+        "created_at": "2026-10-25T09:00:00Z",
+        "updated_at": "2026-10-25T09:12:00Z"
+      },
+      {
+        "id": 8011,
+        "project_id": 103,
+        "sha": "256cb07271635a2257d34118e3f0ad9e6ebf7167",
+        "ref": "v4.1.0",
+        "status": "success",
+        "created_at": "2026-10-25T09:00:00Z",
+        "updated_at": "2026-10-25T09:12:00Z"
+      },
+      {
+        "id": 8012,
+        "project_id": 201,
+        "sha": "0cda85a786a44fbdafa746b3757baeb6cbc7d667",
+        "ref": "main",
+        "status": "success",
+        "created_at": "2026-10-25T09:00:00Z",
+        "updated_at": "2026-10-25T09:12:00Z"
+      },
+      {
+        "id": 8013,
+        "project_id": 201,
+        "sha": "55d124d6da0036570ccfe71b1b5b29fbf07487a2",
+        "ref": "v2.2.0",
+        "status": "success",
+        "created_at": "2026-10-25T09:00:00Z",
+        "updated_at": "2026-10-25T09:12:00Z"
+      },
+      {
+        "id": 8014,
+        "project_id": 201,
+        "sha": "2fd7d124d7062a5fa0dd47ae087af8bd1057c46e",
+        "ref": "v2.1.0",
+        "status": "success",
+        "created_at": "2026-10-25T09:00:00Z",
+        "updated_at": "2026-10-25T09:12:00Z"
+      },
+      {
+        "id": 8015,
+        "project_id": 202,
+        "sha": "589f40a7928c58a08e783f3eda0d34f1c1fadd6e",
+        "ref": "main",
+        "status": "success",
+        "created_at": "2026-10-25T09:00:00Z",
+        "updated_at": "2026-10-25T09:12:00Z"
+      },
+      {
+        "id": 8016,
+        "project_id": 202,
+        "sha": "777d68ca4ee97560b8fc48c67781e22339fdda2a",
+        "ref": "v3.2.0",
+        "status": "success",
+        "created_at": "2026-10-25T09:00:00Z",
+        "updated_at": "2026-10-25T09:12:00Z"
+      },
+      {
+        "id": 8017,
+        "project_id": 202,
+        "sha": "72c90a33843663465ccb8a758c245444d03a2470",
+        "ref": "v3.1.0",
+        "status": "success",
+        "created_at": "2026-10-25T09:00:00Z",
+        "updated_at": "2026-10-25T09:12:00Z"
+      },
+      {
+        "id": 8018,
+        "project_id": 301,
+        "sha": "274eb5a748e446b094b6d0a2c9a105cf534f96cc",
+        "ref": "main",
+        "status": "success",
+        "created_at": "2026-10-25T09:00:00Z",
+        "updated_at": "2026-10-25T09:12:00Z"
+      },
+      {
+        "id": 8019,
+        "project_id": 301,
+        "sha": "ede51695afd3dfdc4ff6de73a8cb7a6cf514bf31",
+        "ref": "v2.2.0",
+        "status": "success",
+        "created_at": "2026-10-25T09:00:00Z",
+        "updated_at": "2026-10-25T09:12:00Z"
+      },
+      {
+        "id": 8020,
+        "project_id": 301,
+        "sha": "3793b7d95ec1d854bc7a0aba7c95c1391de876e5",
+        "ref": "v2.1.0",
+        "status": "success",
+        "created_at": "2026-10-25T09:00:00Z",
+        "updated_at": "2026-10-25T09:12:00Z"
+      },
+      {
+        "id": 8021,
+        "project_id": 302,
+        "sha": "c9aee3416b250b09bf4c7639fc43f50112085c33",
+        "ref": "main",
+        "status": "success",
+        "created_at": "2026-10-25T09:00:00Z",
+        "updated_at": "2026-10-25T09:12:00Z"
+      },
+      {
+        "id": 8022,
+        "project_id": 302,
+        "sha": "624c492624c29443b78a41bb088ef4ea68a9ffb0",
+        "ref": "v3.2.0",
+        "status": "success",
+        "created_at": "2026-10-25T09:00:00Z",
+        "updated_at": "2026-10-25T09:12:00Z"
+      },
+      {
+        "id": 8023,
+        "project_id": 302,
+        "sha": "9253732f83c7c90ba73e435e01aec53c97fbba3e",
+        "ref": "v3.1.0",
+        "status": "success",
+        "created_at": "2026-10-25T09:00:00Z",
+        "updated_at": "2026-10-25T09:12:00Z"
+      },
+      {
+        "id": 8024,
+        "project_id": 401,
+        "sha": "9204870acd43c5c43255b0fdcc46e78ac8e28774",
+        "ref": "main",
+        "status": "success",
+        "created_at": "2026-10-25T09:00:00Z",
+        "updated_at": "2026-10-25T09:12:00Z"
+      },
+      {
+        "id": 8025,
+        "project_id": 401,
+        "sha": "c1f80d9a0e6a1fb130fb081fa864c87ee02ef7e8",
+        "ref": "v2.2.0",
+        "status": "success",
+        "created_at": "2026-10-25T09:00:00Z",
+        "updated_at": "2026-10-25T09:12:00Z"
+      },
+      {
+        "id": 8026,
+        "project_id": 401,
+        "sha": "755b2201229eb9b0c83cebed0e1a9875d60114cc",
+        "ref": "v2.1.0",
+        "status": "success",
+        "created_at": "2026-10-25T09:00:00Z",
+        "updated_at": "2026-10-25T09:12:00Z"
+      },
+      {
+        "id": 8027,
+        "project_id": 402,
+        "sha": "ba8542700df62b777da8ed5d914fb12f15956a89",
+        "ref": "main",
+        "status": "success",
+        "created_at": "2026-10-25T09:00:00Z",
+        "updated_at": "2026-10-25T09:12:00Z"
+      },
+      {
+        "id": 8028,
+        "project_id": 402,
+        "sha": "a523e055b95f5d2ace64c0e381f298e0a4c121ab",
+        "ref": "v3.2.0",
+        "status": "success",
+        "created_at": "2026-10-25T09:00:00Z",
+        "updated_at": "2026-10-25T09:12:00Z"
+      },
+      {
+        "id": 8029,
+        "project_id": 402,
+        "sha": "81606d85e1256c6bbab1d21f524cd14b6c6537a8",
+        "ref": "v3.1.0",
+        "status": "success",
+        "created_at": "2026-10-25T09:00:00Z",
+        "updated_at": "2026-10-25T09:12:00Z"
+      }
+    ],
+    "jobs": [
+      {
+        "id": 12001,
+        "project_id": 101,
+        "name": "generate-sbom",
+        "stage": "build",
+        "status": "success",
+        "commit": {
+          "id": "e180b1b46ebc0c1b9bf502bd1927c1eeba46dc94",
+          "short_id": "e180b1b4"
+        },
+        "pipeline": {
+          "id": 8001,
+          "project_id": 101,
+          "sha": "e180b1b46ebc0c1b9bf502bd1927c1eeba46dc94"
+        },
+        "artifacts_file": {
+          "filename": "artifacts.zip",
+          "size": 4096
+        },
+        "artifacts": [
+          {
+            "file_type": "archive",
+            "filename": "artifacts.zip",
+            "file_format": "zip",
+            "size": 4096
+          }
+        ]
+      },
+      {
+        "id": 12002,
+        "project_id": 101,
+        "name": "generate-sbom",
+        "stage": "build",
+        "status": "success",
+        "commit": {
+          "id": "7879da846dcf409d53dcb50a5460a529dd22f0d2",
+          "short_id": "7879da84"
+        },
+        "pipeline": {
+          "id": 8002,
+          "project_id": 101,
+          "sha": "7879da846dcf409d53dcb50a5460a529dd22f0d2"
+        },
+        "artifacts_file": {
+          "filename": "artifacts.zip",
+          "size": 4096
+        },
+        "artifacts": [
+          {
+            "file_type": "archive",
+            "filename": "artifacts.zip",
+            "file_format": "zip",
+            "size": 4096
+          }
+        ]
+      },
+      {
+        "id": 12003,
+        "project_id": 101,
+        "name": "generate-sbom",
+        "stage": "build",
+        "status": "success",
+        "commit": {
+          "id": "4fe170c90f1c8b19bd20f4fe3b16f717bbee162e",
+          "short_id": "4fe170c9"
+        },
+        "pipeline": {
+          "id": 8003,
+          "project_id": 101,
+          "sha": "4fe170c90f1c8b19bd20f4fe3b16f717bbee162e"
+        },
+        "artifacts_file": {
+          "filename": "artifacts.zip",
+          "size": 4096
+        },
+        "artifacts": [
+          {
+            "file_type": "archive",
+            "filename": "artifacts.zip",
+            "file_format": "zip",
+            "size": 4096
+          }
+        ]
+      },
+      {
+        "id": 12004,
+        "project_id": 101,
+        "name": "generate-sbom",
+        "stage": "build",
+        "status": "success",
+        "commit": {
+          "id": "03e7e9e4d28dcecc729b2d561e44260d6d8d8541",
+          "short_id": "03e7e9e4"
+        },
+        "pipeline": {
+          "id": 8004,
+          "project_id": 101,
+          "sha": "03e7e9e4d28dcecc729b2d561e44260d6d8d8541"
+        },
+        "artifacts_file": {
+          "filename": "artifacts.zip",
+          "size": 4096
+        },
+        "artifacts": [
+          {
+            "file_type": "archive",
+            "filename": "artifacts.zip",
+            "file_format": "zip",
+            "size": 4096
+          }
+        ]
+      },
+      {
+        "id": 12005,
+        "project_id": 102,
+        "name": "generate-sbom",
+        "stage": "build",
+        "status": "success",
+        "commit": {
+          "id": "b2b1c49ee2c7672b392b679411649ef1d2070a40",
+          "short_id": "b2b1c49e"
+        },
+        "pipeline": {
+          "id": 8005,
+          "project_id": 102,
+          "sha": "b2b1c49ee2c7672b392b679411649ef1d2070a40"
+        },
+        "artifacts_file": {
+          "filename": "artifacts.zip",
+          "size": 4096
+        },
+        "artifacts": [
+          {
+            "file_type": "archive",
+            "filename": "artifacts.zip",
+            "file_format": "zip",
+            "size": 4096
+          }
+        ]
+      },
+      {
+        "id": 12006,
+        "project_id": 102,
+        "name": "generate-sbom",
+        "stage": "build",
+        "status": "success",
+        "commit": {
+          "id": "4527cbc18bee909621af2629114e7bc67c7f0615",
+          "short_id": "4527cbc1"
+        },
+        "pipeline": {
+          "id": 8006,
+          "project_id": 102,
+          "sha": "4527cbc18bee909621af2629114e7bc67c7f0615"
+        },
+        "artifacts_file": {
+          "filename": "artifacts.zip",
+          "size": 4096
+        },
+        "artifacts": [
+          {
+            "file_type": "archive",
+            "filename": "artifacts.zip",
+            "file_format": "zip",
+            "size": 4096
+          }
+        ]
+      },
+      {
+        "id": 12007,
+        "project_id": 102,
+        "name": "generate-sbom",
+        "stage": "build",
+        "status": "success",
+        "commit": {
+          "id": "14d483c056506afd7461600ed8b5349c3c01e651",
+          "short_id": "14d483c0"
+        },
+        "pipeline": {
+          "id": 8007,
+          "project_id": 102,
+          "sha": "14d483c056506afd7461600ed8b5349c3c01e651"
+        },
+        "artifacts_file": {
+          "filename": "artifacts.zip",
+          "size": 4096
+        },
+        "artifacts": [
+          {
+            "file_type": "archive",
+            "filename": "artifacts.zip",
+            "file_format": "zip",
+            "size": 4096
+          }
+        ]
+      },
+      {
+        "id": 12008,
+        "project_id": 102,
+        "name": "generate-sbom",
+        "stage": "build",
+        "status": "success",
+        "commit": {
+          "id": "89ac3e656e85120a5e7e8c9ec4cb843933bd571c",
+          "short_id": "89ac3e65"
+        },
+        "pipeline": {
+          "id": 8008,
+          "project_id": 102,
+          "sha": "89ac3e656e85120a5e7e8c9ec4cb843933bd571c"
+        },
+        "artifacts_file": {
+          "filename": "artifacts.zip",
+          "size": 4096
+        },
+        "artifacts": [
+          {
+            "file_type": "archive",
+            "filename": "artifacts.zip",
+            "file_format": "zip",
+            "size": 4096
+          }
+        ]
+      },
+      {
+        "id": 12009,
+        "project_id": 103,
+        "name": "generate-sbom",
+        "stage": "build",
+        "status": "success",
+        "commit": {
+          "id": "d95eba692d8eedebfba4ced3bad045ea526c39bd",
+          "short_id": "d95eba69"
+        },
+        "pipeline": {
+          "id": 8009,
+          "project_id": 103,
+          "sha": "d95eba692d8eedebfba4ced3bad045ea526c39bd"
+        },
+        "artifacts_file": {
+          "filename": "artifacts.zip",
+          "size": 4096
+        },
+        "artifacts": [
+          {
+            "file_type": "archive",
+            "filename": "artifacts.zip",
+            "file_format": "zip",
+            "size": 4096
+          }
+        ]
+      },
+      {
+        "id": 12010,
+        "project_id": 103,
+        "name": "generate-sbom",
+        "stage": "build",
+        "status": "success",
+        "commit": {
+          "id": "6bb0fe4d82d77f7057e23cae96ba6cf2aec18e46",
+          "short_id": "6bb0fe4d"
+        },
+        "pipeline": {
+          "id": 8010,
+          "project_id": 103,
+          "sha": "6bb0fe4d82d77f7057e23cae96ba6cf2aec18e46"
+        },
+        "artifacts_file": {
+          "filename": "artifacts.zip",
+          "size": 4096
+        },
+        "artifacts": [
+          {
+            "file_type": "archive",
+            "filename": "artifacts.zip",
+            "file_format": "zip",
+            "size": 4096
+          }
+        ]
+      },
+      {
+        "id": 12011,
+        "project_id": 103,
+        "name": "generate-sbom",
+        "stage": "build",
+        "status": "success",
+        "commit": {
+          "id": "256cb07271635a2257d34118e3f0ad9e6ebf7167",
+          "short_id": "256cb072"
+        },
+        "pipeline": {
+          "id": 8011,
+          "project_id": 103,
+          "sha": "256cb07271635a2257d34118e3f0ad9e6ebf7167"
+        },
+        "artifacts_file": {
+          "filename": "artifacts.zip",
+          "size": 4096
+        },
+        "artifacts": [
+          {
+            "file_type": "archive",
+            "filename": "artifacts.zip",
+            "file_format": "zip",
+            "size": 4096
+          }
+        ]
+      },
+      {
+        "id": 12012,
+        "project_id": 201,
+        "name": "generate-sbom",
+        "stage": "build",
+        "status": "success",
+        "commit": {
+          "id": "0cda85a786a44fbdafa746b3757baeb6cbc7d667",
+          "short_id": "0cda85a7"
+        },
+        "pipeline": {
+          "id": 8012,
+          "project_id": 201,
+          "sha": "0cda85a786a44fbdafa746b3757baeb6cbc7d667"
+        },
+        "artifacts_file": {
+          "filename": "artifacts.zip",
+          "size": 4096
+        },
+        "artifacts": [
+          {
+            "file_type": "archive",
+            "filename": "artifacts.zip",
+            "file_format": "zip",
+            "size": 4096
+          }
+        ]
+      },
+      {
+        "id": 12013,
+        "project_id": 201,
+        "name": "generate-sbom",
+        "stage": "build",
+        "status": "success",
+        "commit": {
+          "id": "55d124d6da0036570ccfe71b1b5b29fbf07487a2",
+          "short_id": "55d124d6"
+        },
+        "pipeline": {
+          "id": 8013,
+          "project_id": 201,
+          "sha": "55d124d6da0036570ccfe71b1b5b29fbf07487a2"
+        },
+        "artifacts_file": {
+          "filename": "artifacts.zip",
+          "size": 4096
+        },
+        "artifacts": [
+          {
+            "file_type": "archive",
+            "filename": "artifacts.zip",
+            "file_format": "zip",
+            "size": 4096
+          }
+        ]
+      },
+      {
+        "id": 12014,
+        "project_id": 201,
+        "name": "generate-sbom",
+        "stage": "build",
+        "status": "success",
+        "commit": {
+          "id": "2fd7d124d7062a5fa0dd47ae087af8bd1057c46e",
+          "short_id": "2fd7d124"
+        },
+        "pipeline": {
+          "id": 8014,
+          "project_id": 201,
+          "sha": "2fd7d124d7062a5fa0dd47ae087af8bd1057c46e"
+        },
+        "artifacts_file": {
+          "filename": "artifacts.zip",
+          "size": 4096
+        },
+        "artifacts": [
+          {
+            "file_type": "archive",
+            "filename": "artifacts.zip",
+            "file_format": "zip",
+            "size": 4096
+          }
+        ]
+      },
+      {
+        "id": 12015,
+        "project_id": 202,
+        "name": "generate-sbom",
+        "stage": "build",
+        "status": "success",
+        "commit": {
+          "id": "589f40a7928c58a08e783f3eda0d34f1c1fadd6e",
+          "short_id": "589f40a7"
+        },
+        "pipeline": {
+          "id": 8015,
+          "project_id": 202,
+          "sha": "589f40a7928c58a08e783f3eda0d34f1c1fadd6e"
+        },
+        "artifacts_file": {
+          "filename": "artifacts.zip",
+          "size": 4096
+        },
+        "artifacts": [
+          {
+            "file_type": "archive",
+            "filename": "artifacts.zip",
+            "file_format": "zip",
+            "size": 4096
+          }
+        ]
+      },
+      {
+        "id": 12016,
+        "project_id": 202,
+        "name": "generate-sbom",
+        "stage": "build",
+        "status": "success",
+        "commit": {
+          "id": "777d68ca4ee97560b8fc48c67781e22339fdda2a",
+          "short_id": "777d68ca"
+        },
+        "pipeline": {
+          "id": 8016,
+          "project_id": 202,
+          "sha": "777d68ca4ee97560b8fc48c67781e22339fdda2a"
+        },
+        "artifacts_file": {
+          "filename": "artifacts.zip",
+          "size": 4096
+        },
+        "artifacts": [
+          {
+            "file_type": "archive",
+            "filename": "artifacts.zip",
+            "file_format": "zip",
+            "size": 4096
+          }
+        ]
+      },
+      {
+        "id": 12017,
+        "project_id": 202,
+        "name": "generate-sbom",
+        "stage": "build",
+        "status": "success",
+        "commit": {
+          "id": "72c90a33843663465ccb8a758c245444d03a2470",
+          "short_id": "72c90a33"
+        },
+        "pipeline": {
+          "id": 8017,
+          "project_id": 202,
+          "sha": "72c90a33843663465ccb8a758c245444d03a2470"
+        },
+        "artifacts_file": {
+          "filename": "artifacts.zip",
+          "size": 4096
+        },
+        "artifacts": [
+          {
+            "file_type": "archive",
+            "filename": "artifacts.zip",
+            "file_format": "zip",
+            "size": 4096
+          }
+        ]
+      },
+      {
+        "id": 12018,
+        "project_id": 301,
+        "name": "generate-sbom",
+        "stage": "build",
+        "status": "success",
+        "commit": {
+          "id": "274eb5a748e446b094b6d0a2c9a105cf534f96cc",
+          "short_id": "274eb5a7"
+        },
+        "pipeline": {
+          "id": 8018,
+          "project_id": 301,
+          "sha": "274eb5a748e446b094b6d0a2c9a105cf534f96cc"
+        },
+        "artifacts_file": {
+          "filename": "artifacts.zip",
+          "size": 4096
+        },
+        "artifacts": [
+          {
+            "file_type": "archive",
+            "filename": "artifacts.zip",
+            "file_format": "zip",
+            "size": 4096
+          }
+        ]
+      },
+      {
+        "id": 12019,
+        "project_id": 301,
+        "name": "generate-sbom",
+        "stage": "build",
+        "status": "success",
+        "commit": {
+          "id": "ede51695afd3dfdc4ff6de73a8cb7a6cf514bf31",
+          "short_id": "ede51695"
+        },
+        "pipeline": {
+          "id": 8019,
+          "project_id": 301,
+          "sha": "ede51695afd3dfdc4ff6de73a8cb7a6cf514bf31"
+        },
+        "artifacts_file": {
+          "filename": "artifacts.zip",
+          "size": 4096
+        },
+        "artifacts": [
+          {
+            "file_type": "archive",
+            "filename": "artifacts.zip",
+            "file_format": "zip",
+            "size": 4096
+          }
+        ]
+      },
+      {
+        "id": 12020,
+        "project_id": 301,
+        "name": "generate-sbom",
+        "stage": "build",
+        "status": "success",
+        "commit": {
+          "id": "3793b7d95ec1d854bc7a0aba7c95c1391de876e5",
+          "short_id": "3793b7d9"
+        },
+        "pipeline": {
+          "id": 8020,
+          "project_id": 301,
+          "sha": "3793b7d95ec1d854bc7a0aba7c95c1391de876e5"
+        },
+        "artifacts_file": {
+          "filename": "artifacts.zip",
+          "size": 4096
+        },
+        "artifacts": [
+          {
+            "file_type": "archive",
+            "filename": "artifacts.zip",
+            "file_format": "zip",
+            "size": 4096
+          }
+        ]
+      },
+      {
+        "id": 12021,
+        "project_id": 302,
+        "name": "generate-sbom",
+        "stage": "build",
+        "status": "success",
+        "commit": {
+          "id": "c9aee3416b250b09bf4c7639fc43f50112085c33",
+          "short_id": "c9aee341"
+        },
+        "pipeline": {
+          "id": 8021,
+          "project_id": 302,
+          "sha": "c9aee3416b250b09bf4c7639fc43f50112085c33"
+        },
+        "artifacts_file": {
+          "filename": "artifacts.zip",
+          "size": 4096
+        },
+        "artifacts": [
+          {
+            "file_type": "archive",
+            "filename": "artifacts.zip",
+            "file_format": "zip",
+            "size": 4096
+          }
+        ]
+      },
+      {
+        "id": 12022,
+        "project_id": 302,
+        "name": "generate-sbom",
+        "stage": "build",
+        "status": "success",
+        "commit": {
+          "id": "624c492624c29443b78a41bb088ef4ea68a9ffb0",
+          "short_id": "624c4926"
+        },
+        "pipeline": {
+          "id": 8022,
+          "project_id": 302,
+          "sha": "624c492624c29443b78a41bb088ef4ea68a9ffb0"
+        },
+        "artifacts_file": {
+          "filename": "artifacts.zip",
+          "size": 4096
+        },
+        "artifacts": [
+          {
+            "file_type": "archive",
+            "filename": "artifacts.zip",
+            "file_format": "zip",
+            "size": 4096
+          }
+        ]
+      },
+      {
+        "id": 12023,
+        "project_id": 302,
+        "name": "generate-sbom",
+        "stage": "build",
+        "status": "success",
+        "commit": {
+          "id": "9253732f83c7c90ba73e435e01aec53c97fbba3e",
+          "short_id": "9253732f"
+        },
+        "pipeline": {
+          "id": 8023,
+          "project_id": 302,
+          "sha": "9253732f83c7c90ba73e435e01aec53c97fbba3e"
+        },
+        "artifacts_file": {
+          "filename": "artifacts.zip",
+          "size": 4096
+        },
+        "artifacts": [
+          {
+            "file_type": "archive",
+            "filename": "artifacts.zip",
+            "file_format": "zip",
+            "size": 4096
+          }
+        ]
+      },
+      {
+        "id": 12024,
+        "project_id": 401,
+        "name": "generate-sbom",
+        "stage": "build",
+        "status": "success",
+        "commit": {
+          "id": "9204870acd43c5c43255b0fdcc46e78ac8e28774",
+          "short_id": "9204870a"
+        },
+        "pipeline": {
+          "id": 8024,
+          "project_id": 401,
+          "sha": "9204870acd43c5c43255b0fdcc46e78ac8e28774"
+        },
+        "artifacts_file": {
+          "filename": "artifacts.zip",
+          "size": 4096
+        },
+        "artifacts": [
+          {
+            "file_type": "archive",
+            "filename": "artifacts.zip",
+            "file_format": "zip",
+            "size": 4096
+          }
+        ]
+      },
+      {
+        "id": 12025,
+        "project_id": 401,
+        "name": "generate-sbom",
+        "stage": "build",
+        "status": "success",
+        "commit": {
+          "id": "c1f80d9a0e6a1fb130fb081fa864c87ee02ef7e8",
+          "short_id": "c1f80d9a"
+        },
+        "pipeline": {
+          "id": 8025,
+          "project_id": 401,
+          "sha": "c1f80d9a0e6a1fb130fb081fa864c87ee02ef7e8"
+        },
+        "artifacts_file": {
+          "filename": "artifacts.zip",
+          "size": 4096
+        },
+        "artifacts": [
+          {
+            "file_type": "archive",
+            "filename": "artifacts.zip",
+            "file_format": "zip",
+            "size": 4096
+          }
+        ]
+      },
+      {
+        "id": 12026,
+        "project_id": 401,
+        "name": "generate-sbom",
+        "stage": "build",
+        "status": "success",
+        "commit": {
+          "id": "755b2201229eb9b0c83cebed0e1a9875d60114cc",
+          "short_id": "755b2201"
+        },
+        "pipeline": {
+          "id": 8026,
+          "project_id": 401,
+          "sha": "755b2201229eb9b0c83cebed0e1a9875d60114cc"
+        },
+        "artifacts_file": {
+          "filename": "artifacts.zip",
+          "size": 4096
+        },
+        "artifacts": [
+          {
+            "file_type": "archive",
+            "filename": "artifacts.zip",
+            "file_format": "zip",
+            "size": 4096
+          }
+        ]
+      },
+      {
+        "id": 12027,
+        "project_id": 402,
+        "name": "generate-sbom",
+        "stage": "build",
+        "status": "success",
+        "commit": {
+          "id": "ba8542700df62b777da8ed5d914fb12f15956a89",
+          "short_id": "ba854270"
+        },
+        "pipeline": {
+          "id": 8027,
+          "project_id": 402,
+          "sha": "ba8542700df62b777da8ed5d914fb12f15956a89"
+        },
+        "artifacts_file": {
+          "filename": "artifacts.zip",
+          "size": 4096
+        },
+        "artifacts": [
+          {
+            "file_type": "archive",
+            "filename": "artifacts.zip",
+            "file_format": "zip",
+            "size": 4096
+          }
+        ]
+      },
+      {
+        "id": 12028,
+        "project_id": 402,
+        "name": "generate-sbom",
+        "stage": "build",
+        "status": "success",
+        "commit": {
+          "id": "a523e055b95f5d2ace64c0e381f298e0a4c121ab",
+          "short_id": "a523e055"
+        },
+        "pipeline": {
+          "id": 8028,
+          "project_id": 402,
+          "sha": "a523e055b95f5d2ace64c0e381f298e0a4c121ab"
+        },
+        "artifacts_file": {
+          "filename": "artifacts.zip",
+          "size": 4096
+        },
+        "artifacts": [
+          {
+            "file_type": "archive",
+            "filename": "artifacts.zip",
+            "file_format": "zip",
+            "size": 4096
+          }
+        ]
+      },
+      {
+        "id": 12029,
+        "project_id": 402,
+        "name": "generate-sbom",
+        "stage": "build",
+        "status": "success",
+        "commit": {
+          "id": "81606d85e1256c6bbab1d21f524cd14b6c6537a8",
+          "short_id": "81606d85"
+        },
+        "pipeline": {
+          "id": 8029,
+          "project_id": 402,
+          "sha": "81606d85e1256c6bbab1d21f524cd14b6c6537a8"
+        },
+        "artifacts_file": {
+          "filename": "artifacts.zip",
+          "size": 4096
+        },
+        "artifacts": [
+          {
+            "file_type": "archive",
+            "filename": "artifacts.zip",
+            "file_format": "zip",
+            "size": 4096
+          }
+        ]
+      }
+    ],
+    "deployments": [
+      {
+        "id": 4001,
+        "project_id": 101,
+        "status": "success",
+        "sha": "e180b1b46ebc0c1b9bf502bd1927c1eeba46dc94",
+        "ref": "main",
+        "created_at": "2026-10-26T10:00:00Z",
+        "updated_at": "2026-10-26T10:04:00Z",
+        "environment": {
+          "id": 1010,
+          "name": "development"
+        },
+        "deployable": {
+          "id": 62001,
+          "name": "deploy-dev",
+          "pipeline": {
+            "id": 8001,
+            "project_id": 101,
+            "sha": "e180b1b46ebc0c1b9bf502bd1927c1eeba46dc94"
+          },
+          "commit": {
+            "id": "e180b1b46ebc0c1b9bf502bd1927c1eeba46dc94"
+          }
+        }
+      },
+      {
+        "id": 4002,
+        "project_id": 101,
+        "status": "success",
+        "sha": "7879da846dcf409d53dcb50a5460a529dd22f0d2",
+        "ref": "v2.2.0",
+        "created_at": "2026-10-26T10:00:00Z",
+        "updated_at": "2026-10-26T10:04:00Z",
+        "environment": {
+          "id": 1011,
+          "name": "user-acceptance"
+        },
+        "deployable": {
+          "id": 62002,
+          "name": "deploy-uat",
+          "pipeline": {
+            "id": 8002,
+            "project_id": 101,
+            "sha": "7879da846dcf409d53dcb50a5460a529dd22f0d2"
+          },
+          "commit": {
+            "id": "7879da846dcf409d53dcb50a5460a529dd22f0d2"
+          }
+        }
+      },
+      {
+        "id": 4003,
+        "project_id": 101,
+        "status": "success",
+        "sha": "4fe170c90f1c8b19bd20f4fe3b16f717bbee162e",
+        "ref": "v2.1.0",
+        "created_at": "2026-10-26T10:00:00Z",
+        "updated_at": "2026-10-26T10:04:00Z",
+        "environment": {
+          "id": 1012,
+          "name": "production"
+        },
+        "deployable": {
+          "id": 62003,
+          "name": "deploy-prod",
+          "pipeline": {
+            "id": 8003,
+            "project_id": 101,
+            "sha": "4fe170c90f1c8b19bd20f4fe3b16f717bbee162e"
+          },
+          "commit": {
+            "id": "4fe170c90f1c8b19bd20f4fe3b16f717bbee162e"
+          }
+        }
+      },
+      {
+        "id": 4004,
+        "project_id": 102,
+        "status": "success",
+        "sha": "b2b1c49ee2c7672b392b679411649ef1d2070a40",
+        "ref": "main",
+        "created_at": "2026-10-26T10:00:00Z",
+        "updated_at": "2026-10-26T10:04:00Z",
+        "environment": {
+          "id": 1020,
+          "name": "development"
+        },
+        "deployable": {
+          "id": 62005,
+          "name": "deploy-dev",
+          "pipeline": {
+            "id": 8005,
+            "project_id": 102,
+            "sha": "b2b1c49ee2c7672b392b679411649ef1d2070a40"
+          },
+          "commit": {
+            "id": "b2b1c49ee2c7672b392b679411649ef1d2070a40"
+          }
+        }
+      },
+      {
+        "id": 4005,
+        "project_id": 102,
+        "status": "success",
+        "sha": "4527cbc18bee909621af2629114e7bc67c7f0615",
+        "ref": "v3.2.0",
+        "created_at": "2026-10-26T10:00:00Z",
+        "updated_at": "2026-10-26T10:04:00Z",
+        "environment": {
+          "id": 1021,
+          "name": "user-acceptance"
+        },
+        "deployable": {
+          "id": 62006,
+          "name": "deploy-uat",
+          "pipeline": {
+            "id": 8006,
+            "project_id": 102,
+            "sha": "4527cbc18bee909621af2629114e7bc67c7f0615"
+          },
+          "commit": {
+            "id": "4527cbc18bee909621af2629114e7bc67c7f0615"
+          }
+        }
+      },
+      {
+        "id": 4006,
+        "project_id": 102,
+        "status": "success",
+        "sha": "14d483c056506afd7461600ed8b5349c3c01e651",
+        "ref": "v3.1.0",
+        "created_at": "2026-10-26T10:00:00Z",
+        "updated_at": "2026-10-26T10:04:00Z",
+        "environment": {
+          "id": 1022,
+          "name": "production"
+        },
+        "deployable": {
+          "id": 62007,
+          "name": "deploy-prod",
+          "pipeline": {
+            "id": 8007,
+            "project_id": 102,
+            "sha": "14d483c056506afd7461600ed8b5349c3c01e651"
+          },
+          "commit": {
+            "id": "14d483c056506afd7461600ed8b5349c3c01e651"
+          }
+        }
+      },
+      {
+        "id": 4007,
+        "project_id": 103,
+        "status": "success",
+        "sha": "d95eba692d8eedebfba4ced3bad045ea526c39bd",
+        "ref": "main",
+        "created_at": "2026-10-26T10:00:00Z",
+        "updated_at": "2026-10-26T10:04:00Z",
+        "environment": {
+          "id": 1030,
+          "name": "development"
+        },
+        "deployable": {
+          "id": 62009,
+          "name": "deploy-dev",
+          "pipeline": {
+            "id": 8009,
+            "project_id": 103,
+            "sha": "d95eba692d8eedebfba4ced3bad045ea526c39bd"
+          },
+          "commit": {
+            "id": "d95eba692d8eedebfba4ced3bad045ea526c39bd"
+          }
+        }
+      },
+      {
+        "id": 4008,
+        "project_id": 103,
+        "status": "success",
+        "sha": "6bb0fe4d82d77f7057e23cae96ba6cf2aec18e46",
+        "ref": "v4.2.0",
+        "created_at": "2026-10-26T10:00:00Z",
+        "updated_at": "2026-10-26T10:04:00Z",
+        "environment": {
+          "id": 1031,
+          "name": "user-acceptance"
+        },
+        "deployable": {
+          "id": 62010,
+          "name": "deploy-uat",
+          "pipeline": {
+            "id": 8010,
+            "project_id": 103,
+            "sha": "6bb0fe4d82d77f7057e23cae96ba6cf2aec18e46"
+          },
+          "commit": {
+            "id": "6bb0fe4d82d77f7057e23cae96ba6cf2aec18e46"
+          }
+        }
+      },
+      {
+        "id": 4009,
+        "project_id": 103,
+        "status": "success",
+        "sha": "256cb07271635a2257d34118e3f0ad9e6ebf7167",
+        "ref": "v4.1.0",
+        "created_at": "2026-10-26T10:00:00Z",
+        "updated_at": "2026-10-26T10:04:00Z",
+        "environment": {
+          "id": 1032,
+          "name": "production"
+        },
+        "deployable": {
+          "id": 62011,
+          "name": "deploy-prod",
+          "pipeline": {
+            "id": 8011,
+            "project_id": 103,
+            "sha": "256cb07271635a2257d34118e3f0ad9e6ebf7167"
+          },
+          "commit": {
+            "id": "256cb07271635a2257d34118e3f0ad9e6ebf7167"
+          }
+        }
+      },
+      {
+        "id": 4010,
+        "project_id": 201,
+        "status": "success",
+        "sha": "0cda85a786a44fbdafa746b3757baeb6cbc7d667",
+        "ref": "main",
+        "created_at": "2026-10-26T10:00:00Z",
+        "updated_at": "2026-10-26T10:04:00Z",
+        "environment": {
+          "id": 2010,
+          "name": "development"
+        },
+        "deployable": {
+          "id": 62012,
+          "name": "deploy-dev",
+          "pipeline": {
+            "id": 8012,
+            "project_id": 201,
+            "sha": "0cda85a786a44fbdafa746b3757baeb6cbc7d667"
+          },
+          "commit": {
+            "id": "0cda85a786a44fbdafa746b3757baeb6cbc7d667"
+          }
+        }
+      },
+      {
+        "id": 4011,
+        "project_id": 201,
+        "status": "success",
+        "sha": "55d124d6da0036570ccfe71b1b5b29fbf07487a2",
+        "ref": "v2.2.0",
+        "created_at": "2026-10-26T10:00:00Z",
+        "updated_at": "2026-10-26T10:04:00Z",
+        "environment": {
+          "id": 2011,
+          "name": "user-acceptance"
+        },
+        "deployable": {
+          "id": 62013,
+          "name": "deploy-uat",
+          "pipeline": {
+            "id": 8013,
+            "project_id": 201,
+            "sha": "55d124d6da0036570ccfe71b1b5b29fbf07487a2"
+          },
+          "commit": {
+            "id": "55d124d6da0036570ccfe71b1b5b29fbf07487a2"
+          }
+        }
+      },
+      {
+        "id": 4012,
+        "project_id": 201,
+        "status": "success",
+        "sha": "2fd7d124d7062a5fa0dd47ae087af8bd1057c46e",
+        "ref": "v2.1.0",
+        "created_at": "2026-10-26T10:00:00Z",
+        "updated_at": "2026-10-26T10:04:00Z",
+        "environment": {
+          "id": 2012,
+          "name": "production"
+        },
+        "deployable": {
+          "id": 62014,
+          "name": "deploy-prod",
+          "pipeline": {
+            "id": 8014,
+            "project_id": 201,
+            "sha": "2fd7d124d7062a5fa0dd47ae087af8bd1057c46e"
+          },
+          "commit": {
+            "id": "2fd7d124d7062a5fa0dd47ae087af8bd1057c46e"
+          }
+        }
+      },
+      {
+        "id": 4013,
+        "project_id": 202,
+        "status": "success",
+        "sha": "589f40a7928c58a08e783f3eda0d34f1c1fadd6e",
+        "ref": "main",
+        "created_at": "2026-10-26T10:00:00Z",
+        "updated_at": "2026-10-26T10:04:00Z",
+        "environment": {
+          "id": 2020,
+          "name": "development"
+        },
+        "deployable": {
+          "id": 62015,
+          "name": "deploy-dev",
+          "pipeline": {
+            "id": 8015,
+            "project_id": 202,
+            "sha": "589f40a7928c58a08e783f3eda0d34f1c1fadd6e"
+          },
+          "commit": {
+            "id": "589f40a7928c58a08e783f3eda0d34f1c1fadd6e"
+          }
+        }
+      },
+      {
+        "id": 4014,
+        "project_id": 202,
+        "status": "success",
+        "sha": "777d68ca4ee97560b8fc48c67781e22339fdda2a",
+        "ref": "v3.2.0",
+        "created_at": "2026-10-26T10:00:00Z",
+        "updated_at": "2026-10-26T10:04:00Z",
+        "environment": {
+          "id": 2021,
+          "name": "user-acceptance"
+        },
+        "deployable": {
+          "id": 62016,
+          "name": "deploy-uat",
+          "pipeline": {
+            "id": 8016,
+            "project_id": 202,
+            "sha": "777d68ca4ee97560b8fc48c67781e22339fdda2a"
+          },
+          "commit": {
+            "id": "777d68ca4ee97560b8fc48c67781e22339fdda2a"
+          }
+        }
+      },
+      {
+        "id": 4015,
+        "project_id": 202,
+        "status": "success",
+        "sha": "72c90a33843663465ccb8a758c245444d03a2470",
+        "ref": "v3.1.0",
+        "created_at": "2026-10-26T10:00:00Z",
+        "updated_at": "2026-10-26T10:04:00Z",
+        "environment": {
+          "id": 2022,
+          "name": "production"
+        },
+        "deployable": {
+          "id": 62017,
+          "name": "deploy-prod",
+          "pipeline": {
+            "id": 8017,
+            "project_id": 202,
+            "sha": "72c90a33843663465ccb8a758c245444d03a2470"
+          },
+          "commit": {
+            "id": "72c90a33843663465ccb8a758c245444d03a2470"
+          }
+        }
+      },
+      {
+        "id": 4016,
+        "project_id": 301,
+        "status": "success",
+        "sha": "274eb5a748e446b094b6d0a2c9a105cf534f96cc",
+        "ref": "main",
+        "created_at": "2026-10-26T10:00:00Z",
+        "updated_at": "2026-10-26T10:04:00Z",
+        "environment": {
+          "id": 3010,
+          "name": "development"
+        },
+        "deployable": {
+          "id": 62018,
+          "name": "deploy-dev",
+          "pipeline": {
+            "id": 8018,
+            "project_id": 301,
+            "sha": "274eb5a748e446b094b6d0a2c9a105cf534f96cc"
+          },
+          "commit": {
+            "id": "274eb5a748e446b094b6d0a2c9a105cf534f96cc"
+          }
+        }
+      },
+      {
+        "id": 4017,
+        "project_id": 301,
+        "status": "success",
+        "sha": "ede51695afd3dfdc4ff6de73a8cb7a6cf514bf31",
+        "ref": "v2.2.0",
+        "created_at": "2026-10-26T10:00:00Z",
+        "updated_at": "2026-10-26T10:04:00Z",
+        "environment": {
+          "id": 3011,
+          "name": "user-acceptance"
+        },
+        "deployable": {
+          "id": 62019,
+          "name": "deploy-uat",
+          "pipeline": {
+            "id": 8019,
+            "project_id": 301,
+            "sha": "ede51695afd3dfdc4ff6de73a8cb7a6cf514bf31"
+          },
+          "commit": {
+            "id": "ede51695afd3dfdc4ff6de73a8cb7a6cf514bf31"
+          }
+        }
+      },
+      {
+        "id": 4018,
+        "project_id": 301,
+        "status": "success",
+        "sha": "3793b7d95ec1d854bc7a0aba7c95c1391de876e5",
+        "ref": "v2.1.0",
+        "created_at": "2026-10-26T10:00:00Z",
+        "updated_at": "2026-10-26T10:04:00Z",
+        "environment": {
+          "id": 3012,
+          "name": "production"
+        },
+        "deployable": {
+          "id": 62020,
+          "name": "deploy-prod",
+          "pipeline": {
+            "id": 8020,
+            "project_id": 301,
+            "sha": "3793b7d95ec1d854bc7a0aba7c95c1391de876e5"
+          },
+          "commit": {
+            "id": "3793b7d95ec1d854bc7a0aba7c95c1391de876e5"
+          }
+        }
+      },
+      {
+        "id": 4019,
+        "project_id": 302,
+        "status": "success",
+        "sha": "c9aee3416b250b09bf4c7639fc43f50112085c33",
+        "ref": "main",
+        "created_at": "2026-10-26T10:00:00Z",
+        "updated_at": "2026-10-26T10:04:00Z",
+        "environment": {
+          "id": 3020,
+          "name": "development"
+        },
+        "deployable": {
+          "id": 62021,
+          "name": "deploy-dev",
+          "pipeline": {
+            "id": 8021,
+            "project_id": 302,
+            "sha": "c9aee3416b250b09bf4c7639fc43f50112085c33"
+          },
+          "commit": {
+            "id": "c9aee3416b250b09bf4c7639fc43f50112085c33"
+          }
+        }
+      },
+      {
+        "id": 4020,
+        "project_id": 302,
+        "status": "success",
+        "sha": "624c492624c29443b78a41bb088ef4ea68a9ffb0",
+        "ref": "v3.2.0",
+        "created_at": "2026-10-26T10:00:00Z",
+        "updated_at": "2026-10-26T10:04:00Z",
+        "environment": {
+          "id": 3021,
+          "name": "user-acceptance"
+        },
+        "deployable": {
+          "id": 62022,
+          "name": "deploy-uat",
+          "pipeline": {
+            "id": 8022,
+            "project_id": 302,
+            "sha": "624c492624c29443b78a41bb088ef4ea68a9ffb0"
+          },
+          "commit": {
+            "id": "624c492624c29443b78a41bb088ef4ea68a9ffb0"
+          }
+        }
+      },
+      {
+        "id": 4021,
+        "project_id": 302,
+        "status": "success",
+        "sha": "9253732f83c7c90ba73e435e01aec53c97fbba3e",
+        "ref": "v3.1.0",
+        "created_at": "2026-10-26T10:00:00Z",
+        "updated_at": "2026-10-26T10:04:00Z",
+        "environment": {
+          "id": 3022,
+          "name": "production"
+        },
+        "deployable": {
+          "id": 62023,
+          "name": "deploy-prod",
+          "pipeline": {
+            "id": 8023,
+            "project_id": 302,
+            "sha": "9253732f83c7c90ba73e435e01aec53c97fbba3e"
+          },
+          "commit": {
+            "id": "9253732f83c7c90ba73e435e01aec53c97fbba3e"
+          }
+        }
+      },
+      {
+        "id": 4022,
+        "project_id": 401,
+        "status": "success",
+        "sha": "9204870acd43c5c43255b0fdcc46e78ac8e28774",
+        "ref": "main",
+        "created_at": "2026-10-26T10:00:00Z",
+        "updated_at": "2026-10-26T10:04:00Z",
+        "environment": {
+          "id": 4010,
+          "name": "development"
+        },
+        "deployable": {
+          "id": 62024,
+          "name": "deploy-dev",
+          "pipeline": {
+            "id": 8024,
+            "project_id": 401,
+            "sha": "9204870acd43c5c43255b0fdcc46e78ac8e28774"
+          },
+          "commit": {
+            "id": "9204870acd43c5c43255b0fdcc46e78ac8e28774"
+          }
+        }
+      },
+      {
+        "id": 4023,
+        "project_id": 401,
+        "status": "success",
+        "sha": "c1f80d9a0e6a1fb130fb081fa864c87ee02ef7e8",
+        "ref": "v2.2.0",
+        "created_at": "2026-10-26T10:00:00Z",
+        "updated_at": "2026-10-26T10:04:00Z",
+        "environment": {
+          "id": 4011,
+          "name": "user-acceptance"
+        },
+        "deployable": {
+          "id": 62025,
+          "name": "deploy-uat",
+          "pipeline": {
+            "id": 8025,
+            "project_id": 401,
+            "sha": "c1f80d9a0e6a1fb130fb081fa864c87ee02ef7e8"
+          },
+          "commit": {
+            "id": "c1f80d9a0e6a1fb130fb081fa864c87ee02ef7e8"
+          }
+        }
+      },
+      {
+        "id": 4024,
+        "project_id": 401,
+        "status": "success",
+        "sha": "755b2201229eb9b0c83cebed0e1a9875d60114cc",
+        "ref": "v2.1.0",
+        "created_at": "2026-10-26T10:00:00Z",
+        "updated_at": "2026-10-26T10:04:00Z",
+        "environment": {
+          "id": 4012,
+          "name": "production"
+        },
+        "deployable": {
+          "id": 62026,
+          "name": "deploy-prod",
+          "pipeline": {
+            "id": 8026,
+            "project_id": 401,
+            "sha": "755b2201229eb9b0c83cebed0e1a9875d60114cc"
+          },
+          "commit": {
+            "id": "755b2201229eb9b0c83cebed0e1a9875d60114cc"
+          }
+        }
+      },
+      {
+        "id": 4025,
+        "project_id": 402,
+        "status": "success",
+        "sha": "ba8542700df62b777da8ed5d914fb12f15956a89",
+        "ref": "main",
+        "created_at": "2026-10-26T10:00:00Z",
+        "updated_at": "2026-10-26T10:04:00Z",
+        "environment": {
+          "id": 4020,
+          "name": "development"
+        },
+        "deployable": {
+          "id": 62027,
+          "name": "deploy-dev",
+          "pipeline": {
+            "id": 8027,
+            "project_id": 402,
+            "sha": "ba8542700df62b777da8ed5d914fb12f15956a89"
+          },
+          "commit": {
+            "id": "ba8542700df62b777da8ed5d914fb12f15956a89"
+          }
+        }
+      },
+      {
+        "id": 4026,
+        "project_id": 402,
+        "status": "success",
+        "sha": "a523e055b95f5d2ace64c0e381f298e0a4c121ab",
+        "ref": "v3.2.0",
+        "created_at": "2026-10-26T10:00:00Z",
+        "updated_at": "2026-10-26T10:04:00Z",
+        "environment": {
+          "id": 4021,
+          "name": "user-acceptance"
+        },
+        "deployable": {
+          "id": 62028,
+          "name": "deploy-uat",
+          "pipeline": {
+            "id": 8028,
+            "project_id": 402,
+            "sha": "a523e055b95f5d2ace64c0e381f298e0a4c121ab"
+          },
+          "commit": {
+            "id": "a523e055b95f5d2ace64c0e381f298e0a4c121ab"
+          }
+        }
+      },
+      {
+        "id": 4027,
+        "project_id": 402,
+        "status": "success",
+        "sha": "81606d85e1256c6bbab1d21f524cd14b6c6537a8",
+        "ref": "v3.1.0",
+        "created_at": "2026-10-26T10:00:00Z",
+        "updated_at": "2026-10-26T10:04:00Z",
+        "environment": {
+          "id": 4022,
+          "name": "production"
+        },
+        "deployable": {
+          "id": 62029,
+          "name": "deploy-prod",
+          "pipeline": {
+            "id": 8029,
+            "project_id": 402,
+            "sha": "81606d85e1256c6bbab1d21f524cd14b6c6537a8"
+          },
+          "commit": {
+            "id": "81606d85e1256c6bbab1d21f524cd14b6c6537a8"
+          }
+        }
+      }
+    ]
+  },
+  "aws": {
+    "captured_at": "2026-10-26T12:00:00Z",
+    "ecs": {
+      "tasks": [
+        {
+          "taskArn": "arn:aws:ecs:us-east-1:444455556666:task/dev-applications/b0b490bf1cbbb24109c059c85056ab8c",
+          "clusterArn": "arn:aws:ecs:us-east-1:444455556666:cluster/dev-applications",
+          "taskDefinitionArn": "arn:aws:ecs:us-east-1:444455556666:task-definition/customer-api-dev:41",
+          "group": "service:customer-api-dev",
+          "lastStatus": "RUNNING",
+          "desiredStatus": "RUNNING",
+          "startedAt": "2026-10-26T10:15:00Z",
+          "containers": [
+            {
+              "name": "customer-api",
+              "image": "444455556666.dkr.ecr.us-east-1.amazonaws.com/customer-api:2.3.0",
+              "imageDigest": "sha256:87abb46a5c0e577d327fffdcd25afe608e83e6c69db5932d74e2f13d9c957e4c",
+              "lastStatus": "RUNNING",
+              "healthStatus": "HEALTHY"
+            }
+          ],
+          "tags": [
+            {
+              "key": "BusinessApplicationId",
+              "value": "7c82602500857aa6ed0cf38c4c3e4ec6"
+            },
+            {
+              "key": "GitLabProjectId",
+              "value": "101"
+            },
+            {
+              "key": "Environment",
+              "value": "development"
+            },
+            {
+              "key": "Service",
+              "value": "customer-api"
+            }
+          ]
+        },
+        {
+          "taskArn": "arn:aws:ecs:us-east-1:444455556666:task/uat-applications/7dc5035ed782cd73171ecf75cc5b9f07",
+          "clusterArn": "arn:aws:ecs:us-east-1:444455556666:cluster/uat-applications",
+          "taskDefinitionArn": "arn:aws:ecs:us-east-1:444455556666:task-definition/customer-api-uat:41",
+          "group": "service:customer-api-uat",
+          "lastStatus": "RUNNING",
+          "desiredStatus": "RUNNING",
+          "startedAt": "2026-10-26T10:15:00Z",
+          "containers": [
+            {
+              "name": "customer-api",
+              "image": "444455556666.dkr.ecr.us-east-1.amazonaws.com/customer-api:2.2.0",
+              "imageDigest": "sha256:61df76ec7cf73c9e044371b0e0b8f937c7742316e9c4f5a5c337f9e4c18143ea",
+              "lastStatus": "RUNNING",
+              "healthStatus": "HEALTHY"
+            }
+          ],
+          "tags": [
+            {
+              "key": "BusinessApplicationId",
+              "value": "7c82602500857aa6ed0cf38c4c3e4ec6"
+            },
+            {
+              "key": "GitLabProjectId",
+              "value": "101"
+            },
+            {
+              "key": "Environment",
+              "value": "user-acceptance"
+            },
+            {
+              "key": "Service",
+              "value": "customer-api"
+            }
+          ]
+        },
+        {
+          "taskArn": "arn:aws:ecs:us-east-1:111122223333:task/prod-applications/efb14a2924cf26adea75621cebacad57",
+          "clusterArn": "arn:aws:ecs:us-east-1:111122223333:cluster/prod-applications",
+          "taskDefinitionArn": "arn:aws:ecs:us-east-1:111122223333:task-definition/customer-api-prod:41",
+          "group": "service:customer-api-prod",
+          "lastStatus": "RUNNING",
+          "desiredStatus": "RUNNING",
+          "startedAt": "2026-10-26T10:15:00Z",
+          "containers": [
+            {
+              "name": "customer-api",
+              "image": "111122223333.dkr.ecr.us-east-1.amazonaws.com/customer-api:2.1.0",
+              "imageDigest": "sha256:9d9ee29fe63f22431b15170b2ce29e50bd648cb9083b2a3348aadfb84b57a929",
+              "lastStatus": "RUNNING",
+              "healthStatus": "HEALTHY"
+            }
+          ],
+          "tags": [
+            {
+              "key": "BusinessApplicationId",
+              "value": "7c82602500857aa6ed0cf38c4c3e4ec6"
+            },
+            {
+              "key": "GitLabProjectId",
+              "value": "101"
+            },
+            {
+              "key": "Environment",
+              "value": "production"
+            },
+            {
+              "key": "Service",
+              "value": "customer-api"
+            }
+          ]
+        },
+        {
+          "taskArn": "arn:aws:ecs:us-east-1:111122223333:task/prod-applications/26b30febcf55be1c8914d325f398f465",
+          "clusterArn": "arn:aws:ecs:us-east-1:111122223333:cluster/prod-applications",
+          "taskDefinitionArn": "arn:aws:ecs:us-east-1:111122223333:task-definition/customer-api-prod:40",
+          "group": "service:customer-api-prod",
+          "lastStatus": "RUNNING",
+          "desiredStatus": "RUNNING",
+          "startedAt": "2026-10-26T10:15:00Z",
+          "containers": [
+            {
+              "name": "customer-api",
+              "image": "111122223333.dkr.ecr.us-east-1.amazonaws.com/customer-api:2.0.0",
+              "imageDigest": "sha256:5d9d4d7f16a0bec62eba0e1da25918ef693712095f03c8d1ebc69ac8dbfb7532",
+              "lastStatus": "RUNNING",
+              "healthStatus": "HEALTHY"
+            }
+          ],
+          "tags": [
+            {
+              "key": "BusinessApplicationId",
+              "value": "7c82602500857aa6ed0cf38c4c3e4ec6"
+            },
+            {
+              "key": "GitLabProjectId",
+              "value": "101"
+            },
+            {
+              "key": "Environment",
+              "value": "production"
+            },
+            {
+              "key": "Service",
+              "value": "customer-api"
+            }
+          ]
+        },
+        {
+          "taskArn": "arn:aws:ecs:us-east-1:444455556666:task/dev-applications/155d40cd9cfcb047fd6a31b810deb820",
+          "clusterArn": "arn:aws:ecs:us-east-1:444455556666:cluster/dev-applications",
+          "taskDefinitionArn": "arn:aws:ecs:us-east-1:444455556666:task-definition/customer-web-dev:41",
+          "group": "service:customer-web-dev",
+          "lastStatus": "RUNNING",
+          "desiredStatus": "RUNNING",
+          "startedAt": "2026-10-26T10:15:00Z",
+          "containers": [
+            {
+              "name": "customer-web",
+              "image": "444455556666.dkr.ecr.us-east-1.amazonaws.com/customer-web:3.3.0",
+              "imageDigest": "sha256:6bcbadf224befa5f3910210561404cf46e45590127463dd089302ec939ef7453",
+              "lastStatus": "RUNNING",
+              "healthStatus": "HEALTHY"
+            }
+          ],
+          "tags": [
+            {
+              "key": "BusinessApplicationId",
+              "value": "7c82602500857aa6ed0cf38c4c3e4ec6"
+            },
+            {
+              "key": "GitLabProjectId",
+              "value": "102"
+            },
+            {
+              "key": "Environment",
+              "value": "development"
+            },
+            {
+              "key": "Service",
+              "value": "customer-web"
+            }
+          ]
+        },
+        {
+          "taskArn": "arn:aws:ecs:us-east-1:444455556666:task/uat-applications/8e6cf7c7e85b16e7bb4b95de7115de97",
+          "clusterArn": "arn:aws:ecs:us-east-1:444455556666:cluster/uat-applications",
+          "taskDefinitionArn": "arn:aws:ecs:us-east-1:444455556666:task-definition/customer-web-uat:41",
+          "group": "service:customer-web-uat",
+          "lastStatus": "RUNNING",
+          "desiredStatus": "RUNNING",
+          "startedAt": "2026-10-26T10:15:00Z",
+          "containers": [
+            {
+              "name": "customer-web",
+              "image": "444455556666.dkr.ecr.us-east-1.amazonaws.com/customer-web:3.2.0",
+              "imageDigest": "sha256:531dba64b2c4dc15a7d7f96b299bab3ca6bb5c335eb0c17770a3b74b90930b22",
+              "lastStatus": "RUNNING",
+              "healthStatus": "HEALTHY"
+            }
+          ],
+          "tags": [
+            {
+              "key": "BusinessApplicationId",
+              "value": "7c82602500857aa6ed0cf38c4c3e4ec6"
+            },
+            {
+              "key": "GitLabProjectId",
+              "value": "102"
+            },
+            {
+              "key": "Environment",
+              "value": "user-acceptance"
+            },
+            {
+              "key": "Service",
+              "value": "customer-web"
+            }
+          ]
+        },
+        {
+          "taskArn": "arn:aws:ecs:us-east-1:111122223333:task/prod-applications/f7c7773abf35cb043bed5d46b3f7b97e",
+          "clusterArn": "arn:aws:ecs:us-east-1:111122223333:cluster/prod-applications",
+          "taskDefinitionArn": "arn:aws:ecs:us-east-1:111122223333:task-definition/customer-web-prod:41",
+          "group": "service:customer-web-prod",
+          "lastStatus": "RUNNING",
+          "desiredStatus": "RUNNING",
+          "startedAt": "2026-10-26T10:15:00Z",
+          "containers": [
+            {
+              "name": "customer-web",
+              "image": "111122223333.dkr.ecr.us-east-1.amazonaws.com/customer-web:3.1.0",
+              "imageDigest": "sha256:28307f2bc7a19a5eebc8456038f879aa69c229b77a26e4e83bd5890d4eca5661",
+              "lastStatus": "RUNNING",
+              "healthStatus": "HEALTHY"
+            }
+          ],
+          "tags": [
+            {
+              "key": "BusinessApplicationId",
+              "value": "7c82602500857aa6ed0cf38c4c3e4ec6"
+            },
+            {
+              "key": "GitLabProjectId",
+              "value": "102"
+            },
+            {
+              "key": "Environment",
+              "value": "production"
+            },
+            {
+              "key": "Service",
+              "value": "customer-web"
+            }
+          ]
+        },
+        {
+          "taskArn": "arn:aws:ecs:us-east-1:111122223333:task/prod-applications/53789fe694f390da4725a34c5347a344",
+          "clusterArn": "arn:aws:ecs:us-east-1:111122223333:cluster/prod-applications",
+          "taskDefinitionArn": "arn:aws:ecs:us-east-1:111122223333:task-definition/customer-web-prod:40",
+          "group": "service:customer-web-prod",
+          "lastStatus": "RUNNING",
+          "desiredStatus": "RUNNING",
+          "startedAt": "2026-10-26T10:15:00Z",
+          "containers": [
+            {
+              "name": "customer-web",
+              "image": "111122223333.dkr.ecr.us-east-1.amazonaws.com/customer-web:3.0.0",
+              "imageDigest": "sha256:dc18e454a4c1ea29749f07f456424ab06b311307db61d67f0b61ce6805b58b0c",
+              "lastStatus": "RUNNING",
+              "healthStatus": "HEALTHY"
+            }
+          ],
+          "tags": [
+            {
+              "key": "BusinessApplicationId",
+              "value": "7c82602500857aa6ed0cf38c4c3e4ec6"
+            },
+            {
+              "key": "GitLabProjectId",
+              "value": "102"
+            },
+            {
+              "key": "Environment",
+              "value": "production"
+            },
+            {
+              "key": "Service",
+              "value": "customer-web"
+            }
+          ]
+        },
+        {
+          "taskArn": "arn:aws:ecs:us-east-1:444455556666:task/dev-applications/42c88157eb447f64873b58781800700d",
+          "clusterArn": "arn:aws:ecs:us-east-1:444455556666:cluster/dev-applications",
+          "taskDefinitionArn": "arn:aws:ecs:us-east-1:444455556666:task-definition/payment-gateway-dev:41",
+          "group": "service:payment-gateway-dev",
+          "lastStatus": "RUNNING",
+          "desiredStatus": "RUNNING",
+          "startedAt": "2026-10-26T10:15:00Z",
+          "containers": [
+            {
+              "name": "payment-gateway",
+              "image": "444455556666.dkr.ecr.us-east-1.amazonaws.com/payment-gateway:2.3.0",
+              "imageDigest": "sha256:96cc22f048ff36f9a42398e18be71b192a05c74680020c994ac51a5aad2e568a",
+              "lastStatus": "RUNNING",
+              "healthStatus": "HEALTHY"
+            }
+          ],
+          "tags": [
+            {
+              "key": "BusinessApplicationId",
+              "value": "b6c4ac412ac8822355239dd717c11ca5"
+            },
+            {
+              "key": "GitLabProjectId",
+              "value": "201"
+            },
+            {
+              "key": "Environment",
+              "value": "development"
+            },
+            {
+              "key": "Service",
+              "value": "payment-gateway"
+            }
+          ]
+        },
+        {
+          "taskArn": "arn:aws:ecs:us-east-1:444455556666:task/uat-applications/b51126a1de8c7c0f2d14bce500c6bc81",
+          "clusterArn": "arn:aws:ecs:us-east-1:444455556666:cluster/uat-applications",
+          "taskDefinitionArn": "arn:aws:ecs:us-east-1:444455556666:task-definition/payment-gateway-uat:41",
+          "group": "service:payment-gateway-uat",
+          "lastStatus": "RUNNING",
+          "desiredStatus": "RUNNING",
+          "startedAt": "2026-10-26T10:15:00Z",
+          "containers": [
+            {
+              "name": "payment-gateway",
+              "image": "444455556666.dkr.ecr.us-east-1.amazonaws.com/payment-gateway:2.2.0",
+              "imageDigest": "sha256:b933d626d13e4c1b093384d5026bf7ed58a51e7a5d63f418f47bbe1e8556d8eb",
+              "lastStatus": "RUNNING",
+              "healthStatus": "HEALTHY"
+            }
+          ],
+          "tags": [
+            {
+              "key": "BusinessApplicationId",
+              "value": "b6c4ac412ac8822355239dd717c11ca5"
+            },
+            {
+              "key": "GitLabProjectId",
+              "value": "201"
+            },
+            {
+              "key": "Environment",
+              "value": "user-acceptance"
+            },
+            {
+              "key": "Service",
+              "value": "payment-gateway"
+            }
+          ]
+        },
+        {
+          "taskArn": "arn:aws:ecs:us-east-1:111122223333:task/prod-applications/0d1219e8c4ef2bce108e15efbeb47aea",
+          "clusterArn": "arn:aws:ecs:us-east-1:111122223333:cluster/prod-applications",
+          "taskDefinitionArn": "arn:aws:ecs:us-east-1:111122223333:task-definition/payment-gateway-prod:41",
+          "group": "service:payment-gateway-prod",
+          "lastStatus": "RUNNING",
+          "desiredStatus": "RUNNING",
+          "startedAt": "2026-10-26T10:15:00Z",
+          "containers": [
+            {
+              "name": "payment-gateway",
+              "image": "111122223333.dkr.ecr.us-east-1.amazonaws.com/payment-gateway:2.1.0",
+              "imageDigest": "sha256:2d6527fe42418bb774b8829d0dca6750e43053e80f94c9c193d238454de9d582",
+              "lastStatus": "RUNNING",
+              "healthStatus": "HEALTHY"
+            }
+          ],
+          "tags": [
+            {
+              "key": "BusinessApplicationId",
+              "value": "b6c4ac412ac8822355239dd717c11ca5"
+            },
+            {
+              "key": "GitLabProjectId",
+              "value": "201"
+            },
+            {
+              "key": "Environment",
+              "value": "production"
+            },
+            {
+              "key": "Service",
+              "value": "payment-gateway"
+            }
+          ]
+        },
+        {
+          "taskArn": "arn:aws:ecs:us-east-1:444455556666:task/dev-applications/9c72babe464386a24000bb6b22432316",
+          "clusterArn": "arn:aws:ecs:us-east-1:444455556666:cluster/dev-applications",
+          "taskDefinitionArn": "arn:aws:ecs:us-east-1:444455556666:task-definition/settlement-worker-dev:41",
+          "group": "service:settlement-worker-dev",
+          "lastStatus": "RUNNING",
+          "desiredStatus": "RUNNING",
+          "startedAt": "2026-10-26T10:15:00Z",
+          "containers": [
+            {
+              "name": "settlement-worker",
+              "image": "444455556666.dkr.ecr.us-east-1.amazonaws.com/settlement-worker:3.3.0",
+              "imageDigest": "sha256:4c153321c157dae6fd6c599b9714c63bb7a6094930613e835079796cd71b65f7",
+              "lastStatus": "RUNNING",
+              "healthStatus": "HEALTHY"
+            }
+          ],
+          "tags": [
+            {
+              "key": "BusinessApplicationId",
+              "value": "b6c4ac412ac8822355239dd717c11ca5"
+            },
+            {
+              "key": "GitLabProjectId",
+              "value": "202"
+            },
+            {
+              "key": "Environment",
+              "value": "development"
+            },
+            {
+              "key": "Service",
+              "value": "settlement-worker"
+            }
+          ]
+        },
+        {
+          "taskArn": "arn:aws:ecs:us-east-1:444455556666:task/uat-applications/19c600bca90c31c78dedb6a6dfee80cf",
+          "clusterArn": "arn:aws:ecs:us-east-1:444455556666:cluster/uat-applications",
+          "taskDefinitionArn": "arn:aws:ecs:us-east-1:444455556666:task-definition/settlement-worker-uat:41",
+          "group": "service:settlement-worker-uat",
+          "lastStatus": "RUNNING",
+          "desiredStatus": "RUNNING",
+          "startedAt": "2026-10-26T10:15:00Z",
+          "containers": [
+            {
+              "name": "settlement-worker",
+              "image": "444455556666.dkr.ecr.us-east-1.amazonaws.com/settlement-worker:3.2.0",
+              "imageDigest": "sha256:31c5ee8bc946d532f2f05504220a162cc071640237c785cbd2fecc380d1f6699",
+              "lastStatus": "RUNNING",
+              "healthStatus": "HEALTHY"
+            }
+          ],
+          "tags": [
+            {
+              "key": "BusinessApplicationId",
+              "value": "b6c4ac412ac8822355239dd717c11ca5"
+            },
+            {
+              "key": "GitLabProjectId",
+              "value": "202"
+            },
+            {
+              "key": "Environment",
+              "value": "user-acceptance"
+            },
+            {
+              "key": "Service",
+              "value": "settlement-worker"
+            }
+          ]
+        },
+        {
+          "taskArn": "arn:aws:ecs:us-east-1:111122223333:task/prod-applications/d4b62be562b5421d46afc4e200ec6fea",
+          "clusterArn": "arn:aws:ecs:us-east-1:111122223333:cluster/prod-applications",
+          "taskDefinitionArn": "arn:aws:ecs:us-east-1:111122223333:task-definition/settlement-worker-prod:41",
+          "group": "service:settlement-worker-prod",
+          "lastStatus": "RUNNING",
+          "desiredStatus": "RUNNING",
+          "startedAt": "2026-10-26T10:15:00Z",
+          "containers": [
+            {
+              "name": "settlement-worker",
+              "image": "111122223333.dkr.ecr.us-east-1.amazonaws.com/settlement-worker:3.1.0",
+              "imageDigest": "sha256:51fe20152fddb1009a7a52ef5d4d1f6dc9e40c0c81dcef8ff1d56c9319bb2c9c",
+              "lastStatus": "RUNNING",
+              "healthStatus": "HEALTHY"
+            }
+          ],
+          "tags": [
+            {
+              "key": "BusinessApplicationId",
+              "value": "b6c4ac412ac8822355239dd717c11ca5"
+            },
+            {
+              "key": "GitLabProjectId",
+              "value": "202"
+            },
+            {
+              "key": "Environment",
+              "value": "production"
+            },
+            {
+              "key": "Service",
+              "value": "settlement-worker"
+            }
+          ]
+        },
+        {
+          "taskArn": "arn:aws:ecs:us-east-1:444455556666:task/dev-applications/776cdc073ee47b6cfc67a933568e166b",
+          "clusterArn": "arn:aws:ecs:us-east-1:444455556666:cluster/dev-applications",
+          "taskDefinitionArn": "arn:aws:ecs:us-east-1:444455556666:task-definition/event-ingestion-dev:41",
+          "group": "service:event-ingestion-dev",
+          "lastStatus": "RUNNING",
+          "desiredStatus": "RUNNING",
+          "startedAt": "2026-10-26T10:15:00Z",
+          "containers": [
+            {
+              "name": "event-ingestion",
+              "image": "444455556666.dkr.ecr.us-east-1.amazonaws.com/event-ingestion:2.3.0",
+              "imageDigest": "sha256:a15fb5231b76821393c460256d29e09ee08a7a000616d8b1f433c3224392561d",
+              "lastStatus": "RUNNING",
+              "healthStatus": "HEALTHY"
+            }
+          ],
+          "tags": [
+            {
+              "key": "BusinessApplicationId",
+              "value": "8a62e967fcd6dfa5d75308c37808b466"
+            },
+            {
+              "key": "GitLabProjectId",
+              "value": "301"
+            },
+            {
+              "key": "Environment",
+              "value": "development"
+            },
+            {
+              "key": "Service",
+              "value": "event-ingestion"
+            }
+          ]
+        },
+        {
+          "taskArn": "arn:aws:ecs:us-east-1:444455556666:task/uat-applications/64fd170e1de65ab8a36635fc49c0eb6e",
+          "clusterArn": "arn:aws:ecs:us-east-1:444455556666:cluster/uat-applications",
+          "taskDefinitionArn": "arn:aws:ecs:us-east-1:444455556666:task-definition/event-ingestion-uat:41",
+          "group": "service:event-ingestion-uat",
+          "lastStatus": "RUNNING",
+          "desiredStatus": "RUNNING",
+          "startedAt": "2026-10-26T10:15:00Z",
+          "containers": [
+            {
+              "name": "event-ingestion",
+              "image": "444455556666.dkr.ecr.us-east-1.amazonaws.com/event-ingestion:2.2.0",
+              "imageDigest": "sha256:854afa87db41a69d36f7d30b679bb50d403e13930358796d78bcc3cc674c32fa",
+              "lastStatus": "RUNNING",
+              "healthStatus": "HEALTHY"
+            }
+          ],
+          "tags": [
+            {
+              "key": "BusinessApplicationId",
+              "value": "8a62e967fcd6dfa5d75308c37808b466"
+            },
+            {
+              "key": "GitLabProjectId",
+              "value": "301"
+            },
+            {
+              "key": "Environment",
+              "value": "user-acceptance"
+            },
+            {
+              "key": "Service",
+              "value": "event-ingestion"
+            }
+          ]
+        },
+        {
+          "taskArn": "arn:aws:ecs:us-east-1:111122223333:task/prod-applications/8eeb376fcc1c4364acdf93d8100265ec",
+          "clusterArn": "arn:aws:ecs:us-east-1:111122223333:cluster/prod-applications",
+          "taskDefinitionArn": "arn:aws:ecs:us-east-1:111122223333:task-definition/event-ingestion-prod:41",
+          "group": "service:event-ingestion-prod",
+          "lastStatus": "RUNNING",
+          "desiredStatus": "RUNNING",
+          "startedAt": "2026-10-26T10:15:00Z",
+          "containers": [
+            {
+              "name": "event-ingestion",
+              "image": "111122223333.dkr.ecr.us-east-1.amazonaws.com/event-ingestion:2.1.0",
+              "imageDigest": "sha256:98fa7c4227930e3cbf66b1df08f0893bfa6c6539e4d2448094e62e2f148fb39c",
+              "lastStatus": "RUNNING",
+              "healthStatus": "HEALTHY"
+            }
+          ],
+          "tags": [
+            {
+              "key": "BusinessApplicationId",
+              "value": "8a62e967fcd6dfa5d75308c37808b466"
+            },
+            {
+              "key": "GitLabProjectId",
+              "value": "301"
+            },
+            {
+              "key": "Environment",
+              "value": "production"
+            },
+            {
+              "key": "Service",
+              "value": "event-ingestion"
+            }
+          ]
+        },
+        {
+          "taskArn": "arn:aws:ecs:us-east-1:444455556666:task/dev-applications/cc5e4c4a98e3501d7a39548bfd1bf52a",
+          "clusterArn": "arn:aws:ecs:us-east-1:444455556666:cluster/dev-applications",
+          "taskDefinitionArn": "arn:aws:ecs:us-east-1:444455556666:task-definition/report-builder-dev:41",
+          "group": "service:report-builder-dev",
+          "lastStatus": "RUNNING",
+          "desiredStatus": "RUNNING",
+          "startedAt": "2026-10-26T10:15:00Z",
+          "containers": [
+            {
+              "name": "report-builder",
+              "image": "444455556666.dkr.ecr.us-east-1.amazonaws.com/report-builder:3.3.0",
+              "imageDigest": "sha256:700fce563047872befd89832e3ae6d02d941793d9a5a529ccfd2035aa4dbc5da",
+              "lastStatus": "RUNNING",
+              "healthStatus": "HEALTHY"
+            }
+          ],
+          "tags": [
+            {
+              "key": "BusinessApplicationId",
+              "value": "8a62e967fcd6dfa5d75308c37808b466"
+            },
+            {
+              "key": "GitLabProjectId",
+              "value": "302"
+            },
+            {
+              "key": "Environment",
+              "value": "development"
+            },
+            {
+              "key": "Service",
+              "value": "report-builder"
+            }
+          ]
+        },
+        {
+          "taskArn": "arn:aws:ecs:us-east-1:444455556666:task/uat-applications/0d5969409271ac17141635bfb88cf2bf",
+          "clusterArn": "arn:aws:ecs:us-east-1:444455556666:cluster/uat-applications",
+          "taskDefinitionArn": "arn:aws:ecs:us-east-1:444455556666:task-definition/report-builder-uat:41",
+          "group": "service:report-builder-uat",
+          "lastStatus": "RUNNING",
+          "desiredStatus": "RUNNING",
+          "startedAt": "2026-10-26T10:15:00Z",
+          "containers": [
+            {
+              "name": "report-builder",
+              "image": "444455556666.dkr.ecr.us-east-1.amazonaws.com/report-builder:3.2.0",
+              "imageDigest": "sha256:4b4682e2d568a8091babe929b25d2e9e09d933b7b887d13413e93a0605827909",
+              "lastStatus": "RUNNING",
+              "healthStatus": "HEALTHY"
+            }
+          ],
+          "tags": [
+            {
+              "key": "BusinessApplicationId",
+              "value": "8a62e967fcd6dfa5d75308c37808b466"
+            },
+            {
+              "key": "GitLabProjectId",
+              "value": "302"
+            },
+            {
+              "key": "Environment",
+              "value": "user-acceptance"
+            },
+            {
+              "key": "Service",
+              "value": "report-builder"
+            }
+          ]
+        },
+        {
+          "taskArn": "arn:aws:ecs:us-east-1:111122223333:task/prod-applications/ee0563124ec475b22ea9ee048f218cce",
+          "clusterArn": "arn:aws:ecs:us-east-1:111122223333:cluster/prod-applications",
+          "taskDefinitionArn": "arn:aws:ecs:us-east-1:111122223333:task-definition/report-builder-prod:41",
+          "group": "service:report-builder-prod",
+          "lastStatus": "RUNNING",
+          "desiredStatus": "RUNNING",
+          "startedAt": "2026-10-26T10:15:00Z",
+          "containers": [
+            {
+              "name": "report-builder",
+              "image": "111122223333.dkr.ecr.us-east-1.amazonaws.com/report-builder:3.1.0",
+              "imageDigest": "sha256:1e3dc42f9e86255be616f9f1f098713597dea4dfa1a543f3eb367f230d079d84",
+              "lastStatus": "RUNNING",
+              "healthStatus": "HEALTHY"
+            }
+          ],
+          "tags": [
+            {
+              "key": "BusinessApplicationId",
+              "value": "8a62e967fcd6dfa5d75308c37808b466"
+            },
+            {
+              "key": "GitLabProjectId",
+              "value": "302"
+            },
+            {
+              "key": "Environment",
+              "value": "production"
+            },
+            {
+              "key": "Service",
+              "value": "report-builder"
+            }
+          ]
+        },
+        {
+          "taskArn": "arn:aws:ecs:us-east-1:444455556666:task/dev-applications/e16d34429c0dc60366971d8ddf171f41",
+          "clusterArn": "arn:aws:ecs:us-east-1:444455556666:cluster/dev-applications",
+          "taskDefinitionArn": "arn:aws:ecs:us-east-1:444455556666:task-definition/operations-portal-dev:41",
+          "group": "service:operations-portal-dev",
+          "lastStatus": "RUNNING",
+          "desiredStatus": "RUNNING",
+          "startedAt": "2026-10-26T10:15:00Z",
+          "containers": [
+            {
+              "name": "operations-portal",
+              "image": "444455556666.dkr.ecr.us-east-1.amazonaws.com/operations-portal:2.3.0",
+              "imageDigest": "sha256:0d4af28deb20197acef878a6f89bd19a374580c75c0c01762f7e37161bfba899",
+              "lastStatus": "RUNNING",
+              "healthStatus": "HEALTHY"
+            }
+          ],
+          "tags": [
+            {
+              "key": "BusinessApplicationId",
+              "value": "c1d64b2d4cb30f1be788cc4d246ddd9f"
+            },
+            {
+              "key": "GitLabProjectId",
+              "value": "401"
+            },
+            {
+              "key": "Environment",
+              "value": "development"
+            },
+            {
+              "key": "Service",
+              "value": "operations-portal"
+            }
+          ]
+        },
+        {
+          "taskArn": "arn:aws:ecs:us-east-1:444455556666:task/uat-applications/ecb215920c16680f800d97d622c8725d",
+          "clusterArn": "arn:aws:ecs:us-east-1:444455556666:cluster/uat-applications",
+          "taskDefinitionArn": "arn:aws:ecs:us-east-1:444455556666:task-definition/operations-portal-uat:41",
+          "group": "service:operations-portal-uat",
+          "lastStatus": "RUNNING",
+          "desiredStatus": "RUNNING",
+          "startedAt": "2026-10-26T10:15:00Z",
+          "containers": [
+            {
+              "name": "operations-portal",
+              "image": "444455556666.dkr.ecr.us-east-1.amazonaws.com/operations-portal:2.2.0",
+              "lastStatus": "RUNNING",
+              "healthStatus": "HEALTHY"
+            }
+          ],
+          "tags": [
+            {
+              "key": "BusinessApplicationId",
+              "value": "c1d64b2d4cb30f1be788cc4d246ddd9f"
+            },
+            {
+              "key": "GitLabProjectId",
+              "value": "401"
+            },
+            {
+              "key": "Environment",
+              "value": "user-acceptance"
+            },
+            {
+              "key": "Service",
+              "value": "operations-portal"
+            }
+          ]
+        },
+        {
+          "taskArn": "arn:aws:ecs:us-east-1:111122223333:task/prod-applications/135fe2a8273f5e9ee7f6ff50d20fe5ba",
+          "clusterArn": "arn:aws:ecs:us-east-1:111122223333:cluster/prod-applications",
+          "taskDefinitionArn": "arn:aws:ecs:us-east-1:111122223333:task-definition/operations-portal-prod:41",
+          "group": "service:operations-portal-prod",
+          "lastStatus": "RUNNING",
+          "desiredStatus": "RUNNING",
+          "startedAt": "2026-10-26T10:15:00Z",
+          "containers": [
+            {
+              "name": "operations-portal",
+              "image": "111122223333.dkr.ecr.us-east-1.amazonaws.com/operations-portal:2.1.0",
+              "imageDigest": "sha256:6ff673620d89ef4fe7523d287df083b9acf71fedd101cb9087feb017bf2edf28",
+              "lastStatus": "RUNNING",
+              "healthStatus": "HEALTHY"
+            }
+          ],
+          "tags": [
+            {
+              "key": "BusinessApplicationId",
+              "value": "c1d64b2d4cb30f1be788cc4d246ddd9f"
+            },
+            {
+              "key": "GitLabProjectId",
+              "value": "401"
+            },
+            {
+              "key": "Environment",
+              "value": "production"
+            },
+            {
+              "key": "Service",
+              "value": "operations-portal"
+            }
+          ]
+        },
+        {
+          "taskArn": "arn:aws:ecs:us-east-1:111122223333:task/prod-applications/df9753905410d4d977f6a30030409de5",
+          "clusterArn": "arn:aws:ecs:us-east-1:111122223333:cluster/prod-applications",
+          "taskDefinitionArn": "arn:aws:ecs:us-east-1:111122223333:task-definition/report-builder-prod:41",
+          "group": "service:report-builder-prod",
+          "lastStatus": "RUNNING",
+          "desiredStatus": "RUNNING",
+          "startedAt": "2026-10-26T10:15:00Z",
+          "containers": [
+            {
+              "name": "report-builder",
+              "image": "111122223333.dkr.ecr.us-east-1.amazonaws.com/report-builder:3.1.0",
+              "imageDigest": "sha256:8eafee238a17c97ce5b51cb39e6a37d38fd2da613783ab55dc336ae225ff5a64",
+              "lastStatus": "RUNNING",
+              "healthStatus": "HEALTHY"
+            }
+          ],
+          "tags": [
+            {
+              "key": "BusinessApplicationId",
+              "value": "8a62e967fcd6dfa5d75308c37808b466"
+            },
+            {
+              "key": "GitLabProjectId",
+              "value": "302"
+            },
+            {
+              "key": "Environment",
+              "value": "production"
+            },
+            {
+              "key": "Service",
+              "value": "report-builder"
+            }
+          ]
+        },
+        {
+          "taskArn": "arn:aws:ecs:us-east-1:444455556666:task/dev-applications/88f6811ab5d8fc6d3177f9b7609ae0fc",
+          "clusterArn": "arn:aws:ecs:us-east-1:444455556666:cluster/dev-applications",
+          "taskDefinitionArn": "arn:aws:ecs:us-east-1:444455556666:task-definition/customer-api-dev:41",
+          "group": "service:unmapped-worker",
+          "lastStatus": "RUNNING",
+          "desiredStatus": "RUNNING",
+          "startedAt": "2026-10-26T10:15:00Z",
+          "containers": [
+            {
+              "name": "unmapped-worker",
+              "image": "444455556666.dkr.ecr.us-east-1.amazonaws.com/customer-api:2.3.0",
+              "imageDigest": "sha256:87abb46a5c0e577d327fffdcd25afe608e83e6c69db5932d74e2f13d9c957e4c",
+              "lastStatus": "RUNNING",
+              "healthStatus": "HEALTHY"
+            }
+          ],
+          "tags": [
+            {
+              "key": "Environment",
+              "value": "development"
+            },
+            {
+              "key": "Service",
+              "value": "customer-api"
+            }
+          ]
+        },
+        {
+          "taskArn": "arn:aws:ecs:us-east-1:444455556666:task/dev-applications/254ca8a5aa3088e83e1d502ebb8e3903",
+          "clusterArn": "arn:aws:ecs:us-east-1:444455556666:cluster/dev-applications",
+          "taskDefinitionArn": "arn:aws:ecs:us-east-1:444455556666:task-definition/customer-api-dev:41",
+          "group": "service:customer-api-dev",
+          "lastStatus": "STOPPED",
+          "desiredStatus": "RUNNING",
+          "startedAt": "2026-10-26T10:15:00Z",
+          "containers": [
+            {
+              "name": "customer-api",
+              "image": "444455556666.dkr.ecr.us-east-1.amazonaws.com/customer-api:2.3.0",
+              "imageDigest": "sha256:87abb46a5c0e577d327fffdcd25afe608e83e6c69db5932d74e2f13d9c957e4c",
+              "lastStatus": "STOPPED",
+              "healthStatus": "HEALTHY"
+            }
+          ],
+          "tags": [
+            {
+              "key": "BusinessApplicationId",
+              "value": "7c82602500857aa6ed0cf38c4c3e4ec6"
+            },
+            {
+              "key": "GitLabProjectId",
+              "value": "101"
+            },
+            {
+              "key": "Environment",
+              "value": "development"
+            },
+            {
+              "key": "Service",
+              "value": "customer-api"
+            }
+          ]
+        }
+      ]
+    },
+    "lambda": {
+      "functions": [
+        {
+          "Configuration": {
+            "FunctionName": "notification-handler-dev",
+            "FunctionArn": "arn:aws:lambda:us-east-1:444455556666:function:notification-handler-dev:12",
+            "Runtime": "python3.12",
+            "Version": "12",
+            "PackageType": "Zip",
+            "CodeSha256": "6Sd41hm5A+xJq6AD7bJEkmZfijseXWWIel3ic9lK55E=",
+            "LastModified": "2026-10-26T10:03:00.000+0000",
+            "State": "Active"
+          },
+          "Tags": {
+            "BusinessApplicationId": "7c82602500857aa6ed0cf38c4c3e4ec6",
+            "GitLabProjectId": "103",
+            "Environment": "development",
+            "Service": "notification-handler"
+          }
+        },
+        {
+          "Configuration": {
+            "FunctionName": "notification-handler-uat",
+            "FunctionArn": "arn:aws:lambda:us-east-1:444455556666:function:notification-handler-uat:12",
+            "Runtime": "python3.12",
+            "Version": "12",
+            "PackageType": "Zip",
+            "CodeSha256": "eSZZBUpUwWVVuc7krH4odb0WTrgHfdC6uUaqksfzWdA=",
+            "LastModified": "2026-10-26T10:03:00.000+0000",
+            "State": "Active"
+          },
+          "Tags": {
+            "BusinessApplicationId": "7c82602500857aa6ed0cf38c4c3e4ec6",
+            "GitLabProjectId": "103",
+            "Environment": "user-acceptance",
+            "Service": "notification-handler"
+          }
+        },
+        {
+          "Configuration": {
+            "FunctionName": "notification-handler-prod",
+            "FunctionArn": "arn:aws:lambda:us-east-1:111122223333:function:notification-handler-prod:12",
+            "Runtime": "python3.11",
+            "Version": "12",
+            "PackageType": "Zip",
+            "CodeSha256": "kupkqc1DSDzJwFr/fpOgNN/0IwwA+PaqrQXhPAIh0sI=",
+            "LastModified": "2026-10-26T10:03:00.000+0000",
+            "State": "Active"
+          },
+          "Tags": {
+            "BusinessApplicationId": "7c82602500857aa6ed0cf38c4c3e4ec6",
+            "GitLabProjectId": "103",
+            "Environment": "production",
+            "Service": "notification-handler"
+          }
+        }
+      ]
+    },
+    "ec2": {
+      "Reservations": [
+        {
+          "Instances": [
+            {
+              "InstanceId": "i-fa88f12e5529db271",
+              "ImageId": "ami-be1cb8747ea0d1fdf",
+              "State": {
+                "Name": "running",
+                "Code": 16
+              },
+              "Placement": {
+                "AvailabilityZone": "us-east-1a"
+              },
+              "Tags": [
+                {
+                  "Key": "BusinessApplicationId",
+                  "Value": "c1d64b2d4cb30f1be788cc4d246ddd9f"
+                },
+                {
+                  "Key": "GitLabProjectId",
+                  "Value": "402"
+                },
+                {
+                  "Key": "Environment",
+                  "Value": "development"
+                },
+                {
+                  "Key": "Service",
+                  "Value": "legacy-batch"
+                }
+              ],
+              "LaunchTime": "2026-10-20T08:00:00Z"
+            }
+          ]
+        },
+        {
+          "Instances": [
+            {
+              "InstanceId": "i-4b8ce9a489c9e2600",
+              "ImageId": "ami-be1cb8747ea0d1fdf",
+              "State": {
+                "Name": "running",
+                "Code": 16
+              },
+              "Placement": {
+                "AvailabilityZone": "us-east-1a"
+              },
+              "Tags": [
+                {
+                  "Key": "BusinessApplicationId",
+                  "Value": "c1d64b2d4cb30f1be788cc4d246ddd9f"
+                },
+                {
+                  "Key": "GitLabProjectId",
+                  "Value": "402"
+                },
+                {
+                  "Key": "Environment",
+                  "Value": "user-acceptance"
+                },
+                {
+                  "Key": "Service",
+                  "Value": "legacy-batch"
+                }
+              ],
+              "LaunchTime": "2026-10-20T08:00:00Z"
+            }
+          ]
+        },
+        {
+          "Instances": [
+            {
+              "InstanceId": "i-decbc7cdd0e793715",
+              "ImageId": "ami-be1cb8747ea0d1fdf",
+              "State": {
+                "Name": "running",
+                "Code": 16
+              },
+              "Placement": {
+                "AvailabilityZone": "us-east-1a"
+              },
+              "Tags": [
+                {
+                  "Key": "BusinessApplicationId",
+                  "Value": "c1d64b2d4cb30f1be788cc4d246ddd9f"
+                },
+                {
+                  "Key": "GitLabProjectId",
+                  "Value": "402"
+                },
+                {
+                  "Key": "Environment",
+                  "Value": "production"
+                },
+                {
+                  "Key": "Service",
+                  "Value": "legacy-batch"
+                }
+              ],
+              "LaunchTime": "2026-10-20T08:00:00Z"
+            }
+          ]
+        }
+      ]
+    },
+    "ssm": {
+      "Entities": [
+        {
+          "Id": "i-fa88f12e5529db271",
+          "Data": {
+            "AWS:Application": {
+              "TypeName": "AWS:Application",
+              "SchemaVersion": "1.1",
+              "CaptureTime": "2026-10-26T11:30:00Z",
+              "Content": [
+                {
+                  "Name": "python3",
+                  "Version": "3.11.10",
+                  "ApplicationType": "System"
+                },
+                {
+                  "Name": "requests",
+                  "Version": "2.32.3",
+                  "ApplicationType": "Package"
+                },
+                {
+                  "Name": "urllib3",
+                  "Version": "2.2.3",
+                  "ApplicationType": "Package"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "Id": "i-4b8ce9a489c9e2600",
+          "Data": {
+            "AWS:Application": {
+              "TypeName": "AWS:Application",
+              "SchemaVersion": "1.1",
+              "CaptureTime": "2026-10-26T11:30:00Z",
+              "Content": [
+                {
+                  "Name": "python3",
+                  "Version": "3.9.20",
+                  "ApplicationType": "System"
+                },
+                {
+                  "Name": "requests",
+                  "Version": "2.31.0",
+                  "ApplicationType": "Package"
+                },
+                {
+                  "Name": "urllib3",
+                  "Version": "1.26.18",
+                  "ApplicationType": "Package"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "Id": "i-decbc7cdd0e793715",
+          "Data": {
+            "AWS:Application": {
+              "TypeName": "AWS:Application",
+              "SchemaVersion": "1.1",
+              "CaptureTime": "2026-10-26T11:30:00Z",
+              "Content": [
+                {
+                  "Name": "python3",
+                  "Version": "3.9.18",
+                  "ApplicationType": "System"
+                },
+                {
+                  "Name": "requests",
+                  "Version": "2.28.2",
+                  "ApplicationType": "Package"
+                },
+                {
+                  "Name": "urllib3",
+                  "Version": "1.26.16",
+                  "ApplicationType": "Package"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "buildManifests": [
+    {
+      "project_id": 101,
+      "pipeline_id": 8001,
+      "commit_sha": "e180b1b46ebc0c1b9bf502bd1927c1eeba46dc94",
+      "sbom_job_id": 12001,
+      "sbom_path": "sbom.cdx.json",
+      "subject": {
+        "type": "container-image",
+        "digest": "sha256:87abb46a5c0e577d327fffdcd25afe608e83e6c69db5932d74e2f13d9c957e4c"
+      },
+      "release": "2.3.0",
+      "created_at": "2026-10-25T09:12:00Z"
+    },
+    {
+      "project_id": 101,
+      "pipeline_id": 8002,
+      "commit_sha": "7879da846dcf409d53dcb50a5460a529dd22f0d2",
+      "sbom_job_id": 12002,
+      "sbom_path": "sbom.cdx.json",
+      "subject": {
+        "type": "container-image",
+        "digest": "sha256:61df76ec7cf73c9e044371b0e0b8f937c7742316e9c4f5a5c337f9e4c18143ea"
+      },
+      "release": "2.2.0",
+      "created_at": "2026-10-25T09:12:00Z"
+    },
+    {
+      "project_id": 101,
+      "pipeline_id": 8003,
+      "commit_sha": "4fe170c90f1c8b19bd20f4fe3b16f717bbee162e",
+      "sbom_job_id": 12003,
+      "sbom_path": "sbom.cdx.json",
+      "subject": {
+        "type": "container-image",
+        "digest": "sha256:9d9ee29fe63f22431b15170b2ce29e50bd648cb9083b2a3348aadfb84b57a929"
+      },
+      "release": "2.1.0",
+      "created_at": "2026-10-25T09:12:00Z"
+    },
+    {
+      "project_id": 101,
+      "pipeline_id": 8004,
+      "commit_sha": "03e7e9e4d28dcecc729b2d561e44260d6d8d8541",
+      "sbom_job_id": 12004,
+      "sbom_path": "sbom.cdx.json",
+      "subject": {
+        "type": "container-image",
+        "digest": "sha256:5d9d4d7f16a0bec62eba0e1da25918ef693712095f03c8d1ebc69ac8dbfb7532"
+      },
+      "release": "2.0.0",
+      "created_at": "2026-10-25T09:12:00Z"
+    },
+    {
+      "project_id": 102,
+      "pipeline_id": 8005,
+      "commit_sha": "b2b1c49ee2c7672b392b679411649ef1d2070a40",
+      "sbom_job_id": 12005,
+      "sbom_path": "sbom.cdx.json",
+      "subject": {
+        "type": "container-image",
+        "digest": "sha256:6bcbadf224befa5f3910210561404cf46e45590127463dd089302ec939ef7453"
+      },
+      "release": "3.3.0",
+      "created_at": "2026-10-25T09:12:00Z"
+    },
+    {
+      "project_id": 102,
+      "pipeline_id": 8006,
+      "commit_sha": "4527cbc18bee909621af2629114e7bc67c7f0615",
+      "sbom_job_id": 12006,
+      "sbom_path": "sbom.cdx.json",
+      "subject": {
+        "type": "container-image",
+        "digest": "sha256:531dba64b2c4dc15a7d7f96b299bab3ca6bb5c335eb0c17770a3b74b90930b22"
+      },
+      "release": "3.2.0",
+      "created_at": "2026-10-25T09:12:00Z"
+    },
+    {
+      "project_id": 102,
+      "pipeline_id": 8007,
+      "commit_sha": "14d483c056506afd7461600ed8b5349c3c01e651",
+      "sbom_job_id": 12007,
+      "sbom_path": "sbom.cdx.json",
+      "subject": {
+        "type": "container-image",
+        "digest": "sha256:28307f2bc7a19a5eebc8456038f879aa69c229b77a26e4e83bd5890d4eca5661"
+      },
+      "release": "3.1.0",
+      "created_at": "2026-10-25T09:12:00Z"
+    },
+    {
+      "project_id": 102,
+      "pipeline_id": 8008,
+      "commit_sha": "89ac3e656e85120a5e7e8c9ec4cb843933bd571c",
+      "sbom_job_id": 12008,
+      "sbom_path": "sbom.cdx.json",
+      "subject": {
+        "type": "container-image",
+        "digest": "sha256:dc18e454a4c1ea29749f07f456424ab06b311307db61d67f0b61ce6805b58b0c"
+      },
+      "release": "3.0.0",
+      "created_at": "2026-10-25T09:12:00Z"
+    },
+    {
+      "project_id": 103,
+      "pipeline_id": 8009,
+      "commit_sha": "d95eba692d8eedebfba4ced3bad045ea526c39bd",
+      "sbom_job_id": 12009,
+      "sbom_path": "sbom.cdx.json",
+      "subject": {
+        "type": "lambda-code-sha256",
+        "digest": "6Sd41hm5A+xJq6AD7bJEkmZfijseXWWIel3ic9lK55E="
+      },
+      "release": "4.3.0",
+      "created_at": "2026-10-25T09:12:00Z"
+    },
+    {
+      "project_id": 103,
+      "pipeline_id": 8010,
+      "commit_sha": "6bb0fe4d82d77f7057e23cae96ba6cf2aec18e46",
+      "sbom_job_id": 12010,
+      "sbom_path": "sbom.cdx.json",
+      "subject": {
+        "type": "lambda-code-sha256",
+        "digest": "eSZZBUpUwWVVuc7krH4odb0WTrgHfdC6uUaqksfzWdA="
+      },
+      "release": "4.2.0",
+      "created_at": "2026-10-25T09:12:00Z"
+    },
+    {
+      "project_id": 103,
+      "pipeline_id": 8011,
+      "commit_sha": "256cb07271635a2257d34118e3f0ad9e6ebf7167",
+      "sbom_job_id": 12011,
+      "sbom_path": "sbom.cdx.json",
+      "subject": {
+        "type": "lambda-code-sha256",
+        "digest": "kupkqc1DSDzJwFr/fpOgNN/0IwwA+PaqrQXhPAIh0sI="
+      },
+      "release": "4.1.0",
+      "created_at": "2026-10-25T09:12:00Z"
+    },
+    {
+      "project_id": 201,
+      "pipeline_id": 8012,
+      "commit_sha": "0cda85a786a44fbdafa746b3757baeb6cbc7d667",
+      "sbom_job_id": 12012,
+      "sbom_path": "sbom.cdx.json",
+      "subject": {
+        "type": "container-image",
+        "digest": "sha256:96cc22f048ff36f9a42398e18be71b192a05c74680020c994ac51a5aad2e568a"
+      },
+      "release": "2.3.0",
+      "created_at": "2026-10-25T09:12:00Z"
+    },
+    {
+      "project_id": 201,
+      "pipeline_id": 8013,
+      "commit_sha": "55d124d6da0036570ccfe71b1b5b29fbf07487a2",
+      "sbom_job_id": 12013,
+      "sbom_path": "sbom.cdx.json",
+      "subject": {
+        "type": "container-image",
+        "digest": "sha256:b933d626d13e4c1b093384d5026bf7ed58a51e7a5d63f418f47bbe1e8556d8eb"
+      },
+      "release": "2.2.0",
+      "created_at": "2026-10-25T09:12:00Z"
+    },
+    {
+      "project_id": 201,
+      "pipeline_id": 8014,
+      "commit_sha": "2fd7d124d7062a5fa0dd47ae087af8bd1057c46e",
+      "sbom_job_id": 12014,
+      "sbom_path": "sbom.cdx.json",
+      "subject": {
+        "type": "container-image",
+        "digest": "sha256:2d6527fe42418bb774b8829d0dca6750e43053e80f94c9c193d238454de9d582"
+      },
+      "release": "2.1.0",
+      "created_at": "2026-10-25T09:12:00Z"
+    },
+    {
+      "project_id": 202,
+      "pipeline_id": 8015,
+      "commit_sha": "589f40a7928c58a08e783f3eda0d34f1c1fadd6e",
+      "sbom_job_id": 12015,
+      "sbom_path": "sbom.cdx.json",
+      "subject": {
+        "type": "container-image",
+        "digest": "sha256:4c153321c157dae6fd6c599b9714c63bb7a6094930613e835079796cd71b65f7"
+      },
+      "release": "3.3.0",
+      "created_at": "2026-10-25T09:12:00Z"
+    },
+    {
+      "project_id": 202,
+      "pipeline_id": 8016,
+      "commit_sha": "777d68ca4ee97560b8fc48c67781e22339fdda2a",
+      "sbom_job_id": 12016,
+      "sbom_path": "sbom.cdx.json",
+      "subject": {
+        "type": "container-image",
+        "digest": "sha256:31c5ee8bc946d532f2f05504220a162cc071640237c785cbd2fecc380d1f6699"
+      },
+      "release": "3.2.0",
+      "created_at": "2026-10-25T09:12:00Z"
+    },
+    {
+      "project_id": 202,
+      "pipeline_id": 8017,
+      "commit_sha": "72c90a33843663465ccb8a758c245444d03a2470",
+      "sbom_job_id": 12017,
+      "sbom_path": "sbom.cdx.json",
+      "subject": {
+        "type": "container-image",
+        "digest": "sha256:51fe20152fddb1009a7a52ef5d4d1f6dc9e40c0c81dcef8ff1d56c9319bb2c9c"
+      },
+      "release": "3.1.0",
+      "created_at": "2026-10-25T09:12:00Z"
+    },
+    {
+      "project_id": 301,
+      "pipeline_id": 8018,
+      "commit_sha": "274eb5a748e446b094b6d0a2c9a105cf534f96cc",
+      "sbom_job_id": 12018,
+      "sbom_path": "sbom.cdx.json",
+      "subject": {
+        "type": "container-image",
+        "digest": "sha256:a15fb5231b76821393c460256d29e09ee08a7a000616d8b1f433c3224392561d"
+      },
+      "release": "2.3.0",
+      "created_at": "2026-10-25T09:12:00Z"
+    },
+    {
+      "project_id": 301,
+      "pipeline_id": 8019,
+      "commit_sha": "ede51695afd3dfdc4ff6de73a8cb7a6cf514bf31",
+      "sbom_job_id": 12019,
+      "sbom_path": "sbom.cdx.json",
+      "subject": {
+        "type": "container-image",
+        "digest": "sha256:854afa87db41a69d36f7d30b679bb50d403e13930358796d78bcc3cc674c32fa"
+      },
+      "release": "2.2.0",
+      "created_at": "2026-10-25T09:12:00Z"
+    },
+    {
+      "project_id": 301,
+      "pipeline_id": 8020,
+      "commit_sha": "3793b7d95ec1d854bc7a0aba7c95c1391de876e5",
+      "sbom_job_id": 12020,
+      "sbom_path": "sbom.cdx.json",
+      "subject": {
+        "type": "container-image",
+        "digest": "sha256:98fa7c4227930e3cbf66b1df08f0893bfa6c6539e4d2448094e62e2f148fb39c"
+      },
+      "release": "2.1.0",
+      "created_at": "2026-10-25T09:12:00Z"
+    },
+    {
+      "project_id": 302,
+      "pipeline_id": 8021,
+      "commit_sha": "c9aee3416b250b09bf4c7639fc43f50112085c33",
+      "sbom_job_id": 12021,
+      "sbom_path": "sbom.cdx.json",
+      "subject": {
+        "type": "container-image",
+        "digest": "sha256:700fce563047872befd89832e3ae6d02d941793d9a5a529ccfd2035aa4dbc5da"
+      },
+      "release": "3.3.0",
+      "created_at": "2026-10-25T09:12:00Z"
+    },
+    {
+      "project_id": 302,
+      "pipeline_id": 8022,
+      "commit_sha": "624c492624c29443b78a41bb088ef4ea68a9ffb0",
+      "sbom_job_id": 12022,
+      "sbom_path": "sbom.cdx.json",
+      "subject": {
+        "type": "container-image",
+        "digest": "sha256:4b4682e2d568a8091babe929b25d2e9e09d933b7b887d13413e93a0605827909"
+      },
+      "release": "3.2.0",
+      "created_at": "2026-10-25T09:12:00Z"
+    },
+    {
+      "project_id": 302,
+      "pipeline_id": 8023,
+      "commit_sha": "9253732f83c7c90ba73e435e01aec53c97fbba3e",
+      "sbom_job_id": 12023,
+      "sbom_path": "sbom.cdx.json",
+      "subject": {
+        "type": "container-image",
+        "digest": "sha256:1e3dc42f9e86255be616f9f1f098713597dea4dfa1a543f3eb367f230d079d84"
+      },
+      "release": "3.1.0",
+      "created_at": "2026-10-25T09:12:00Z"
+    },
+    {
+      "project_id": 401,
+      "pipeline_id": 8024,
+      "commit_sha": "9204870acd43c5c43255b0fdcc46e78ac8e28774",
+      "sbom_job_id": 12024,
+      "sbom_path": "sbom.cdx.json",
+      "subject": {
+        "type": "container-image",
+        "digest": "sha256:0d4af28deb20197acef878a6f89bd19a374580c75c0c01762f7e37161bfba899"
+      },
+      "release": "2.3.0",
+      "created_at": "2026-10-25T09:12:00Z"
+    },
+    {
+      "project_id": 401,
+      "pipeline_id": 8025,
+      "commit_sha": "c1f80d9a0e6a1fb130fb081fa864c87ee02ef7e8",
+      "sbom_job_id": 12025,
+      "sbom_path": "sbom.cdx.json",
+      "subject": {
+        "type": "container-image",
+        "digest": "sha256:908c3d921680b87a7db5630729b2d58a67bbbd11ed38e499968a01d04512ff84"
+      },
+      "release": "2.2.0",
+      "created_at": "2026-10-25T09:12:00Z"
+    },
+    {
+      "project_id": 401,
+      "pipeline_id": 8026,
+      "commit_sha": "755b2201229eb9b0c83cebed0e1a9875d60114cc",
+      "sbom_job_id": 12026,
+      "sbom_path": "sbom.cdx.json",
+      "subject": {
+        "type": "container-image",
+        "digest": "sha256:6ff673620d89ef4fe7523d287df083b9acf71fedd101cb9087feb017bf2edf28"
+      },
+      "release": "2.1.0",
+      "created_at": "2026-10-25T09:12:00Z"
+    },
+    {
+      "project_id": 402,
+      "pipeline_id": 8027,
+      "commit_sha": "ba8542700df62b777da8ed5d914fb12f15956a89",
+      "sbom_job_id": 12027,
+      "sbom_path": "sbom.cdx.json",
+      "subject": {
+        "type": "container-image",
+        "digest": "sha256:23c5ac4b506fa67fd5d00467ac37fbd7d6b7587b4a177f64a52e79f61dbed848"
+      },
+      "release": "3.3.0",
+      "created_at": "2026-10-25T09:12:00Z"
+    },
+    {
+      "project_id": 402,
+      "pipeline_id": 8028,
+      "commit_sha": "a523e055b95f5d2ace64c0e381f298e0a4c121ab",
+      "sbom_job_id": 12028,
+      "sbom_path": "sbom.cdx.json",
+      "subject": {
+        "type": "container-image",
+        "digest": "sha256:2dc097f249f5bf376eae11bcb6735de9ab319057bd08bf2d6582b03c827477dd"
+      },
+      "release": "3.2.0",
+      "created_at": "2026-10-25T09:12:00Z"
+    },
+    {
+      "project_id": 402,
+      "pipeline_id": 8029,
+      "commit_sha": "81606d85e1256c6bbab1d21f524cd14b6c6537a8",
+      "sbom_job_id": 12029,
+      "sbom_path": "sbom.cdx.json",
+      "subject": {
+        "type": "container-image",
+        "digest": "sha256:f677b0e5971c344ffcce5e192dbc4e075610fc4999bf89c01d5b57e92c3af2c9"
+      },
+      "release": "3.1.0",
+      "created_at": "2026-10-25T09:12:00Z"
+    }
+  ],
+  "sbomArtifacts": [
+    {
+      "project_id": 101,
+      "job_id": 12001,
+      "path": "sbom.cdx.json",
+      "response": {
+        "bomFormat": "CycloneDX",
+        "specVersion": "1.5",
+        "version": 1,
+        "metadata": {
+          "timestamp": "2026-10-25T09:10:00Z",
+          "component": {
+            "bom-ref": "application",
+            "type": "application",
+            "name": "customer-api",
+            "version": "2.3.0"
+          }
+        },
+        "components": [
+          {
+            "bom-ref": "runtime",
+            "type": "platform",
+            "name": "python",
+            "version": "3.12.7",
+            "description": "Synthetic runtime recorded in this image SBOM",
+            "properties": [
+              {
+                "name": "bomscope:role",
+                "value": "runtime"
+              }
+            ]
+          },
+          {
+            "bom-ref": "fastapi",
+            "type": "library",
+            "group": "",
+            "name": "fastapi",
+            "version": "0.115.2",
+            "purl": "pkg:pypi/fastapi@0.115.2",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          },
+          {
+            "bom-ref": "requests",
+            "type": "library",
+            "group": "",
+            "name": "requests",
+            "version": "2.32.3",
+            "purl": "pkg:pypi/requests@2.32.3",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          },
+          {
+            "bom-ref": "urllib3",
+            "type": "library",
+            "group": "",
+            "name": "urllib3",
+            "version": "2.2.3",
+            "purl": "pkg:pypi/urllib3@2.2.3",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          }
+        ],
+        "dependencies": [
+          {
+            "ref": "application",
+            "dependsOn": [
+              "runtime",
+              "fastapi",
+              "requests"
+            ]
+          },
+          {
+            "ref": "requests",
+            "dependsOn": [
+              "urllib3"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "project_id": 101,
+      "job_id": 12002,
+      "path": "sbom.cdx.json",
+      "response": {
+        "bomFormat": "CycloneDX",
+        "specVersion": "1.5",
+        "version": 1,
+        "metadata": {
+          "timestamp": "2026-10-25T09:10:00Z",
+          "component": {
+            "bom-ref": "application",
+            "type": "application",
+            "name": "customer-api",
+            "version": "2.2.0"
+          }
+        },
+        "components": [
+          {
+            "bom-ref": "runtime",
+            "type": "platform",
+            "name": "python",
+            "version": "3.11.10",
+            "description": "Synthetic runtime recorded in this image SBOM",
+            "properties": [
+              {
+                "name": "bomscope:role",
+                "value": "runtime"
+              }
+            ]
+          },
+          {
+            "bom-ref": "fastapi",
+            "type": "library",
+            "group": "",
+            "name": "fastapi",
+            "version": "0.112.2",
+            "purl": "pkg:pypi/fastapi@0.112.2",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          },
+          {
+            "bom-ref": "requests",
+            "type": "library",
+            "group": "",
+            "name": "requests",
+            "version": "2.32.3",
+            "purl": "pkg:pypi/requests@2.32.3",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          },
+          {
+            "bom-ref": "urllib3",
+            "type": "library",
+            "group": "",
+            "name": "urllib3",
+            "version": "2.2.3",
+            "purl": "pkg:pypi/urllib3@2.2.3",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          }
+        ],
+        "dependencies": [
+          {
+            "ref": "application",
+            "dependsOn": [
+              "runtime",
+              "fastapi",
+              "requests"
+            ]
+          },
+          {
+            "ref": "requests",
+            "dependsOn": [
+              "urllib3"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "project_id": 101,
+      "job_id": 12003,
+      "path": "sbom.cdx.json",
+      "response": {
+        "bomFormat": "CycloneDX",
+        "specVersion": "1.5",
+        "version": 1,
+        "metadata": {
+          "timestamp": "2026-10-25T09:10:00Z",
+          "component": {
+            "bom-ref": "application",
+            "type": "application",
+            "name": "customer-api",
+            "version": "2.1.0"
+          }
+        },
+        "components": [
+          {
+            "bom-ref": "runtime",
+            "type": "platform",
+            "name": "python",
+            "version": "3.10.15",
+            "description": "Synthetic runtime recorded in this image SBOM",
+            "properties": [
+              {
+                "name": "bomscope:role",
+                "value": "runtime"
+              }
+            ]
+          },
+          {
+            "bom-ref": "fastapi",
+            "type": "library",
+            "group": "",
+            "name": "fastapi",
+            "version": "0.103.2",
+            "purl": "pkg:pypi/fastapi@0.103.2",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          },
+          {
+            "bom-ref": "requests",
+            "type": "library",
+            "group": "",
+            "name": "requests",
+            "version": "2.31.0",
+            "purl": "pkg:pypi/requests@2.31.0",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          },
+          {
+            "bom-ref": "urllib3",
+            "type": "library",
+            "group": "",
+            "name": "urllib3",
+            "version": "1.26.18",
+            "purl": "pkg:pypi/urllib3@1.26.18",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          }
+        ],
+        "dependencies": [
+          {
+            "ref": "application",
+            "dependsOn": [
+              "runtime",
+              "fastapi",
+              "requests"
+            ]
+          },
+          {
+            "ref": "requests",
+            "dependsOn": [
+              "urllib3"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "project_id": 101,
+      "job_id": 12004,
+      "path": "sbom.cdx.json",
+      "response": {
+        "bomFormat": "CycloneDX",
+        "specVersion": "1.5",
+        "version": 1,
+        "metadata": {
+          "timestamp": "2026-10-25T09:10:00Z",
+          "component": {
+            "bom-ref": "application",
+            "type": "application",
+            "name": "customer-api",
+            "version": "2.0.0"
+          }
+        },
+        "components": [
+          {
+            "bom-ref": "runtime",
+            "type": "platform",
+            "name": "python",
+            "version": "3.10.14",
+            "description": "Synthetic runtime recorded in this image SBOM",
+            "properties": [
+              {
+                "name": "bomscope:role",
+                "value": "runtime"
+              }
+            ]
+          },
+          {
+            "bom-ref": "fastapi",
+            "type": "library",
+            "group": "",
+            "name": "fastapi",
+            "version": "0.103.2",
+            "purl": "pkg:pypi/fastapi@0.103.2",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          },
+          {
+            "bom-ref": "requests",
+            "type": "library",
+            "group": "",
+            "name": "requests",
+            "version": "2.31.0",
+            "purl": "pkg:pypi/requests@2.31.0",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          },
+          {
+            "bom-ref": "urllib3",
+            "type": "library",
+            "group": "",
+            "name": "urllib3",
+            "version": "1.26.18",
+            "purl": "pkg:pypi/urllib3@1.26.18",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          }
+        ],
+        "dependencies": [
+          {
+            "ref": "application",
+            "dependsOn": [
+              "runtime",
+              "fastapi",
+              "requests"
+            ]
+          },
+          {
+            "ref": "requests",
+            "dependsOn": [
+              "urllib3"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "project_id": 102,
+      "job_id": 12005,
+      "path": "sbom.cdx.json",
+      "response": {
+        "bomFormat": "CycloneDX",
+        "specVersion": "1.5",
+        "version": 1,
+        "metadata": {
+          "timestamp": "2026-10-25T09:10:00Z",
+          "component": {
+            "bom-ref": "application",
+            "type": "application",
+            "name": "customer-web",
+            "version": "3.3.0"
+          }
+        },
+        "components": [
+          {
+            "bom-ref": "runtime",
+            "type": "platform",
+            "name": "nodejs",
+            "version": "22.10.0",
+            "description": "Synthetic runtime recorded in this image SBOM",
+            "properties": [
+              {
+                "name": "bomscope:role",
+                "value": "runtime"
+              }
+            ]
+          },
+          {
+            "bom-ref": "express",
+            "type": "library",
+            "group": "",
+            "name": "express",
+            "version": "4.21.1",
+            "purl": "pkg:npm/express@4.21.1",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          },
+          {
+            "bom-ref": "lodash",
+            "type": "library",
+            "group": "",
+            "name": "lodash",
+            "version": "4.17.21",
+            "purl": "pkg:npm/lodash@4.17.21",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          },
+          {
+            "bom-ref": "react",
+            "type": "library",
+            "group": "",
+            "name": "react",
+            "version": "18.3.1",
+            "purl": "pkg:npm/react@18.3.1",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          }
+        ],
+        "dependencies": [
+          {
+            "ref": "application",
+            "dependsOn": [
+              "runtime",
+              "express",
+              "lodash",
+              "react"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "project_id": 102,
+      "job_id": 12006,
+      "path": "sbom.cdx.json",
+      "response": {
+        "bomFormat": "CycloneDX",
+        "specVersion": "1.5",
+        "version": 1,
+        "metadata": {
+          "timestamp": "2026-10-25T09:10:00Z",
+          "component": {
+            "bom-ref": "application",
+            "type": "application",
+            "name": "customer-web",
+            "version": "3.2.0"
+          }
+        },
+        "components": [
+          {
+            "bom-ref": "runtime",
+            "type": "platform",
+            "name": "nodejs",
+            "version": "20.18.0",
+            "description": "Synthetic runtime recorded in this image SBOM",
+            "properties": [
+              {
+                "name": "bomscope:role",
+                "value": "runtime"
+              }
+            ]
+          },
+          {
+            "bom-ref": "express",
+            "type": "library",
+            "group": "",
+            "name": "express",
+            "version": "4.21.1",
+            "purl": "pkg:npm/express@4.21.1",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          },
+          {
+            "bom-ref": "lodash",
+            "type": "library",
+            "group": "",
+            "name": "lodash",
+            "version": "4.17.21",
+            "purl": "pkg:npm/lodash@4.17.21",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          },
+          {
+            "bom-ref": "react",
+            "type": "library",
+            "group": "",
+            "name": "react",
+            "version": "18.3.1",
+            "purl": "pkg:npm/react@18.3.1",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          }
+        ],
+        "dependencies": [
+          {
+            "ref": "application",
+            "dependsOn": [
+              "runtime",
+              "express",
+              "lodash",
+              "react"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "project_id": 102,
+      "job_id": 12007,
+      "path": "sbom.cdx.json",
+      "response": {
+        "bomFormat": "CycloneDX",
+        "specVersion": "1.5",
+        "version": 1,
+        "metadata": {
+          "timestamp": "2026-10-25T09:10:00Z",
+          "component": {
+            "bom-ref": "application",
+            "type": "application",
+            "name": "customer-web",
+            "version": "3.1.0"
+          }
+        },
+        "components": [
+          {
+            "bom-ref": "runtime",
+            "type": "platform",
+            "name": "nodejs",
+            "version": "18.20.4",
+            "description": "Synthetic runtime recorded in this image SBOM",
+            "properties": [
+              {
+                "name": "bomscope:role",
+                "value": "runtime"
+              }
+            ]
+          },
+          {
+            "bom-ref": "express",
+            "type": "library",
+            "group": "",
+            "name": "express",
+            "version": "4.18.2",
+            "purl": "pkg:npm/express@4.18.2",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          },
+          {
+            "bom-ref": "lodash",
+            "type": "library",
+            "group": "",
+            "name": "lodash",
+            "version": "4.17.20",
+            "purl": "pkg:npm/lodash@4.17.20",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          },
+          {
+            "bom-ref": "react",
+            "type": "library",
+            "group": "",
+            "name": "react",
+            "version": "18.2.0",
+            "purl": "pkg:npm/react@18.2.0",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          }
+        ],
+        "dependencies": [
+          {
+            "ref": "application",
+            "dependsOn": [
+              "runtime",
+              "express",
+              "lodash",
+              "react"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "project_id": 102,
+      "job_id": 12008,
+      "path": "sbom.cdx.json",
+      "response": {
+        "bomFormat": "CycloneDX",
+        "specVersion": "1.5",
+        "version": 1,
+        "metadata": {
+          "timestamp": "2026-10-25T09:10:00Z",
+          "component": {
+            "bom-ref": "application",
+            "type": "application",
+            "name": "customer-web",
+            "version": "3.0.0"
+          }
+        },
+        "components": [
+          {
+            "bom-ref": "runtime",
+            "type": "platform",
+            "name": "nodejs",
+            "version": "18.20.3",
+            "description": "Synthetic runtime recorded in this image SBOM",
+            "properties": [
+              {
+                "name": "bomscope:role",
+                "value": "runtime"
+              }
+            ]
+          },
+          {
+            "bom-ref": "express",
+            "type": "library",
+            "group": "",
+            "name": "express",
+            "version": "4.18.2",
+            "purl": "pkg:npm/express@4.18.2",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          },
+          {
+            "bom-ref": "lodash",
+            "type": "library",
+            "group": "",
+            "name": "lodash",
+            "version": "4.17.20",
+            "purl": "pkg:npm/lodash@4.17.20",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          },
+          {
+            "bom-ref": "react",
+            "type": "library",
+            "group": "",
+            "name": "react",
+            "version": "18.2.0",
+            "purl": "pkg:npm/react@18.2.0",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          }
+        ],
+        "dependencies": [
+          {
+            "ref": "application",
+            "dependsOn": [
+              "runtime",
+              "express",
+              "lodash",
+              "react"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "project_id": 103,
+      "job_id": 12009,
+      "path": "sbom.cdx.json",
+      "response": {
+        "bomFormat": "CycloneDX",
+        "specVersion": "1.5",
+        "version": 1,
+        "metadata": {
+          "timestamp": "2026-10-25T09:10:00Z",
+          "component": {
+            "bom-ref": "application",
+            "type": "application",
+            "name": "notification-handler",
+            "version": "4.3.0"
+          }
+        },
+        "components": [
+          {
+            "bom-ref": "requests",
+            "type": "library",
+            "group": "",
+            "name": "requests",
+            "version": "2.32.3",
+            "purl": "pkg:pypi/requests@2.32.3",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          },
+          {
+            "bom-ref": "boto3",
+            "type": "library",
+            "group": "",
+            "name": "boto3",
+            "version": "1.35.40",
+            "purl": "pkg:pypi/boto3@1.35.40",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          }
+        ],
+        "dependencies": [
+          {
+            "ref": "application",
+            "dependsOn": [
+              "requests",
+              "boto3"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "project_id": 103,
+      "job_id": 12010,
+      "path": "sbom.cdx.json",
+      "response": {
+        "bomFormat": "CycloneDX",
+        "specVersion": "1.5",
+        "version": 1,
+        "metadata": {
+          "timestamp": "2026-10-25T09:10:00Z",
+          "component": {
+            "bom-ref": "application",
+            "type": "application",
+            "name": "notification-handler",
+            "version": "4.2.0"
+          }
+        },
+        "components": [
+          {
+            "bom-ref": "requests",
+            "type": "library",
+            "group": "",
+            "name": "requests",
+            "version": "2.32.3",
+            "purl": "pkg:pypi/requests@2.32.3",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          },
+          {
+            "bom-ref": "boto3",
+            "type": "library",
+            "group": "",
+            "name": "boto3",
+            "version": "1.35.40",
+            "purl": "pkg:pypi/boto3@1.35.40",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          }
+        ],
+        "dependencies": [
+          {
+            "ref": "application",
+            "dependsOn": [
+              "requests",
+              "boto3"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "project_id": 103,
+      "job_id": 12011,
+      "path": "sbom.cdx.json",
+      "response": {
+        "bomFormat": "CycloneDX",
+        "specVersion": "1.5",
+        "version": 1,
+        "metadata": {
+          "timestamp": "2026-10-25T09:10:00Z",
+          "component": {
+            "bom-ref": "application",
+            "type": "application",
+            "name": "notification-handler",
+            "version": "4.1.0"
+          }
+        },
+        "components": [
+          {
+            "bom-ref": "requests",
+            "type": "library",
+            "group": "",
+            "name": "requests",
+            "version": "2.31.0",
+            "purl": "pkg:pypi/requests@2.31.0",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          },
+          {
+            "bom-ref": "boto3",
+            "type": "library",
+            "group": "",
+            "name": "boto3",
+            "version": "1.34.10",
+            "purl": "pkg:pypi/boto3@1.34.10",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          }
+        ],
+        "dependencies": [
+          {
+            "ref": "application",
+            "dependsOn": [
+              "requests",
+              "boto3"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "project_id": 201,
+      "job_id": 12012,
+      "path": "sbom.cdx.json",
+      "response": {
+        "bomFormat": "CycloneDX",
+        "specVersion": "1.5",
+        "version": 1,
+        "metadata": {
+          "timestamp": "2026-10-25T09:10:00Z",
+          "component": {
+            "bom-ref": "application",
+            "type": "application",
+            "name": "payment-gateway",
+            "version": "2.3.0"
+          }
+        },
+        "components": [
+          {
+            "bom-ref": "runtime",
+            "type": "platform",
+            "name": "openjdk",
+            "version": "21.0.5",
+            "description": "Synthetic runtime recorded in this image SBOM",
+            "properties": [
+              {
+                "name": "bomscope:role",
+                "value": "runtime"
+              }
+            ]
+          },
+          {
+            "bom-ref": "spring-core",
+            "type": "library",
+            "group": "org.springframework",
+            "name": "spring-core",
+            "version": "6.1.14",
+            "purl": "pkg:maven/org.springframework/spring-core@6.1.14",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          },
+          {
+            "bom-ref": "log4j-core",
+            "type": "library",
+            "group": "org.apache.logging.log4j",
+            "name": "log4j-core",
+            "version": "2.24.1",
+            "purl": "pkg:maven/org.apache.logging.log4j/log4j-core@2.24.1",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          }
+        ],
+        "dependencies": [
+          {
+            "ref": "application",
+            "dependsOn": [
+              "runtime",
+              "spring-core",
+              "log4j-core"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "project_id": 201,
+      "job_id": 12013,
+      "path": "sbom.cdx.json",
+      "response": {
+        "bomFormat": "CycloneDX",
+        "specVersion": "1.5",
+        "version": 1,
+        "metadata": {
+          "timestamp": "2026-10-25T09:10:00Z",
+          "component": {
+            "bom-ref": "application",
+            "type": "application",
+            "name": "payment-gateway",
+            "version": "2.2.0"
+          }
+        },
+        "components": [
+          {
+            "bom-ref": "runtime",
+            "type": "platform",
+            "name": "openjdk",
+            "version": "21.0.4",
+            "description": "Synthetic runtime recorded in this image SBOM",
+            "properties": [
+              {
+                "name": "bomscope:role",
+                "value": "runtime"
+              }
+            ]
+          },
+          {
+            "bom-ref": "spring-core",
+            "type": "library",
+            "group": "org.springframework",
+            "name": "spring-core",
+            "version": "6.1.12",
+            "purl": "pkg:maven/org.springframework/spring-core@6.1.12",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          },
+          {
+            "bom-ref": "log4j-core",
+            "type": "library",
+            "group": "org.apache.logging.log4j",
+            "name": "log4j-core",
+            "version": "2.23.1",
+            "purl": "pkg:maven/org.apache.logging.log4j/log4j-core@2.23.1",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          }
+        ],
+        "dependencies": [
+          {
+            "ref": "application",
+            "dependsOn": [
+              "runtime",
+              "spring-core",
+              "log4j-core"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "project_id": 201,
+      "job_id": 12014,
+      "path": "sbom.cdx.json",
+      "response": {
+        "bomFormat": "CycloneDX",
+        "specVersion": "1.5",
+        "version": 1,
+        "metadata": {
+          "timestamp": "2026-10-25T09:10:00Z",
+          "component": {
+            "bom-ref": "application",
+            "type": "application",
+            "name": "payment-gateway",
+            "version": "2.1.0"
+          }
+        },
+        "components": [
+          {
+            "bom-ref": "runtime",
+            "type": "platform",
+            "name": "openjdk",
+            "version": "17.0.12",
+            "description": "Synthetic runtime recorded in this image SBOM",
+            "properties": [
+              {
+                "name": "bomscope:role",
+                "value": "runtime"
+              }
+            ]
+          },
+          {
+            "bom-ref": "spring-core",
+            "type": "library",
+            "group": "org.springframework",
+            "name": "spring-core",
+            "version": "6.0.13",
+            "purl": "pkg:maven/org.springframework/spring-core@6.0.13",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          },
+          {
+            "bom-ref": "log4j-core",
+            "type": "library",
+            "group": "org.apache.logging.log4j",
+            "name": "log4j-core",
+            "version": "2.17.1",
+            "purl": "pkg:maven/org.apache.logging.log4j/log4j-core@2.17.1",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          }
+        ],
+        "dependencies": [
+          {
+            "ref": "application",
+            "dependsOn": [
+              "runtime",
+              "spring-core",
+              "log4j-core"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "project_id": 202,
+      "job_id": 12015,
+      "path": "sbom.cdx.json",
+      "response": {
+        "bomFormat": "CycloneDX",
+        "specVersion": "1.5",
+        "version": 1,
+        "metadata": {
+          "timestamp": "2026-10-25T09:10:00Z",
+          "component": {
+            "bom-ref": "application",
+            "type": "application",
+            "name": "settlement-worker",
+            "version": "3.3.0"
+          }
+        },
+        "components": [
+          {
+            "bom-ref": "runtime",
+            "type": "platform",
+            "name": "openjdk",
+            "version": "21.0.5",
+            "description": "Synthetic runtime recorded in this image SBOM",
+            "properties": [
+              {
+                "name": "bomscope:role",
+                "value": "runtime"
+              }
+            ]
+          },
+          {
+            "bom-ref": "jackson-databind",
+            "type": "library",
+            "group": "com.fasterxml.jackson.core",
+            "name": "jackson-databind",
+            "version": "2.18.0",
+            "purl": "pkg:maven/com.fasterxml.jackson.core/jackson-databind@2.18.0",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          },
+          {
+            "bom-ref": "log4j-core",
+            "type": "library",
+            "group": "org.apache.logging.log4j",
+            "name": "log4j-core",
+            "version": "2.24.1",
+            "purl": "pkg:maven/org.apache.logging.log4j/log4j-core@2.24.1",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          }
+        ],
+        "dependencies": [
+          {
+            "ref": "application",
+            "dependsOn": [
+              "runtime",
+              "jackson-databind",
+              "log4j-core"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "project_id": 202,
+      "job_id": 12016,
+      "path": "sbom.cdx.json",
+      "response": {
+        "bomFormat": "CycloneDX",
+        "specVersion": "1.5",
+        "version": 1,
+        "metadata": {
+          "timestamp": "2026-10-25T09:10:00Z",
+          "component": {
+            "bom-ref": "application",
+            "type": "application",
+            "name": "settlement-worker",
+            "version": "3.2.0"
+          }
+        },
+        "components": [
+          {
+            "bom-ref": "runtime",
+            "type": "platform",
+            "name": "openjdk",
+            "version": "17.0.13",
+            "description": "Synthetic runtime recorded in this image SBOM",
+            "properties": [
+              {
+                "name": "bomscope:role",
+                "value": "runtime"
+              }
+            ]
+          },
+          {
+            "bom-ref": "jackson-databind",
+            "type": "library",
+            "group": "com.fasterxml.jackson.core",
+            "name": "jackson-databind",
+            "version": "2.17.2",
+            "purl": "pkg:maven/com.fasterxml.jackson.core/jackson-databind@2.17.2",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          },
+          {
+            "bom-ref": "log4j-core",
+            "type": "library",
+            "group": "org.apache.logging.log4j",
+            "name": "log4j-core",
+            "version": "2.23.1",
+            "purl": "pkg:maven/org.apache.logging.log4j/log4j-core@2.23.1",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          }
+        ],
+        "dependencies": [
+          {
+            "ref": "application",
+            "dependsOn": [
+              "runtime",
+              "jackson-databind",
+              "log4j-core"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "project_id": 202,
+      "job_id": 12017,
+      "path": "sbom.cdx.json",
+      "response": {
+        "bomFormat": "CycloneDX",
+        "specVersion": "1.5",
+        "version": 1,
+        "metadata": {
+          "timestamp": "2026-10-25T09:10:00Z",
+          "component": {
+            "bom-ref": "application",
+            "type": "application",
+            "name": "settlement-worker",
+            "version": "3.1.0"
+          }
+        },
+        "components": [
+          {
+            "bom-ref": "runtime",
+            "type": "platform",
+            "name": "openjdk",
+            "version": "17.0.12",
+            "description": "Synthetic runtime recorded in this image SBOM",
+            "properties": [
+              {
+                "name": "bomscope:role",
+                "value": "runtime"
+              }
+            ]
+          },
+          {
+            "bom-ref": "jackson-databind",
+            "type": "library",
+            "group": "com.fasterxml.jackson.core",
+            "name": "jackson-databind",
+            "version": "2.15.3",
+            "purl": "pkg:maven/com.fasterxml.jackson.core/jackson-databind@2.15.3",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          },
+          {
+            "bom-ref": "log4j-core",
+            "type": "library",
+            "group": "org.apache.logging.log4j",
+            "name": "log4j-core",
+            "version": "2.17.1",
+            "purl": "pkg:maven/org.apache.logging.log4j/log4j-core@2.17.1",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          }
+        ],
+        "dependencies": [
+          {
+            "ref": "application",
+            "dependsOn": [
+              "runtime",
+              "jackson-databind",
+              "log4j-core"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "project_id": 301,
+      "job_id": 12018,
+      "path": "sbom.cdx.json",
+      "response": {
+        "bomFormat": "CycloneDX",
+        "specVersion": "1.5",
+        "version": 1,
+        "metadata": {
+          "timestamp": "2026-10-25T09:10:00Z",
+          "component": {
+            "bom-ref": "application",
+            "type": "application",
+            "name": "event-ingestion",
+            "version": "2.3.0"
+          }
+        },
+        "components": [
+          {
+            "bom-ref": "runtime",
+            "type": "platform",
+            "name": "python",
+            "version": "3.12.7",
+            "description": "Synthetic runtime recorded in this image SBOM",
+            "properties": [
+              {
+                "name": "bomscope:role",
+                "value": "runtime"
+              }
+            ]
+          },
+          {
+            "bom-ref": "pandas",
+            "type": "library",
+            "group": "",
+            "name": "pandas",
+            "version": "2.2.3",
+            "purl": "pkg:pypi/pandas@2.2.3",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          },
+          {
+            "bom-ref": "requests",
+            "type": "library",
+            "group": "",
+            "name": "requests",
+            "version": "2.32.3",
+            "purl": "pkg:pypi/requests@2.32.3",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          }
+        ],
+        "dependencies": [
+          {
+            "ref": "application",
+            "dependsOn": [
+              "runtime",
+              "pandas",
+              "requests"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "project_id": 301,
+      "job_id": 12019,
+      "path": "sbom.cdx.json",
+      "response": {
+        "bomFormat": "CycloneDX",
+        "specVersion": "1.5",
+        "version": 1,
+        "metadata": {
+          "timestamp": "2026-10-25T09:10:00Z",
+          "component": {
+            "bom-ref": "application",
+            "type": "application",
+            "name": "event-ingestion",
+            "version": "2.2.0"
+          }
+        },
+        "components": [
+          {
+            "bom-ref": "runtime",
+            "type": "platform",
+            "name": "python",
+            "version": "3.11.10",
+            "description": "Synthetic runtime recorded in this image SBOM",
+            "properties": [
+              {
+                "name": "bomscope:role",
+                "value": "runtime"
+              }
+            ]
+          },
+          {
+            "bom-ref": "pandas",
+            "type": "library",
+            "group": "",
+            "name": "pandas",
+            "version": "2.2.2",
+            "purl": "pkg:pypi/pandas@2.2.2",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          },
+          {
+            "bom-ref": "requests",
+            "type": "library",
+            "group": "",
+            "name": "requests",
+            "version": "2.32.3",
+            "purl": "pkg:pypi/requests@2.32.3",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          }
+        ],
+        "dependencies": [
+          {
+            "ref": "application",
+            "dependsOn": [
+              "runtime",
+              "pandas",
+              "requests"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "project_id": 301,
+      "job_id": 12020,
+      "path": "sbom.cdx.json",
+      "response": {
+        "bomFormat": "CycloneDX",
+        "specVersion": "1.5",
+        "version": 1,
+        "metadata": {
+          "timestamp": "2026-10-25T09:10:00Z",
+          "component": {
+            "bom-ref": "application",
+            "type": "application",
+            "name": "event-ingestion",
+            "version": "2.1.0"
+          }
+        },
+        "components": [
+          {
+            "bom-ref": "runtime",
+            "type": "platform",
+            "name": "python",
+            "version": "3.11.9",
+            "description": "Synthetic runtime recorded in this image SBOM",
+            "properties": [
+              {
+                "name": "bomscope:role",
+                "value": "runtime"
+              }
+            ]
+          },
+          {
+            "bom-ref": "pandas",
+            "type": "library",
+            "group": "",
+            "name": "pandas",
+            "version": "2.1.4",
+            "purl": "pkg:pypi/pandas@2.1.4",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          },
+          {
+            "bom-ref": "requests",
+            "type": "library",
+            "group": "",
+            "name": "requests",
+            "version": "2.31.0",
+            "purl": "pkg:pypi/requests@2.31.0",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          }
+        ],
+        "dependencies": [
+          {
+            "ref": "application",
+            "dependsOn": [
+              "runtime",
+              "pandas",
+              "requests"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "project_id": 302,
+      "job_id": 12021,
+      "path": "sbom.cdx.json",
+      "response": {
+        "bomFormat": "CycloneDX",
+        "specVersion": "1.5",
+        "version": 1,
+        "metadata": {
+          "timestamp": "2026-10-25T09:10:00Z",
+          "component": {
+            "bom-ref": "application",
+            "type": "application",
+            "name": "report-builder",
+            "version": "3.3.0"
+          }
+        },
+        "components": [
+          {
+            "bom-ref": "runtime",
+            "type": "platform",
+            "name": "python",
+            "version": "3.12.7",
+            "description": "Synthetic runtime recorded in this image SBOM",
+            "properties": [
+              {
+                "name": "bomscope:role",
+                "value": "runtime"
+              }
+            ]
+          },
+          {
+            "bom-ref": "pandas",
+            "type": "library",
+            "group": "",
+            "name": "pandas",
+            "version": "2.2.3",
+            "purl": "pkg:pypi/pandas@2.2.3",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          },
+          {
+            "bom-ref": "numpy",
+            "type": "library",
+            "group": "",
+            "name": "numpy",
+            "version": "2.1.2",
+            "purl": "pkg:pypi/numpy@2.1.2",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          }
+        ],
+        "dependencies": [
+          {
+            "ref": "application",
+            "dependsOn": [
+              "runtime",
+              "pandas",
+              "numpy"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "project_id": 302,
+      "job_id": 12022,
+      "path": "sbom.cdx.json",
+      "response": {
+        "bomFormat": "CycloneDX",
+        "specVersion": "1.5",
+        "version": 1,
+        "metadata": {
+          "timestamp": "2026-10-25T09:10:00Z",
+          "component": {
+            "bom-ref": "application",
+            "type": "application",
+            "name": "report-builder",
+            "version": "3.2.0"
+          }
+        },
+        "components": [
+          {
+            "bom-ref": "runtime",
+            "type": "platform",
+            "name": "python",
+            "version": "3.11.10",
+            "description": "Synthetic runtime recorded in this image SBOM",
+            "properties": [
+              {
+                "name": "bomscope:role",
+                "value": "runtime"
+              }
+            ]
+          },
+          {
+            "bom-ref": "pandas",
+            "type": "library",
+            "group": "",
+            "name": "pandas",
+            "version": "2.2.2",
+            "purl": "pkg:pypi/pandas@2.2.2",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          },
+          {
+            "bom-ref": "numpy",
+            "type": "library",
+            "group": "",
+            "name": "numpy",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          }
+        ],
+        "dependencies": [
+          {
+            "ref": "application",
+            "dependsOn": [
+              "runtime",
+              "pandas",
+              "numpy"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "project_id": 401,
+      "job_id": 12024,
+      "path": "sbom.cdx.json",
+      "response": {
+        "bomFormat": "CycloneDX",
+        "specVersion": "1.5",
+        "version": 1,
+        "metadata": {
+          "timestamp": "2026-10-25T09:10:00Z",
+          "component": {
+            "bom-ref": "application",
+            "type": "application",
+            "name": "operations-portal",
+            "version": "2.3.0"
+          }
+        },
+        "components": [
+          {
+            "bom-ref": "runtime",
+            "type": "platform",
+            "name": "nodejs",
+            "version": "22.10.0",
+            "description": "Synthetic runtime recorded in this image SBOM",
+            "properties": [
+              {
+                "name": "bomscope:role",
+                "value": "runtime"
+              }
+            ]
+          },
+          {
+            "bom-ref": "express",
+            "type": "library",
+            "group": "",
+            "name": "express",
+            "version": "4.21.1",
+            "purl": "pkg:npm/express@4.21.1",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          },
+          {
+            "bom-ref": "lodash",
+            "type": "library",
+            "group": "",
+            "name": "lodash",
+            "version": "4.17.21",
+            "purl": "pkg:npm/lodash@4.17.21",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          }
+        ],
+        "dependencies": [
+          {
+            "ref": "application",
+            "dependsOn": [
+              "runtime",
+              "express",
+              "lodash"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "project_id": 401,
+      "job_id": 12025,
+      "path": "sbom.cdx.json",
+      "response": {
+        "bomFormat": "CycloneDX",
+        "specVersion": "1.5",
+        "version": 1,
+        "metadata": {
+          "timestamp": "2026-10-25T09:10:00Z",
+          "component": {
+            "bom-ref": "application",
+            "type": "application",
+            "name": "operations-portal",
+            "version": "2.2.0"
+          }
+        },
+        "components": [
+          {
+            "bom-ref": "runtime",
+            "type": "platform",
+            "name": "nodejs",
+            "version": "20.18.0",
+            "description": "Synthetic runtime recorded in this image SBOM",
+            "properties": [
+              {
+                "name": "bomscope:role",
+                "value": "runtime"
+              }
+            ]
+          },
+          {
+            "bom-ref": "express",
+            "type": "library",
+            "group": "",
+            "name": "express",
+            "version": "4.21.1",
+            "purl": "pkg:npm/express@4.21.1",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          },
+          {
+            "bom-ref": "lodash",
+            "type": "library",
+            "group": "",
+            "name": "lodash",
+            "version": "4.17.21",
+            "purl": "pkg:npm/lodash@4.17.21",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          }
+        ],
+        "dependencies": [
+          {
+            "ref": "application",
+            "dependsOn": [
+              "runtime",
+              "express",
+              "lodash"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "project_id": 401,
+      "job_id": 12026,
+      "path": "sbom.cdx.json",
+      "response": {
+        "bomFormat": "CycloneDX",
+        "specVersion": "1.5",
+        "version": 1,
+        "metadata": {
+          "timestamp": "2026-10-25T09:10:00Z",
+          "component": {
+            "bom-ref": "application",
+            "type": "application",
+            "name": "operations-portal",
+            "version": "2.1.0"
+          }
+        },
+        "components": [
+          {
+            "bom-ref": "runtime",
+            "type": "platform",
+            "name": "nodejs",
+            "version": "20.17.0",
+            "description": "Synthetic runtime recorded in this image SBOM",
+            "properties": [
+              {
+                "name": "bomscope:role",
+                "value": "runtime"
+              }
+            ]
+          },
+          {
+            "bom-ref": "express",
+            "type": "library",
+            "group": "",
+            "name": "express",
+            "version": "4.19.2",
+            "purl": "pkg:npm/express@4.19.2",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          },
+          {
+            "bom-ref": "lodash",
+            "type": "library",
+            "group": "",
+            "name": "lodash",
+            "version": "4.17.21",
+            "purl": "pkg:npm/lodash@4.17.21",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          }
+        ],
+        "dependencies": [
+          {
+            "ref": "application",
+            "dependsOn": [
+              "runtime",
+              "express",
+              "lodash"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "project_id": 402,
+      "job_id": 12027,
+      "path": "sbom.cdx.json",
+      "response": {
+        "bomFormat": "CycloneDX",
+        "specVersion": "1.5",
+        "version": 1,
+        "metadata": {
+          "timestamp": "2026-10-25T09:10:00Z",
+          "component": {
+            "bom-ref": "application",
+            "type": "application",
+            "name": "legacy-batch",
+            "version": "3.3.0"
+          }
+        },
+        "components": [
+          {
+            "bom-ref": "runtime",
+            "type": "platform",
+            "name": "python",
+            "version": "3.11.10",
+            "description": "Synthetic runtime recorded in this image SBOM",
+            "properties": [
+              {
+                "name": "bomscope:role",
+                "value": "runtime"
+              }
+            ]
+          },
+          {
+            "bom-ref": "requests",
+            "type": "library",
+            "group": "",
+            "name": "requests",
+            "version": "2.32.3",
+            "purl": "pkg:pypi/requests@2.32.3",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          },
+          {
+            "bom-ref": "urllib3",
+            "type": "library",
+            "group": "",
+            "name": "urllib3",
+            "version": "2.2.3",
+            "purl": "pkg:pypi/urllib3@2.2.3",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          }
+        ],
+        "dependencies": [
+          {
+            "ref": "application",
+            "dependsOn": [
+              "runtime",
+              "requests"
+            ]
+          },
+          {
+            "ref": "requests",
+            "dependsOn": [
+              "urllib3"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "project_id": 402,
+      "job_id": 12028,
+      "path": "sbom.cdx.json",
+      "response": {
+        "bomFormat": "CycloneDX",
+        "specVersion": "1.5",
+        "version": 1,
+        "metadata": {
+          "timestamp": "2026-10-25T09:10:00Z",
+          "component": {
+            "bom-ref": "application",
+            "type": "application",
+            "name": "legacy-batch",
+            "version": "3.2.0"
+          }
+        },
+        "components": [
+          {
+            "bom-ref": "runtime",
+            "type": "platform",
+            "name": "python",
+            "version": "3.9.20",
+            "description": "Synthetic runtime recorded in this image SBOM",
+            "properties": [
+              {
+                "name": "bomscope:role",
+                "value": "runtime"
+              }
+            ]
+          },
+          {
+            "bom-ref": "requests",
+            "type": "library",
+            "group": "",
+            "name": "requests",
+            "version": "2.31.0",
+            "purl": "pkg:pypi/requests@2.31.0",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          },
+          {
+            "bom-ref": "urllib3",
+            "type": "library",
+            "group": "",
+            "name": "urllib3",
+            "version": "1.26.18",
+            "purl": "pkg:pypi/urllib3@1.26.18",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          }
+        ],
+        "dependencies": [
+          {
+            "ref": "application",
+            "dependsOn": [
+              "runtime",
+              "requests"
+            ]
+          },
+          {
+            "ref": "requests",
+            "dependsOn": [
+              "urllib3"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "project_id": 402,
+      "job_id": 12029,
+      "path": "sbom.cdx.json",
+      "response": {
+        "bomFormat": "CycloneDX",
+        "specVersion": "1.5",
+        "version": 1,
+        "metadata": {
+          "timestamp": "2026-10-25T09:10:00Z",
+          "component": {
+            "bom-ref": "application",
+            "type": "application",
+            "name": "legacy-batch",
+            "version": "3.1.0"
+          }
+        },
+        "components": [
+          {
+            "bom-ref": "runtime",
+            "type": "platform",
+            "name": "python",
+            "version": "3.9.18",
+            "description": "Synthetic runtime recorded in this image SBOM",
+            "properties": [
+              {
+                "name": "bomscope:role",
+                "value": "runtime"
+              }
+            ]
+          },
+          {
+            "bom-ref": "requests",
+            "type": "library",
+            "group": "",
+            "name": "requests",
+            "version": "2.28.2",
+            "purl": "pkg:pypi/requests@2.28.2",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          },
+          {
+            "bom-ref": "urllib3",
+            "type": "library",
+            "group": "",
+            "name": "urllib3",
+            "version": "1.26.16",
+            "purl": "pkg:pypi/urllib3@1.26.16",
+            "licenses": [
+              {
+                "license": {
+                  "id": "Apache-2.0"
+                }
+              }
+            ]
+          }
+        ],
+        "dependencies": [
+          {
+            "ref": "application",
+            "dependsOn": [
+              "runtime",
+              "requests"
+            ]
+          },
+          {
+            "ref": "requests",
+            "dependsOn": [
+              "urllib3"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "rollout",
+      "description": "Atlas prod has two customer-api and two customer-web digests with different runtime/library versions."
+    },
+    {
+      "id": "lambda-family",
+      "description": "Lambda supplies python3.11 / python3.12 only; its SBOM describes code libraries, not an exact managed runtime patch."
+    },
+    {
+      "id": "ssm",
+      "description": "Harbor EC2 versions are installed software observations. App tags do not attest which binaries the application executes."
+    },
+    {
+      "id": "missing-sbom",
+      "description": "Beacon report-builder prod has a known build manifest but no captured SBOM artifact."
+    },
+    {
+      "id": "unknown-digest",
+      "description": "A second report-builder prod task has an unrecognized digest, despite using a familiar image tag."
+    },
+    {
+      "id": "mutable-tag",
+      "description": "Harbor UAT has an image tag but no observed digest; no version is inferred from a latest build."
+    },
+    {
+      "id": "missing-version",
+      "description": "NumPy in Beacon UAT is recorded without a version or versioned purl."
+    },
+    {
+      "id": "unmapped",
+      "description": "An orphan ECS task has no business application/project tags and remains unassigned."
+    }
+  ]
+}
