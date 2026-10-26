@@ -1,5 +1,7 @@
 # Simulated application deployment model
 
+For concrete authentication, endpoints, requests, and cross-system joins, see [Connecting through official APIs](official-api-integration-guide.md).
+
 This proof of concept uses only fictional data. There are no ServiceNow, GitLab, or AWS account connections. The browser fetches a bundled JSON fixture from the same static host. All joins and version queries run locally.
 
 The fixture contains four business applications, nine GitLab projects, 31 running workloads across dev/UAT/prod, 29 build manifests, and 28 synthetic CycloneDX SBOMs. A stopped ECS task is included in the source snapshot and excluded from deployed inventory.

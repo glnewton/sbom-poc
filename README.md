@@ -21,6 +21,12 @@ Try **Atlas Customer Platform → prod → customer-api → Python < 3.11**. The
 
 All records are synthetic. Missing artifact evidence, partial Lambda runtime versions, and EC2 installed-software observations are explicitly labeled. See [the data model and correlation rules](docs/simulated-data-model.md) for source schemas, limitations, and instructions to extend the simulation. Regenerate the fixture with `npm run demo:generate`.
 
+## Connect the real systems using official APIs
+
+Start with [the official API integration guide](docs/official-api-integration-guide.md). It provides authentication and read permissions, ServiceNow application/relationship requests, GitLab build and exact-job SBOM downloads, AWS ECS/Lambda/EC2/SSM commands, and a field-by-field join from a deployed asset to its component versions. It explains the build-manifest bridge and the organization-specific mappings that the vendors do not supply automatically.
+
+The site remains a synthetic proof of concept. The guide is an implementation walkthrough; live credentials, collectors, and a real-data loading mode have not been added.
+
 ## Data mapping and integration concepts
 
 The stable connection is **business application → deployable service → source/build → immutable artifact → observed workload/environment → SBOM component version**. Real organizations can express each relationship through different CMDB classes, custom fields, association tables, tags, repository layouts, and environment names.

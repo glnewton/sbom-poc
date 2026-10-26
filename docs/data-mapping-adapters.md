@@ -1,5 +1,7 @@
 # Data mapping adapter design
 
+For concrete authentication, endpoints, requests, and cross-system joins, see [Connecting through official APIs](official-api-integration-guide.md).
+
 This is technical design guidance for moving from the simulation to organization-specific integrations. **Mapping profiles and live API collectors described here are proposed, not implemented.** The current executable adapter is hard-coded in [`dist/enterprise/model.js`](../dist/enterprise/model.js) and accepts the fixture described in [Simulated data model](simulated-data-model.md).
 
 Read [Data mapping concepts](data-mapping-concepts.md) for entity meanings, cardinalities, evidence limits, and identity rules.

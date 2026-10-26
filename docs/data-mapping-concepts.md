@@ -1,5 +1,7 @@
 # Data mapping concepts
 
+For concrete authentication, endpoints, requests, and cross-system joins, see [Connecting through official APIs](official-api-integration-guide.md).
+
 The question is: **For a business application, which language/runtime and library versions are associated with the workloads observed in each environment, and what evidence supports that answer?**
 
 Real APIs provide the records, but an organization's fields, CMDB classes, tags, repository layout, and environment names determine how those records connect. Keep the business concepts stable while adapting their source representations.
