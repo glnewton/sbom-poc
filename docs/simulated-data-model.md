@@ -4,6 +4,8 @@ This proof of concept uses only fictional data. There are no ServiceNow, GitLab,
 
 The fixture contains four business applications, nine GitLab projects, 31 running workloads across dev/UAT/prod, 29 build manifests, and 28 synthetic CycloneDX SBOMs. A stopped ECS task is included in the source snapshot and excluded from deployed inventory.
 
+For the vendor-independent concepts and organization-specific variations, read [Data mapping concepts](data-mapping-concepts.md) and [Data mapping adapter design](data-mapping-adapters.md). The fields below describe the current fixture, not mandatory production schemas.
+
 ## Source responsibilities
 
 | Source | API model | Evidence supplied |

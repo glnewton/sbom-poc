@@ -21,6 +21,18 @@ Try **Atlas Customer Platform → prod → customer-api → Python < 3.11**. The
 
 All records are synthetic. Missing artifact evidence, partial Lambda runtime versions, and EC2 installed-software observations are explicitly labeled. See [the data model and correlation rules](docs/simulated-data-model.md) for source schemas, limitations, and instructions to extend the simulation. Regenerate the fixture with `npm run demo:generate`.
 
+## Data mapping and integration concepts
+
+The stable connection is **business application → deployable service → source/build → immutable artifact → observed workload/environment → SBOM component version**. Real organizations can express each relationship through different CMDB classes, custom fields, association tables, tags, repository layouts, and environment names.
+
+Use native ServiceNow, GitLab, and AWS API evidence where available, with organization-specific adapters translating it into these shared concepts. A mapping must preserve identity scope, provenance, time, and unresolved or conflicting evidence; matching a display name alone does not establish an exact deployed version.
+
+- [Data mapping concepts](docs/data-mapping-concepts.md): conceptual diagram, entities, cardinalities, scoped identities, environment meaning, and what version evidence can establish.
+- [Data mapping adapter design](docs/data-mapping-adapters.md): native fields versus local conventions, proposed adapter contract, illustrative mapping profile, collection concerns, and onboarding/validation guidance.
+- [Current simulation model](docs/simulated-data-model.md): the exact hard-coded conventions and scenarios implemented today.
+
+The documentation distinguishes current behavior from proposed integration capabilities. Configurable mapping profiles, live API collectors, and a persistent canonical model are design guidance, not implemented features of this proof of concept.
+
 ## Run locally
 
 Clone this repository and serve the `dist/` directory with a static HTTP server. For example, with Python 3:
