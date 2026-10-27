@@ -10,8 +10,26 @@ Limits: 32 MB input; graph displays up to 120 nodes; component tables paginate a
 
 Version search supports exact or partial package names, common runtime aliases, numeric dotted releases, and recognized SemVer prereleases. It groups matching, other, and uncomparable versions separately, shows dependency paths, and exports all query results as CSV. Runtime matching uses component names; package ecosystem metadata alone is not evidence of a runtime version. Missing runtime records do not establish absence from the application. Component versions take priority over package URL versions. Java runtime checks map legacy 1.x notation for Java 1 through 8; Go runtime checks accept a go prefix. Unsupported distro revisions and ecosystem-specific version formats require manual comparison.
 
+## Comprehensive ServiceNow ↔ GitLab ↔ AWS mapping
+
+Start with the [architecture documentation and ERDs](docs/architecture/README.md) and open the [Mapping workbench](https://sbom-explorer.bushyswan4.chatgpt.site/#mapping).
+
+The POC implements 26 canonical entity types connecting business applications, application services, deployable services, repository/build targets, commits, pipelines, jobs, artifacts, SBOMs, AWS workloads and version observations. The workbench exposes workload lineage, native source records, relationship evidence, ERDs, field mappings, API contracts and exceptions. Two executable profiles demonstrate CMDB-relationship and custom-reference mappings; switching profiles recomputes application/version attribution.
+
+The repository contains five logical ERDs and Mermaid sources, a physical persistence ERD, a field-by-field mapping catalog, an official API collection runbook, generated concrete traces, configurable profile examples, and an executable SQLite schema/exporter. The UI and generated reference docs use the same catalog.
+
+```sh
+npm run docs:generate
+node scripts/export-mapping.mjs /tmp/mapping.json cmdb-relationships
+python3 scripts/build-mapping-db.py /tmp/mapping.json /tmp/mapping.sqlite
+npm run test:mapping-db
+```
+
+All hosted captures remain simulated. Live API collection is documented; no customer credentials or background collectors are configured. See the [coverage matrix](docs/architecture/coverage.md) for implemented platforms and explicit extensions.
+
 ## Simulated application portfolio
 
+- **Mapping workbench:** inspect cross-system relationships, native evidence, ERDs, profile behavior and gaps; export the canonical graph.
 - **Applications:** four business applications, nine GitLab projects, and 31 running AWS workloads.
 - **Deployed versions:** filter by application, environment, service, runtime/library, and version condition. Inspect the underlying asset, build, and SBOM evidence or export it to CSV.
 - **Environment matrix:** compare versions across dev, UAT, and prod, including coexisting versions during a rollout.
@@ -42,9 +60,9 @@ Use native ServiceNow, GitLab, and AWS API evidence where available, with organi
 
 - [Data mapping concepts](docs/data-mapping-concepts.md): conceptual diagram, entities, cardinalities, scoped identities, environment meaning, and what version evidence can establish.
 - [Data mapping adapter design](docs/data-mapping-adapters.md): native fields versus local conventions, proposed adapter contract, illustrative mapping profile, collection concerns, and onboarding/validation guidance.
-- [Current simulation model](docs/simulated-data-model.md): the exact hard-coded conventions and scenarios implemented today.
+- [Current simulation model](docs/simulated-data-model.md): the baseline fixture conventions and scenarios, supplemented by the executable architecture mapping profiles.
 
-The documentation distinguishes current behavior from proposed integration capabilities. Configurable mapping profiles, live API collectors, and a persistent canonical model are design guidance, not implemented features of this proof of concept.
+The workbench now implements configurable ownership/tag profiles and a canonical graph with a working SQLite export/import path. Live API collectors, historical reconciliation and arbitrary customer-schema authoring remain integration work; the architecture coverage matrix records the boundary.
 
 ## Run locally
 
@@ -76,6 +94,8 @@ The tests cover application/build/asset correlation, environment isolation, mixe
 - `dist/index.html`, `dist/style.css`, and `dist/app.mjs`: the interface and browser interactions.
 - `dist/engine.mjs`: SBOM normalization and dependency analysis.
 - `dist/version-search.mjs`: runtime/package matching and version comparison.
+- `dist/mapping/`: shared entity/relationship/field/API catalog, profile resolver, canonical graph and mapping UI.
+- `docs/architecture/`, `schema/canonical-graph.sql`: technical model, ERDs, API runbook and executable persistence contract.
 - `dist/repository/`: editable source-file analyzer and repository evidence UI.
 - `dist/enterprise/`: editable application-portfolio UI, adapters, and correlation logic.
 - `scripts/generate-demo.mjs`: deterministic simulated source-data generator.

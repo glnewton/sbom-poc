@@ -3146,6 +3146,7 @@
     "ec2": {
       "Reservations": [
         {
+          "OwnerId": "444455556666",
           "Instances": [
             {
               "InstanceId": "i-fa88f12e5529db271",
@@ -3180,6 +3181,7 @@
           ]
         },
         {
+          "OwnerId": "444455556666",
           "Instances": [
             {
               "InstanceId": "i-4b8ce9a489c9e2600",
@@ -3214,6 +3216,7 @@
           ]
         },
         {
+          "OwnerId": "111122223333",
           "Instances": [
             {
               "InstanceId": "i-decbc7cdd0e793715",
@@ -3253,6 +3256,8 @@
       "Entities": [
         {
           "Id": "i-fa88f12e5529db271",
+          "AccountId": "444455556666",
+          "Region": "us-east-1",
           "Data": {
             "AWS:Application": {
               "TypeName": "AWS:Application",
@@ -3280,6 +3285,8 @@
         },
         {
           "Id": "i-4b8ce9a489c9e2600",
+          "AccountId": "444455556666",
+          "Region": "us-east-1",
           "Data": {
             "AWS:Application": {
               "TypeName": "AWS:Application",
@@ -3307,6 +3314,8 @@
         },
         {
           "Id": "i-decbc7cdd0e793715",
+          "AccountId": "111122223333",
+          "Region": "us-east-1",
           "Data": {
             "AWS:Application": {
               "TypeName": "AWS:Application",

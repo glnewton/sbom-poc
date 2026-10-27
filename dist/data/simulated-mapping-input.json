@@ -1,0 +1,2271 @@
+{
+  "schema_version": 1,
+  "simulated": true,
+  "captured_at": "2026-10-26T12:00:00Z",
+  "instances": {
+    "servicenow": "https://demo.service-now.example.test",
+    "gitlab": "https://gitlab.example.test",
+    "awsPartition": "aws"
+  },
+  "profiles": [
+    {
+      "id": "cmdb-relationships",
+      "name": "CMDB relationships + AWS service tags",
+      "description": "Resolve application ownership through cmdb_rel_ci and application-service identity from an AWS tag.",
+      "applicationMode": "relationship",
+      "serviceTag": "ApplicationServiceId",
+      "relationType": "75c640ba3a0761d1b0724c8c8f9e5e27",
+      "parentField": "parent",
+      "childField": "child",
+      "serviceKeyField": "u_deployable_service_id",
+      "environmentField": "u_environment",
+      "applicationReferenceField": "u_business_application",
+      "environmentAliases": {
+        "development": "dev",
+        "user-acceptance": "uat",
+        "production": "prod",
+        "dever": "dev",
+        "dev": "dev",
+        "uat": "uat",
+        "prod": "prod"
+      }
+    },
+    {
+      "id": "custom-reference",
+      "name": "Custom application reference + alternate tag",
+      "description": "Equivalent ownership via a configured reference field; demonstrates an alternate customer data model.",
+      "applicationMode": "reference",
+      "serviceTag": "CMDBService",
+      "relationType": "75c640ba3a0761d1b0724c8c8f9e5e27",
+      "parentField": "parent",
+      "childField": "child",
+      "serviceKeyField": "u_deployable_service_id",
+      "environmentField": "u_environment",
+      "applicationReferenceField": "u_business_application",
+      "environmentAliases": {
+        "development": "dev",
+        "user-acceptance": "uat",
+        "production": "prod",
+        "dever": "dev",
+        "dev": "dev",
+        "uat": "uat",
+        "prod": "prod"
+      }
+    }
+  ],
+  "servicenow": {
+    "applicationServices": {
+      "result": [
+        {
+          "sys_id": "7df3c2fd5c3bb930cc8551b620e8a7ca",
+          "sys_class_name": "cmdb_ci_service_auto",
+          "name": "customer-api / dev",
+          "operational_status": "1",
+          "u_deployable_service_id": "service-101",
+          "u_environment": "development",
+          "u_business_application": {
+            "value": "7c82602500857aa6ed0cf38c4c3e4ec6",
+            "display_value": "Atlas Customer Platform"
+          },
+          "sys_updated_on": "2026-10-25 16:30:00"
+        },
+        {
+          "sys_id": "2e86b06ba2978a91a22dedb36684daa4",
+          "sys_class_name": "cmdb_ci_service_auto",
+          "name": "customer-api / uat",
+          "operational_status": "1",
+          "u_deployable_service_id": "service-101",
+          "u_environment": "user-acceptance",
+          "u_business_application": {
+            "value": "7c82602500857aa6ed0cf38c4c3e4ec6",
+            "display_value": "Atlas Customer Platform"
+          },
+          "sys_updated_on": "2026-10-25 16:30:00"
+        },
+        {
+          "sys_id": "025902e8ba7ee39ffb5c5c405299d406",
+          "sys_class_name": "cmdb_ci_service_auto",
+          "name": "customer-api / prod",
+          "operational_status": "1",
+          "u_deployable_service_id": "service-101",
+          "u_environment": "production",
+          "u_business_application": {
+            "value": "7c82602500857aa6ed0cf38c4c3e4ec6",
+            "display_value": "Atlas Customer Platform"
+          },
+          "sys_updated_on": "2026-10-25 16:30:00"
+        },
+        {
+          "sys_id": "0eb4cf98682ae6ef6abf7b5a4f7518db",
+          "sys_class_name": "cmdb_ci_service_auto",
+          "name": "customer-web / dev",
+          "operational_status": "1",
+          "u_deployable_service_id": "service-102",
+          "u_environment": "development",
+          "u_business_application": {
+            "value": "7c82602500857aa6ed0cf38c4c3e4ec6",
+            "display_value": "Atlas Customer Platform"
+          },
+          "sys_updated_on": "2026-10-25 16:30:00"
+        },
+        {
+          "sys_id": "02e5569e9df5f8f7045c5cec83a1910e",
+          "sys_class_name": "cmdb_ci_service_auto",
+          "name": "customer-web / uat",
+          "operational_status": "1",
+          "u_deployable_service_id": "service-102",
+          "u_environment": "user-acceptance",
+          "u_business_application": {
+            "value": "7c82602500857aa6ed0cf38c4c3e4ec6",
+            "display_value": "Atlas Customer Platform"
+          },
+          "sys_updated_on": "2026-10-25 16:30:00"
+        },
+        {
+          "sys_id": "a85d77549b9c00411abf5417579ecac1",
+          "sys_class_name": "cmdb_ci_service_auto",
+          "name": "customer-web / prod",
+          "operational_status": "1",
+          "u_deployable_service_id": "service-102",
+          "u_environment": "production",
+          "u_business_application": {
+            "value": "7c82602500857aa6ed0cf38c4c3e4ec6",
+            "display_value": "Atlas Customer Platform"
+          },
+          "sys_updated_on": "2026-10-25 16:30:00"
+        },
+        {
+          "sys_id": "442c98e1c6ada5917dae8d6189d2120e",
+          "sys_class_name": "cmdb_ci_service_auto",
+          "name": "notification-handler / dev",
+          "operational_status": "1",
+          "u_deployable_service_id": "service-103",
+          "u_environment": "development",
+          "u_business_application": {
+            "value": "7c82602500857aa6ed0cf38c4c3e4ec6",
+            "display_value": "Atlas Customer Platform"
+          },
+          "sys_updated_on": "2026-10-25 16:30:00"
+        },
+        {
+          "sys_id": "4d3d94a712950c77634eea195372a44a",
+          "sys_class_name": "cmdb_ci_service_auto",
+          "name": "notification-handler / uat",
+          "operational_status": "1",
+          "u_deployable_service_id": "service-103",
+          "u_environment": "user-acceptance",
+          "u_business_application": {
+            "value": "7c82602500857aa6ed0cf38c4c3e4ec6",
+            "display_value": "Atlas Customer Platform"
+          },
+          "sys_updated_on": "2026-10-25 16:30:00"
+        },
+        {
+          "sys_id": "aa1b5ffc7cbd31e0eb4822967925d9ec",
+          "sys_class_name": "cmdb_ci_service_auto",
+          "name": "notification-handler / prod",
+          "operational_status": "1",
+          "u_deployable_service_id": "service-103",
+          "u_environment": "production",
+          "u_business_application": {
+            "value": "7c82602500857aa6ed0cf38c4c3e4ec6",
+            "display_value": "Atlas Customer Platform"
+          },
+          "sys_updated_on": "2026-10-25 16:30:00"
+        },
+        {
+          "sys_id": "25ebec443d7a900c0c2df244e5c96f8d",
+          "sys_class_name": "cmdb_ci_service_auto",
+          "name": "payment-gateway / dev",
+          "operational_status": "1",
+          "u_deployable_service_id": "service-201",
+          "u_environment": "development",
+          "u_business_application": {
+            "value": "b6c4ac412ac8822355239dd717c11ca5",
+            "display_value": "Meridian Payments"
+          },
+          "sys_updated_on": "2026-10-25 16:30:00"
+        },
+        {
+          "sys_id": "dcc9192711bfcf3d22ce559770a72da5",
+          "sys_class_name": "cmdb_ci_service_auto",
+          "name": "payment-gateway / uat",
+          "operational_status": "1",
+          "u_deployable_service_id": "service-201",
+          "u_environment": "user-acceptance",
+          "u_business_application": {
+            "value": "b6c4ac412ac8822355239dd717c11ca5",
+            "display_value": "Meridian Payments"
+          },
+          "sys_updated_on": "2026-10-25 16:30:00"
+        },
+        {
+          "sys_id": "e5cf89e3787764f839033a60dfb5e320",
+          "sys_class_name": "cmdb_ci_service_auto",
+          "name": "payment-gateway / prod",
+          "operational_status": "1",
+          "u_deployable_service_id": "service-201",
+          "u_environment": "production",
+          "u_business_application": {
+            "value": "b6c4ac412ac8822355239dd717c11ca5",
+            "display_value": "Meridian Payments"
+          },
+          "sys_updated_on": "2026-10-25 16:30:00"
+        },
+        {
+          "sys_id": "b3c26a105d357ca58fd21910812a6250",
+          "sys_class_name": "cmdb_ci_service_auto",
+          "name": "settlement-worker / dev",
+          "operational_status": "1",
+          "u_deployable_service_id": "service-202",
+          "u_environment": "development",
+          "u_business_application": {
+            "value": "b6c4ac412ac8822355239dd717c11ca5",
+            "display_value": "Meridian Payments"
+          },
+          "sys_updated_on": "2026-10-25 16:30:00"
+        },
+        {
+          "sys_id": "7a1a3f7cdf2f2ec16c9e493b70f08a66",
+          "sys_class_name": "cmdb_ci_service_auto",
+          "name": "settlement-worker / uat",
+          "operational_status": "1",
+          "u_deployable_service_id": "service-202",
+          "u_environment": "user-acceptance",
+          "u_business_application": {
+            "value": "b6c4ac412ac8822355239dd717c11ca5",
+            "display_value": "Meridian Payments"
+          },
+          "sys_updated_on": "2026-10-25 16:30:00"
+        },
+        {
+          "sys_id": "e0d0d5c67a2f674d2e9b35a1787c5dbe",
+          "sys_class_name": "cmdb_ci_service_auto",
+          "name": "settlement-worker / prod",
+          "operational_status": "1",
+          "u_deployable_service_id": "service-202",
+          "u_environment": "production",
+          "u_business_application": {
+            "value": "b6c4ac412ac8822355239dd717c11ca5",
+            "display_value": "Meridian Payments"
+          },
+          "sys_updated_on": "2026-10-25 16:30:00"
+        },
+        {
+          "sys_id": "903958fca207194e1156ae85ee7e4449",
+          "sys_class_name": "cmdb_ci_service_auto",
+          "name": "event-ingestion / dev",
+          "operational_status": "1",
+          "u_deployable_service_id": "service-301",
+          "u_environment": "development",
+          "u_business_application": {
+            "value": "8a62e967fcd6dfa5d75308c37808b466",
+            "display_value": "Beacon Analytics"
+          },
+          "sys_updated_on": "2026-10-25 16:30:00"
+        },
+        {
+          "sys_id": "9f64adcbfdbc649de680aff43edd5575",
+          "sys_class_name": "cmdb_ci_service_auto",
+          "name": "event-ingestion / uat",
+          "operational_status": "1",
+          "u_deployable_service_id": "service-301",
+          "u_environment": "user-acceptance",
+          "u_business_application": {
+            "value": "8a62e967fcd6dfa5d75308c37808b466",
+            "display_value": "Beacon Analytics"
+          },
+          "sys_updated_on": "2026-10-25 16:30:00"
+        },
+        {
+          "sys_id": "96dca21d44489398c4cc845f382319c5",
+          "sys_class_name": "cmdb_ci_service_auto",
+          "name": "event-ingestion / prod",
+          "operational_status": "1",
+          "u_deployable_service_id": "service-301",
+          "u_environment": "production",
+          "u_business_application": {
+            "value": "8a62e967fcd6dfa5d75308c37808b466",
+            "display_value": "Beacon Analytics"
+          },
+          "sys_updated_on": "2026-10-25 16:30:00"
+        },
+        {
+          "sys_id": "34e8b3d3d671f26302a2365f6c569e65",
+          "sys_class_name": "cmdb_ci_service_auto",
+          "name": "report-builder / dev",
+          "operational_status": "1",
+          "u_deployable_service_id": "service-302",
+          "u_environment": "development",
+          "u_business_application": {
+            "value": "8a62e967fcd6dfa5d75308c37808b466",
+            "display_value": "Beacon Analytics"
+          },
+          "sys_updated_on": "2026-10-25 16:30:00"
+        },
+        {
+          "sys_id": "aca034d99cb97729326acb804761ff59",
+          "sys_class_name": "cmdb_ci_service_auto",
+          "name": "report-builder / uat",
+          "operational_status": "1",
+          "u_deployable_service_id": "service-302",
+          "u_environment": "user-acceptance",
+          "u_business_application": {
+            "value": "8a62e967fcd6dfa5d75308c37808b466",
+            "display_value": "Beacon Analytics"
+          },
+          "sys_updated_on": "2026-10-25 16:30:00"
+        },
+        {
+          "sys_id": "1a6d51cfd65e816d1a5eeee3880ed70a",
+          "sys_class_name": "cmdb_ci_service_auto",
+          "name": "report-builder / prod",
+          "operational_status": "1",
+          "u_deployable_service_id": "service-302",
+          "u_environment": "production",
+          "u_business_application": {
+            "value": "8a62e967fcd6dfa5d75308c37808b466",
+            "display_value": "Beacon Analytics"
+          },
+          "sys_updated_on": "2026-10-25 16:30:00"
+        },
+        {
+          "sys_id": "8c9e009f23211ae60e2c48551845ccc9",
+          "sys_class_name": "cmdb_ci_service_auto",
+          "name": "operations-portal / dev",
+          "operational_status": "1",
+          "u_deployable_service_id": "service-401",
+          "u_environment": "development",
+          "u_business_application": {
+            "value": "c1d64b2d4cb30f1be788cc4d246ddd9f",
+            "display_value": "Harbor Operations"
+          },
+          "sys_updated_on": "2026-10-25 16:30:00"
+        },
+        {
+          "sys_id": "a828dc9448f461a39a3459cb156f41bb",
+          "sys_class_name": "cmdb_ci_service_auto",
+          "name": "operations-portal / uat",
+          "operational_status": "1",
+          "u_deployable_service_id": "service-401",
+          "u_environment": "user-acceptance",
+          "u_business_application": {
+            "value": "c1d64b2d4cb30f1be788cc4d246ddd9f",
+            "display_value": "Harbor Operations"
+          },
+          "sys_updated_on": "2026-10-25 16:30:00"
+        },
+        {
+          "sys_id": "c05d02bf5c0d1d967d2ffcd5d71538b6",
+          "sys_class_name": "cmdb_ci_service_auto",
+          "name": "operations-portal / prod",
+          "operational_status": "1",
+          "u_deployable_service_id": "service-401",
+          "u_environment": "production",
+          "u_business_application": {
+            "value": "c1d64b2d4cb30f1be788cc4d246ddd9f",
+            "display_value": "Harbor Operations"
+          },
+          "sys_updated_on": "2026-10-25 16:30:00"
+        },
+        {
+          "sys_id": "9874090ea7f433d22ea7e814376a81e5",
+          "sys_class_name": "cmdb_ci_service_auto",
+          "name": "legacy-batch / dev",
+          "operational_status": "1",
+          "u_deployable_service_id": "service-402",
+          "u_environment": "development",
+          "u_business_application": {
+            "value": "c1d64b2d4cb30f1be788cc4d246ddd9f",
+            "display_value": "Harbor Operations"
+          },
+          "sys_updated_on": "2026-10-25 16:30:00"
+        },
+        {
+          "sys_id": "d4caeccf869b58ee9a142d3bc95d5f0d",
+          "sys_class_name": "cmdb_ci_service_auto",
+          "name": "legacy-batch / uat",
+          "operational_status": "1",
+          "u_deployable_service_id": "service-402",
+          "u_environment": "user-acceptance",
+          "u_business_application": {
+            "value": "c1d64b2d4cb30f1be788cc4d246ddd9f",
+            "display_value": "Harbor Operations"
+          },
+          "sys_updated_on": "2026-10-25 16:30:00"
+        },
+        {
+          "sys_id": "3e98d469a6907c2da859a35d26474136",
+          "sys_class_name": "cmdb_ci_service_auto",
+          "name": "legacy-batch / prod",
+          "operational_status": "1",
+          "u_deployable_service_id": "service-402",
+          "u_environment": "production",
+          "u_business_application": {
+            "value": "c1d64b2d4cb30f1be788cc4d246ddd9f",
+            "display_value": "Harbor Operations"
+          },
+          "sys_updated_on": "2026-10-25 16:30:00"
+        }
+      ]
+    },
+    "relationships": {
+      "result": [
+        {
+          "sys_id": "d95753b94b249ff32949752b0c6c02b8",
+          "parent": {
+            "value": "7c82602500857aa6ed0cf38c4c3e4ec6"
+          },
+          "child": {
+            "value": "7df3c2fd5c3bb930cc8551b620e8a7ca"
+          },
+          "type": {
+            "value": "75c640ba3a0761d1b0724c8c8f9e5e27",
+            "display_value": "Consumes::Consumed by"
+          }
+        },
+        {
+          "sys_id": "701eae1394978f7d7a389dfcdc7398a4",
+          "parent": {
+            "value": "7c82602500857aa6ed0cf38c4c3e4ec6"
+          },
+          "child": {
+            "value": "2e86b06ba2978a91a22dedb36684daa4"
+          },
+          "type": {
+            "value": "75c640ba3a0761d1b0724c8c8f9e5e27",
+            "display_value": "Consumes::Consumed by"
+          }
+        },
+        {
+          "sys_id": "fa4dfaa4e2552e8ff143cccad90bc25b",
+          "parent": {
+            "value": "7c82602500857aa6ed0cf38c4c3e4ec6"
+          },
+          "child": {
+            "value": "025902e8ba7ee39ffb5c5c405299d406"
+          },
+          "type": {
+            "value": "75c640ba3a0761d1b0724c8c8f9e5e27",
+            "display_value": "Consumes::Consumed by"
+          }
+        },
+        {
+          "sys_id": "7591de25163f65c676cf3ae1b5bd875c",
+          "parent": {
+            "value": "7c82602500857aa6ed0cf38c4c3e4ec6"
+          },
+          "child": {
+            "value": "0eb4cf98682ae6ef6abf7b5a4f7518db"
+          },
+          "type": {
+            "value": "75c640ba3a0761d1b0724c8c8f9e5e27",
+            "display_value": "Consumes::Consumed by"
+          }
+        },
+        {
+          "sys_id": "f3fdeb2286643930ec0e42096e05c4c9",
+          "parent": {
+            "value": "7c82602500857aa6ed0cf38c4c3e4ec6"
+          },
+          "child": {
+            "value": "02e5569e9df5f8f7045c5cec83a1910e"
+          },
+          "type": {
+            "value": "75c640ba3a0761d1b0724c8c8f9e5e27",
+            "display_value": "Consumes::Consumed by"
+          }
+        },
+        {
+          "sys_id": "338871306f98970a903ae4ba35722d7d",
+          "parent": {
+            "value": "7c82602500857aa6ed0cf38c4c3e4ec6"
+          },
+          "child": {
+            "value": "a85d77549b9c00411abf5417579ecac1"
+          },
+          "type": {
+            "value": "75c640ba3a0761d1b0724c8c8f9e5e27",
+            "display_value": "Consumes::Consumed by"
+          }
+        },
+        {
+          "sys_id": "9b414956d7e82aa41bc47bbf7e3bacb0",
+          "parent": {
+            "value": "7c82602500857aa6ed0cf38c4c3e4ec6"
+          },
+          "child": {
+            "value": "442c98e1c6ada5917dae8d6189d2120e"
+          },
+          "type": {
+            "value": "75c640ba3a0761d1b0724c8c8f9e5e27",
+            "display_value": "Consumes::Consumed by"
+          }
+        },
+        {
+          "sys_id": "c273cfda94a44f1280ba7494ca93fc11",
+          "parent": {
+            "value": "7c82602500857aa6ed0cf38c4c3e4ec6"
+          },
+          "child": {
+            "value": "4d3d94a712950c77634eea195372a44a"
+          },
+          "type": {
+            "value": "75c640ba3a0761d1b0724c8c8f9e5e27",
+            "display_value": "Consumes::Consumed by"
+          }
+        },
+        {
+          "sys_id": "91b5fb8265d60dfcd7c3e00a9d1281da",
+          "parent": {
+            "value": "7c82602500857aa6ed0cf38c4c3e4ec6"
+          },
+          "child": {
+            "value": "aa1b5ffc7cbd31e0eb4822967925d9ec"
+          },
+          "type": {
+            "value": "75c640ba3a0761d1b0724c8c8f9e5e27",
+            "display_value": "Consumes::Consumed by"
+          }
+        },
+        {
+          "sys_id": "310b62d83a7224c193d06bb247b52ce0",
+          "parent": {
+            "value": "b6c4ac412ac8822355239dd717c11ca5"
+          },
+          "child": {
+            "value": "25ebec443d7a900c0c2df244e5c96f8d"
+          },
+          "type": {
+            "value": "75c640ba3a0761d1b0724c8c8f9e5e27",
+            "display_value": "Consumes::Consumed by"
+          }
+        },
+        {
+          "sys_id": "8c3ff27665a90238da167a99e0ed3f43",
+          "parent": {
+            "value": "b6c4ac412ac8822355239dd717c11ca5"
+          },
+          "child": {
+            "value": "dcc9192711bfcf3d22ce559770a72da5"
+          },
+          "type": {
+            "value": "75c640ba3a0761d1b0724c8c8f9e5e27",
+            "display_value": "Consumes::Consumed by"
+          }
+        },
+        {
+          "sys_id": "632ffa32218b581fc3ac514088096c74",
+          "parent": {
+            "value": "b6c4ac412ac8822355239dd717c11ca5"
+          },
+          "child": {
+            "value": "e5cf89e3787764f839033a60dfb5e320"
+          },
+          "type": {
+            "value": "75c640ba3a0761d1b0724c8c8f9e5e27",
+            "display_value": "Consumes::Consumed by"
+          }
+        },
+        {
+          "sys_id": "261e430f20df3b17e9300471980759d3",
+          "parent": {
+            "value": "b6c4ac412ac8822355239dd717c11ca5"
+          },
+          "child": {
+            "value": "b3c26a105d357ca58fd21910812a6250"
+          },
+          "type": {
+            "value": "75c640ba3a0761d1b0724c8c8f9e5e27",
+            "display_value": "Consumes::Consumed by"
+          }
+        },
+        {
+          "sys_id": "da6afd0b7cdd5ccaacde06d3e558b08f",
+          "parent": {
+            "value": "b6c4ac412ac8822355239dd717c11ca5"
+          },
+          "child": {
+            "value": "7a1a3f7cdf2f2ec16c9e493b70f08a66"
+          },
+          "type": {
+            "value": "75c640ba3a0761d1b0724c8c8f9e5e27",
+            "display_value": "Consumes::Consumed by"
+          }
+        },
+        {
+          "sys_id": "9e6de0620b43c37b6ca573ba8b87bda0",
+          "parent": {
+            "value": "b6c4ac412ac8822355239dd717c11ca5"
+          },
+          "child": {
+            "value": "e0d0d5c67a2f674d2e9b35a1787c5dbe"
+          },
+          "type": {
+            "value": "75c640ba3a0761d1b0724c8c8f9e5e27",
+            "display_value": "Consumes::Consumed by"
+          }
+        },
+        {
+          "sys_id": "4b86634eb958d9bf5ffd840c228af735",
+          "parent": {
+            "value": "8a62e967fcd6dfa5d75308c37808b466"
+          },
+          "child": {
+            "value": "903958fca207194e1156ae85ee7e4449"
+          },
+          "type": {
+            "value": "75c640ba3a0761d1b0724c8c8f9e5e27",
+            "display_value": "Consumes::Consumed by"
+          }
+        },
+        {
+          "sys_id": "bdfc65e0e8691fdbb851049b0620ac39",
+          "parent": {
+            "value": "8a62e967fcd6dfa5d75308c37808b466"
+          },
+          "child": {
+            "value": "9f64adcbfdbc649de680aff43edd5575"
+          },
+          "type": {
+            "value": "75c640ba3a0761d1b0724c8c8f9e5e27",
+            "display_value": "Consumes::Consumed by"
+          }
+        },
+        {
+          "sys_id": "57a0c6b3a8ddeacbf2705291b19e4b51",
+          "parent": {
+            "value": "8a62e967fcd6dfa5d75308c37808b466"
+          },
+          "child": {
+            "value": "96dca21d44489398c4cc845f382319c5"
+          },
+          "type": {
+            "value": "75c640ba3a0761d1b0724c8c8f9e5e27",
+            "display_value": "Consumes::Consumed by"
+          }
+        },
+        {
+          "sys_id": "69186b55dca05a30d8e59adec268ab0f",
+          "parent": {
+            "value": "8a62e967fcd6dfa5d75308c37808b466"
+          },
+          "child": {
+            "value": "34e8b3d3d671f26302a2365f6c569e65"
+          },
+          "type": {
+            "value": "75c640ba3a0761d1b0724c8c8f9e5e27",
+            "display_value": "Consumes::Consumed by"
+          }
+        },
+        {
+          "sys_id": "0f593035d12bef4ac3a3b3df26bd5e2a",
+          "parent": {
+            "value": "8a62e967fcd6dfa5d75308c37808b466"
+          },
+          "child": {
+            "value": "aca034d99cb97729326acb804761ff59"
+          },
+          "type": {
+            "value": "75c640ba3a0761d1b0724c8c8f9e5e27",
+            "display_value": "Consumes::Consumed by"
+          }
+        },
+        {
+          "sys_id": "ae7d21bbb5429056807da46111989189",
+          "parent": {
+            "value": "8a62e967fcd6dfa5d75308c37808b466"
+          },
+          "child": {
+            "value": "1a6d51cfd65e816d1a5eeee3880ed70a"
+          },
+          "type": {
+            "value": "75c640ba3a0761d1b0724c8c8f9e5e27",
+            "display_value": "Consumes::Consumed by"
+          }
+        },
+        {
+          "sys_id": "818c8d397a2656de7ecca5d2e738e3ea",
+          "parent": {
+            "value": "c1d64b2d4cb30f1be788cc4d246ddd9f"
+          },
+          "child": {
+            "value": "8c9e009f23211ae60e2c48551845ccc9"
+          },
+          "type": {
+            "value": "75c640ba3a0761d1b0724c8c8f9e5e27",
+            "display_value": "Consumes::Consumed by"
+          }
+        },
+        {
+          "sys_id": "09f9eb5dbe560d92fd15ca0f2ffce67c",
+          "parent": {
+            "value": "c1d64b2d4cb30f1be788cc4d246ddd9f"
+          },
+          "child": {
+            "value": "a828dc9448f461a39a3459cb156f41bb"
+          },
+          "type": {
+            "value": "75c640ba3a0761d1b0724c8c8f9e5e27",
+            "display_value": "Consumes::Consumed by"
+          }
+        },
+        {
+          "sys_id": "db08d65291fe2972da67756875d662e1",
+          "parent": {
+            "value": "c1d64b2d4cb30f1be788cc4d246ddd9f"
+          },
+          "child": {
+            "value": "c05d02bf5c0d1d967d2ffcd5d71538b6"
+          },
+          "type": {
+            "value": "75c640ba3a0761d1b0724c8c8f9e5e27",
+            "display_value": "Consumes::Consumed by"
+          }
+        },
+        {
+          "sys_id": "410b642ccedcb56303673abb43eeeae3",
+          "parent": {
+            "value": "c1d64b2d4cb30f1be788cc4d246ddd9f"
+          },
+          "child": {
+            "value": "9874090ea7f433d22ea7e814376a81e5"
+          },
+          "type": {
+            "value": "75c640ba3a0761d1b0724c8c8f9e5e27",
+            "display_value": "Consumes::Consumed by"
+          }
+        },
+        {
+          "sys_id": "f06d1ac6bacc6ad80f71c7d6350b9cf4",
+          "parent": {
+            "value": "c1d64b2d4cb30f1be788cc4d246ddd9f"
+          },
+          "child": {
+            "value": "d4caeccf869b58ee9a142d3bc95d5f0d"
+          },
+          "type": {
+            "value": "75c640ba3a0761d1b0724c8c8f9e5e27",
+            "display_value": "Consumes::Consumed by"
+          }
+        },
+        {
+          "sys_id": "c4d675fcb72b81d1c9e4f8be75b84801",
+          "parent": {
+            "value": "c1d64b2d4cb30f1be788cc4d246ddd9f"
+          },
+          "child": {
+            "value": "3e98d469a6907c2da859a35d26474136"
+          },
+          "type": {
+            "value": "75c640ba3a0761d1b0724c8c8f9e5e27",
+            "display_value": "Consumes::Consumed by"
+          }
+        },
+        {
+          "sys_id": "2051a40398201b3fb15270340063f78e",
+          "parent": {
+            "value": "b6c4ac412ac8822355239dd717c11ca5"
+          },
+          "child": {
+            "value": "aa1b5ffc7cbd31e0eb4822967925d9ec"
+          },
+          "type": {
+            "value": "75c640ba3a0761d1b0724c8c8f9e5e27",
+            "display_value": "Consumes::Consumed by"
+          }
+        }
+      ]
+    },
+    "relationshipTypes": {
+      "result": [
+        {
+          "sys_id": "75c640ba3a0761d1b0724c8c8f9e5e27",
+          "name": "Consumes::Consumed by",
+          "parent_descriptor": "Consumes",
+          "child_descriptor": "Consumed by"
+        }
+      ]
+    }
+  },
+  "registry": {
+    "services": [
+      {
+        "id": "service-101",
+        "name": "customer-api",
+        "ownerApplication": "7c82602500857aa6ed0cf38c4c3e4ec6"
+      },
+      {
+        "id": "service-102",
+        "name": "customer-web",
+        "ownerApplication": "7c82602500857aa6ed0cf38c4c3e4ec6"
+      },
+      {
+        "id": "service-103",
+        "name": "notification-handler",
+        "ownerApplication": "7c82602500857aa6ed0cf38c4c3e4ec6"
+      },
+      {
+        "id": "service-201",
+        "name": "payment-gateway",
+        "ownerApplication": "b6c4ac412ac8822355239dd717c11ca5"
+      },
+      {
+        "id": "service-202",
+        "name": "settlement-worker",
+        "ownerApplication": "b6c4ac412ac8822355239dd717c11ca5"
+      },
+      {
+        "id": "service-301",
+        "name": "event-ingestion",
+        "ownerApplication": "8a62e967fcd6dfa5d75308c37808b466"
+      },
+      {
+        "id": "service-302",
+        "name": "report-builder",
+        "ownerApplication": "8a62e967fcd6dfa5d75308c37808b466"
+      },
+      {
+        "id": "service-401",
+        "name": "operations-portal",
+        "ownerApplication": "c1d64b2d4cb30f1be788cc4d246ddd9f"
+      },
+      {
+        "id": "service-402",
+        "name": "legacy-batch",
+        "ownerApplication": "c1d64b2d4cb30f1be788cc4d246ddd9f"
+      },
+      {
+        "id": "service-notification-admin",
+        "name": "notification-admin",
+        "ownerApplication": "7c82602500857aa6ed0cf38c4c3e4ec6"
+      }
+    ],
+    "sourceBindings": [
+      {
+        "id": "binding-101",
+        "service_id": "service-101",
+        "gitlab_instance": "https://gitlab.example.test",
+        "project_id": 101,
+        "path": ".",
+        "build_target": "customer-api",
+        "role": "primary",
+        "valid_from": "2026-01-01T00:00:00Z",
+        "valid_to": null,
+        "approved_by": "Demo architecture registry"
+      },
+      {
+        "id": "binding-102",
+        "service_id": "service-102",
+        "gitlab_instance": "https://gitlab.example.test",
+        "project_id": 102,
+        "path": ".",
+        "build_target": "customer-web",
+        "role": "primary",
+        "valid_from": "2026-01-01T00:00:00Z",
+        "valid_to": null,
+        "approved_by": "Demo architecture registry"
+      },
+      {
+        "id": "binding-103",
+        "service_id": "service-103",
+        "gitlab_instance": "https://gitlab.example.test",
+        "project_id": 103,
+        "path": ".",
+        "build_target": "notification-handler",
+        "role": "primary",
+        "valid_from": "2026-01-01T00:00:00Z",
+        "valid_to": null,
+        "approved_by": "Demo architecture registry"
+      },
+      {
+        "id": "binding-201",
+        "service_id": "service-201",
+        "gitlab_instance": "https://gitlab.example.test",
+        "project_id": 201,
+        "path": ".",
+        "build_target": "payment-gateway",
+        "role": "primary",
+        "valid_from": "2026-01-01T00:00:00Z",
+        "valid_to": null,
+        "approved_by": "Demo architecture registry"
+      },
+      {
+        "id": "binding-202",
+        "service_id": "service-202",
+        "gitlab_instance": "https://gitlab.example.test",
+        "project_id": 202,
+        "path": ".",
+        "build_target": "settlement-worker",
+        "role": "primary",
+        "valid_from": "2026-01-01T00:00:00Z",
+        "valid_to": null,
+        "approved_by": "Demo architecture registry"
+      },
+      {
+        "id": "binding-301",
+        "service_id": "service-301",
+        "gitlab_instance": "https://gitlab.example.test",
+        "project_id": 301,
+        "path": ".",
+        "build_target": "event-ingestion",
+        "role": "primary",
+        "valid_from": "2026-01-01T00:00:00Z",
+        "valid_to": null,
+        "approved_by": "Demo architecture registry"
+      },
+      {
+        "id": "binding-302",
+        "service_id": "service-302",
+        "gitlab_instance": "https://gitlab.example.test",
+        "project_id": 302,
+        "path": ".",
+        "build_target": "report-builder",
+        "role": "primary",
+        "valid_from": "2026-01-01T00:00:00Z",
+        "valid_to": null,
+        "approved_by": "Demo architecture registry"
+      },
+      {
+        "id": "binding-401",
+        "service_id": "service-401",
+        "gitlab_instance": "https://gitlab.example.test",
+        "project_id": 401,
+        "path": ".",
+        "build_target": "operations-portal",
+        "role": "primary",
+        "valid_from": "2026-01-01T00:00:00Z",
+        "valid_to": null,
+        "approved_by": "Demo architecture registry"
+      },
+      {
+        "id": "binding-402",
+        "service_id": "service-402",
+        "gitlab_instance": "https://gitlab.example.test",
+        "project_id": 402,
+        "path": ".",
+        "build_target": "legacy-batch",
+        "role": "primary",
+        "valid_from": "2026-01-01T00:00:00Z",
+        "valid_to": null,
+        "approved_by": "Demo architecture registry"
+      },
+      {
+        "id": "binding-notification-admin",
+        "service_id": "service-notification-admin",
+        "gitlab_instance": "https://gitlab.example.test",
+        "project_id": 103,
+        "path": "admin",
+        "build_target": "notification-admin",
+        "role": "primary",
+        "valid_from": "2026-01-01T00:00:00Z",
+        "valid_to": null,
+        "approved_by": "Demo architecture registry"
+      },
+      {
+        "id": "binding-api-report-client",
+        "service_id": "service-101",
+        "gitlab_instance": "https://gitlab.example.test",
+        "project_id": 302,
+        "path": "clients/customer",
+        "build_target": "report-client",
+        "role": "auxiliary",
+        "valid_from": "2026-01-01T00:00:00Z",
+        "valid_to": null,
+        "approved_by": "Demo architecture registry"
+      }
+    ],
+    "ownershipDecisions": [
+      {
+        "application_service_id": "aa1b5ffc7cbd31e0eb4822967925d9ec",
+        "primary_application_id": "7c82602500857aa6ed0cf38c4c3e4ec6",
+        "consumer_application_ids": [
+          "b6c4ac412ac8822355239dd717c11ca5"
+        ],
+        "reason": "Atlas operates this shared service; Meridian consumes it.",
+        "approved_by": "Demo service owner"
+      }
+    ]
+  },
+  "aws": {
+    "accounts": [
+      {
+        "Account": "111122223333",
+        "Arn": "arn:aws:iam::111122223333:role/InventoryReadOnly",
+        "UserId": "SIMULATED:111122223333",
+        "source": "STS GetCallerIdentity"
+      },
+      {
+        "Account": "444455556666",
+        "Arn": "arn:aws:iam::444455556666:role/InventoryReadOnly",
+        "UserId": "SIMULATED:444455556666",
+        "source": "STS GetCallerIdentity"
+      }
+    ],
+    "ecs": {
+      "clusters": [
+        {
+          "clusterArn": "arn:aws:ecs:us-east-1:444455556666:cluster/dev-applications",
+          "clusterName": "dev-applications",
+          "status": "ACTIVE"
+        },
+        {
+          "clusterArn": "arn:aws:ecs:us-east-1:444455556666:cluster/uat-applications",
+          "clusterName": "uat-applications",
+          "status": "ACTIVE"
+        },
+        {
+          "clusterArn": "arn:aws:ecs:us-east-1:111122223333:cluster/prod-applications",
+          "clusterName": "prod-applications",
+          "status": "ACTIVE"
+        }
+      ],
+      "services": [
+        {
+          "serviceArn": "arn:aws:ecs:us-east-1:444455556666:service/dev-applications/customer-api-dev",
+          "serviceName": "customer-api-dev",
+          "clusterArn": "arn:aws:ecs:us-east-1:444455556666:cluster/dev-applications",
+          "taskDefinition": "arn:aws:ecs:us-east-1:444455556666:task-definition/customer-api-dev:41",
+          "status": "ACTIVE",
+          "desiredCount": 1
+        },
+        {
+          "serviceArn": "arn:aws:ecs:us-east-1:444455556666:service/uat-applications/customer-api-uat",
+          "serviceName": "customer-api-uat",
+          "clusterArn": "arn:aws:ecs:us-east-1:444455556666:cluster/uat-applications",
+          "taskDefinition": "arn:aws:ecs:us-east-1:444455556666:task-definition/customer-api-uat:41",
+          "status": "ACTIVE",
+          "desiredCount": 1
+        },
+        {
+          "serviceArn": "arn:aws:ecs:us-east-1:111122223333:service/prod-applications/customer-api-prod",
+          "serviceName": "customer-api-prod",
+          "clusterArn": "arn:aws:ecs:us-east-1:111122223333:cluster/prod-applications",
+          "taskDefinition": "arn:aws:ecs:us-east-1:111122223333:task-definition/customer-api-prod:41",
+          "status": "ACTIVE",
+          "desiredCount": 1
+        },
+        {
+          "serviceArn": "arn:aws:ecs:us-east-1:444455556666:service/dev-applications/customer-web-dev",
+          "serviceName": "customer-web-dev",
+          "clusterArn": "arn:aws:ecs:us-east-1:444455556666:cluster/dev-applications",
+          "taskDefinition": "arn:aws:ecs:us-east-1:444455556666:task-definition/customer-web-dev:41",
+          "status": "ACTIVE",
+          "desiredCount": 1
+        },
+        {
+          "serviceArn": "arn:aws:ecs:us-east-1:444455556666:service/uat-applications/customer-web-uat",
+          "serviceName": "customer-web-uat",
+          "clusterArn": "arn:aws:ecs:us-east-1:444455556666:cluster/uat-applications",
+          "taskDefinition": "arn:aws:ecs:us-east-1:444455556666:task-definition/customer-web-uat:41",
+          "status": "ACTIVE",
+          "desiredCount": 1
+        },
+        {
+          "serviceArn": "arn:aws:ecs:us-east-1:111122223333:service/prod-applications/customer-web-prod",
+          "serviceName": "customer-web-prod",
+          "clusterArn": "arn:aws:ecs:us-east-1:111122223333:cluster/prod-applications",
+          "taskDefinition": "arn:aws:ecs:us-east-1:111122223333:task-definition/customer-web-prod:41",
+          "status": "ACTIVE",
+          "desiredCount": 1
+        },
+        {
+          "serviceArn": "arn:aws:ecs:us-east-1:444455556666:service/dev-applications/payment-gateway-dev",
+          "serviceName": "payment-gateway-dev",
+          "clusterArn": "arn:aws:ecs:us-east-1:444455556666:cluster/dev-applications",
+          "taskDefinition": "arn:aws:ecs:us-east-1:444455556666:task-definition/payment-gateway-dev:41",
+          "status": "ACTIVE",
+          "desiredCount": 1
+        },
+        {
+          "serviceArn": "arn:aws:ecs:us-east-1:444455556666:service/uat-applications/payment-gateway-uat",
+          "serviceName": "payment-gateway-uat",
+          "clusterArn": "arn:aws:ecs:us-east-1:444455556666:cluster/uat-applications",
+          "taskDefinition": "arn:aws:ecs:us-east-1:444455556666:task-definition/payment-gateway-uat:41",
+          "status": "ACTIVE",
+          "desiredCount": 1
+        },
+        {
+          "serviceArn": "arn:aws:ecs:us-east-1:111122223333:service/prod-applications/payment-gateway-prod",
+          "serviceName": "payment-gateway-prod",
+          "clusterArn": "arn:aws:ecs:us-east-1:111122223333:cluster/prod-applications",
+          "taskDefinition": "arn:aws:ecs:us-east-1:111122223333:task-definition/payment-gateway-prod:41",
+          "status": "ACTIVE",
+          "desiredCount": 1
+        },
+        {
+          "serviceArn": "arn:aws:ecs:us-east-1:444455556666:service/dev-applications/settlement-worker-dev",
+          "serviceName": "settlement-worker-dev",
+          "clusterArn": "arn:aws:ecs:us-east-1:444455556666:cluster/dev-applications",
+          "taskDefinition": "arn:aws:ecs:us-east-1:444455556666:task-definition/settlement-worker-dev:41",
+          "status": "ACTIVE",
+          "desiredCount": 1
+        },
+        {
+          "serviceArn": "arn:aws:ecs:us-east-1:444455556666:service/uat-applications/settlement-worker-uat",
+          "serviceName": "settlement-worker-uat",
+          "clusterArn": "arn:aws:ecs:us-east-1:444455556666:cluster/uat-applications",
+          "taskDefinition": "arn:aws:ecs:us-east-1:444455556666:task-definition/settlement-worker-uat:41",
+          "status": "ACTIVE",
+          "desiredCount": 1
+        },
+        {
+          "serviceArn": "arn:aws:ecs:us-east-1:111122223333:service/prod-applications/settlement-worker-prod",
+          "serviceName": "settlement-worker-prod",
+          "clusterArn": "arn:aws:ecs:us-east-1:111122223333:cluster/prod-applications",
+          "taskDefinition": "arn:aws:ecs:us-east-1:111122223333:task-definition/settlement-worker-prod:41",
+          "status": "ACTIVE",
+          "desiredCount": 1
+        },
+        {
+          "serviceArn": "arn:aws:ecs:us-east-1:444455556666:service/dev-applications/event-ingestion-dev",
+          "serviceName": "event-ingestion-dev",
+          "clusterArn": "arn:aws:ecs:us-east-1:444455556666:cluster/dev-applications",
+          "taskDefinition": "arn:aws:ecs:us-east-1:444455556666:task-definition/event-ingestion-dev:41",
+          "status": "ACTIVE",
+          "desiredCount": 1
+        },
+        {
+          "serviceArn": "arn:aws:ecs:us-east-1:444455556666:service/uat-applications/event-ingestion-uat",
+          "serviceName": "event-ingestion-uat",
+          "clusterArn": "arn:aws:ecs:us-east-1:444455556666:cluster/uat-applications",
+          "taskDefinition": "arn:aws:ecs:us-east-1:444455556666:task-definition/event-ingestion-uat:41",
+          "status": "ACTIVE",
+          "desiredCount": 1
+        },
+        {
+          "serviceArn": "arn:aws:ecs:us-east-1:111122223333:service/prod-applications/event-ingestion-prod",
+          "serviceName": "event-ingestion-prod",
+          "clusterArn": "arn:aws:ecs:us-east-1:111122223333:cluster/prod-applications",
+          "taskDefinition": "arn:aws:ecs:us-east-1:111122223333:task-definition/event-ingestion-prod:41",
+          "status": "ACTIVE",
+          "desiredCount": 1
+        },
+        {
+          "serviceArn": "arn:aws:ecs:us-east-1:444455556666:service/dev-applications/report-builder-dev",
+          "serviceName": "report-builder-dev",
+          "clusterArn": "arn:aws:ecs:us-east-1:444455556666:cluster/dev-applications",
+          "taskDefinition": "arn:aws:ecs:us-east-1:444455556666:task-definition/report-builder-dev:41",
+          "status": "ACTIVE",
+          "desiredCount": 1
+        },
+        {
+          "serviceArn": "arn:aws:ecs:us-east-1:444455556666:service/uat-applications/report-builder-uat",
+          "serviceName": "report-builder-uat",
+          "clusterArn": "arn:aws:ecs:us-east-1:444455556666:cluster/uat-applications",
+          "taskDefinition": "arn:aws:ecs:us-east-1:444455556666:task-definition/report-builder-uat:41",
+          "status": "ACTIVE",
+          "desiredCount": 1
+        },
+        {
+          "serviceArn": "arn:aws:ecs:us-east-1:111122223333:service/prod-applications/report-builder-prod",
+          "serviceName": "report-builder-prod",
+          "clusterArn": "arn:aws:ecs:us-east-1:111122223333:cluster/prod-applications",
+          "taskDefinition": "arn:aws:ecs:us-east-1:111122223333:task-definition/report-builder-prod:41",
+          "status": "ACTIVE",
+          "desiredCount": 1
+        },
+        {
+          "serviceArn": "arn:aws:ecs:us-east-1:444455556666:service/dev-applications/operations-portal-dev",
+          "serviceName": "operations-portal-dev",
+          "clusterArn": "arn:aws:ecs:us-east-1:444455556666:cluster/dev-applications",
+          "taskDefinition": "arn:aws:ecs:us-east-1:444455556666:task-definition/operations-portal-dev:41",
+          "status": "ACTIVE",
+          "desiredCount": 1
+        },
+        {
+          "serviceArn": "arn:aws:ecs:us-east-1:444455556666:service/uat-applications/operations-portal-uat",
+          "serviceName": "operations-portal-uat",
+          "clusterArn": "arn:aws:ecs:us-east-1:444455556666:cluster/uat-applications",
+          "taskDefinition": "arn:aws:ecs:us-east-1:444455556666:task-definition/operations-portal-uat:41",
+          "status": "ACTIVE",
+          "desiredCount": 1
+        },
+        {
+          "serviceArn": "arn:aws:ecs:us-east-1:111122223333:service/prod-applications/operations-portal-prod",
+          "serviceName": "operations-portal-prod",
+          "clusterArn": "arn:aws:ecs:us-east-1:111122223333:cluster/prod-applications",
+          "taskDefinition": "arn:aws:ecs:us-east-1:111122223333:task-definition/operations-portal-prod:41",
+          "status": "ACTIVE",
+          "desiredCount": 1
+        },
+        {
+          "serviceArn": "arn:aws:ecs:us-east-1:444455556666:service/dev-applications/unmapped-worker",
+          "serviceName": "unmapped-worker",
+          "clusterArn": "arn:aws:ecs:us-east-1:444455556666:cluster/dev-applications",
+          "taskDefinition": "arn:aws:ecs:us-east-1:444455556666:task-definition/customer-api-dev:41",
+          "status": "ACTIVE",
+          "desiredCount": 1
+        }
+      ],
+      "taskDefinitions": [
+        {
+          "taskDefinitionArn": "arn:aws:ecs:us-east-1:444455556666:task-definition/customer-api-dev:41",
+          "family": "customer-api-dev",
+          "revision": 41,
+          "containerDefinitions": [
+            {
+              "name": "customer-api",
+              "image": "444455556666.dkr.ecr.us-east-1.amazonaws.com/customer-api:2.3.0"
+            }
+          ]
+        },
+        {
+          "taskDefinitionArn": "arn:aws:ecs:us-east-1:444455556666:task-definition/customer-api-uat:41",
+          "family": "customer-api-uat",
+          "revision": 41,
+          "containerDefinitions": [
+            {
+              "name": "customer-api",
+              "image": "444455556666.dkr.ecr.us-east-1.amazonaws.com/customer-api:2.2.0"
+            }
+          ]
+        },
+        {
+          "taskDefinitionArn": "arn:aws:ecs:us-east-1:111122223333:task-definition/customer-api-prod:41",
+          "family": "customer-api-prod",
+          "revision": 41,
+          "containerDefinitions": [
+            {
+              "name": "customer-api",
+              "image": "111122223333.dkr.ecr.us-east-1.amazonaws.com/customer-api:2.1.0"
+            }
+          ]
+        },
+        {
+          "taskDefinitionArn": "arn:aws:ecs:us-east-1:111122223333:task-definition/customer-api-prod:40",
+          "family": "customer-api-prod",
+          "revision": 40,
+          "containerDefinitions": [
+            {
+              "name": "customer-api",
+              "image": "111122223333.dkr.ecr.us-east-1.amazonaws.com/customer-api:2.0.0"
+            }
+          ]
+        },
+        {
+          "taskDefinitionArn": "arn:aws:ecs:us-east-1:444455556666:task-definition/customer-web-dev:41",
+          "family": "customer-web-dev",
+          "revision": 41,
+          "containerDefinitions": [
+            {
+              "name": "customer-web",
+              "image": "444455556666.dkr.ecr.us-east-1.amazonaws.com/customer-web:3.3.0"
+            }
+          ]
+        },
+        {
+          "taskDefinitionArn": "arn:aws:ecs:us-east-1:444455556666:task-definition/customer-web-uat:41",
+          "family": "customer-web-uat",
+          "revision": 41,
+          "containerDefinitions": [
+            {
+              "name": "customer-web",
+              "image": "444455556666.dkr.ecr.us-east-1.amazonaws.com/customer-web:3.2.0"
+            }
+          ]
+        },
+        {
+          "taskDefinitionArn": "arn:aws:ecs:us-east-1:111122223333:task-definition/customer-web-prod:41",
+          "family": "customer-web-prod",
+          "revision": 41,
+          "containerDefinitions": [
+            {
+              "name": "customer-web",
+              "image": "111122223333.dkr.ecr.us-east-1.amazonaws.com/customer-web:3.1.0"
+            }
+          ]
+        },
+        {
+          "taskDefinitionArn": "arn:aws:ecs:us-east-1:111122223333:task-definition/customer-web-prod:40",
+          "family": "customer-web-prod",
+          "revision": 40,
+          "containerDefinitions": [
+            {
+              "name": "customer-web",
+              "image": "111122223333.dkr.ecr.us-east-1.amazonaws.com/customer-web:3.0.0"
+            }
+          ]
+        },
+        {
+          "taskDefinitionArn": "arn:aws:ecs:us-east-1:444455556666:task-definition/payment-gateway-dev:41",
+          "family": "payment-gateway-dev",
+          "revision": 41,
+          "containerDefinitions": [
+            {
+              "name": "payment-gateway",
+              "image": "444455556666.dkr.ecr.us-east-1.amazonaws.com/payment-gateway:2.3.0"
+            }
+          ]
+        },
+        {
+          "taskDefinitionArn": "arn:aws:ecs:us-east-1:444455556666:task-definition/payment-gateway-uat:41",
+          "family": "payment-gateway-uat",
+          "revision": 41,
+          "containerDefinitions": [
+            {
+              "name": "payment-gateway",
+              "image": "444455556666.dkr.ecr.us-east-1.amazonaws.com/payment-gateway:2.2.0"
+            }
+          ]
+        },
+        {
+          "taskDefinitionArn": "arn:aws:ecs:us-east-1:111122223333:task-definition/payment-gateway-prod:41",
+          "family": "payment-gateway-prod",
+          "revision": 41,
+          "containerDefinitions": [
+            {
+              "name": "payment-gateway",
+              "image": "111122223333.dkr.ecr.us-east-1.amazonaws.com/payment-gateway:2.1.0"
+            }
+          ]
+        },
+        {
+          "taskDefinitionArn": "arn:aws:ecs:us-east-1:444455556666:task-definition/settlement-worker-dev:41",
+          "family": "settlement-worker-dev",
+          "revision": 41,
+          "containerDefinitions": [
+            {
+              "name": "settlement-worker",
+              "image": "444455556666.dkr.ecr.us-east-1.amazonaws.com/settlement-worker:3.3.0"
+            }
+          ]
+        },
+        {
+          "taskDefinitionArn": "arn:aws:ecs:us-east-1:444455556666:task-definition/settlement-worker-uat:41",
+          "family": "settlement-worker-uat",
+          "revision": 41,
+          "containerDefinitions": [
+            {
+              "name": "settlement-worker",
+              "image": "444455556666.dkr.ecr.us-east-1.amazonaws.com/settlement-worker:3.2.0"
+            }
+          ]
+        },
+        {
+          "taskDefinitionArn": "arn:aws:ecs:us-east-1:111122223333:task-definition/settlement-worker-prod:41",
+          "family": "settlement-worker-prod",
+          "revision": 41,
+          "containerDefinitions": [
+            {
+              "name": "settlement-worker",
+              "image": "111122223333.dkr.ecr.us-east-1.amazonaws.com/settlement-worker:3.1.0"
+            }
+          ]
+        },
+        {
+          "taskDefinitionArn": "arn:aws:ecs:us-east-1:444455556666:task-definition/event-ingestion-dev:41",
+          "family": "event-ingestion-dev",
+          "revision": 41,
+          "containerDefinitions": [
+            {
+              "name": "event-ingestion",
+              "image": "444455556666.dkr.ecr.us-east-1.amazonaws.com/event-ingestion:2.3.0"
+            }
+          ]
+        },
+        {
+          "taskDefinitionArn": "arn:aws:ecs:us-east-1:444455556666:task-definition/event-ingestion-uat:41",
+          "family": "event-ingestion-uat",
+          "revision": 41,
+          "containerDefinitions": [
+            {
+              "name": "event-ingestion",
+              "image": "444455556666.dkr.ecr.us-east-1.amazonaws.com/event-ingestion:2.2.0"
+            }
+          ]
+        },
+        {
+          "taskDefinitionArn": "arn:aws:ecs:us-east-1:111122223333:task-definition/event-ingestion-prod:41",
+          "family": "event-ingestion-prod",
+          "revision": 41,
+          "containerDefinitions": [
+            {
+              "name": "event-ingestion",
+              "image": "111122223333.dkr.ecr.us-east-1.amazonaws.com/event-ingestion:2.1.0"
+            }
+          ]
+        },
+        {
+          "taskDefinitionArn": "arn:aws:ecs:us-east-1:444455556666:task-definition/report-builder-dev:41",
+          "family": "report-builder-dev",
+          "revision": 41,
+          "containerDefinitions": [
+            {
+              "name": "report-builder",
+              "image": "444455556666.dkr.ecr.us-east-1.amazonaws.com/report-builder:3.3.0"
+            }
+          ]
+        },
+        {
+          "taskDefinitionArn": "arn:aws:ecs:us-east-1:444455556666:task-definition/report-builder-uat:41",
+          "family": "report-builder-uat",
+          "revision": 41,
+          "containerDefinitions": [
+            {
+              "name": "report-builder",
+              "image": "444455556666.dkr.ecr.us-east-1.amazonaws.com/report-builder:3.2.0"
+            }
+          ]
+        },
+        {
+          "taskDefinitionArn": "arn:aws:ecs:us-east-1:111122223333:task-definition/report-builder-prod:41",
+          "family": "report-builder-prod",
+          "revision": 41,
+          "containerDefinitions": [
+            {
+              "name": "report-builder",
+              "image": "111122223333.dkr.ecr.us-east-1.amazonaws.com/report-builder:3.1.0"
+            }
+          ]
+        },
+        {
+          "taskDefinitionArn": "arn:aws:ecs:us-east-1:444455556666:task-definition/operations-portal-dev:41",
+          "family": "operations-portal-dev",
+          "revision": 41,
+          "containerDefinitions": [
+            {
+              "name": "operations-portal",
+              "image": "444455556666.dkr.ecr.us-east-1.amazonaws.com/operations-portal:2.3.0"
+            }
+          ]
+        },
+        {
+          "taskDefinitionArn": "arn:aws:ecs:us-east-1:444455556666:task-definition/operations-portal-uat:41",
+          "family": "operations-portal-uat",
+          "revision": 41,
+          "containerDefinitions": [
+            {
+              "name": "operations-portal",
+              "image": "444455556666.dkr.ecr.us-east-1.amazonaws.com/operations-portal:2.2.0"
+            }
+          ]
+        },
+        {
+          "taskDefinitionArn": "arn:aws:ecs:us-east-1:111122223333:task-definition/operations-portal-prod:41",
+          "family": "operations-portal-prod",
+          "revision": 41,
+          "containerDefinitions": [
+            {
+              "name": "operations-portal",
+              "image": "111122223333.dkr.ecr.us-east-1.amazonaws.com/operations-portal:2.1.0"
+            }
+          ]
+        }
+      ]
+    },
+    "ecr": {
+      "images": [
+        {
+          "registryId": "444455556666",
+          "region": "us-east-1",
+          "repositoryName": "customer-api",
+          "imageDigest": "sha256:87abb46a5c0e577d327fffdcd25afe608e83e6c69db5932d74e2f13d9c957e4c",
+          "imageTags": [
+            "2.3.0"
+          ],
+          "imageManifestMediaType": "application/vnd.oci.image.manifest.v1+json",
+          "imagePushedAt": "2026-10-25T09:12:00Z"
+        },
+        {
+          "registryId": "444455556666",
+          "region": "us-east-1",
+          "repositoryName": "customer-api",
+          "imageDigest": "sha256:61df76ec7cf73c9e044371b0e0b8f937c7742316e9c4f5a5c337f9e4c18143ea",
+          "imageTags": [
+            "2.2.0"
+          ],
+          "imageManifestMediaType": "application/vnd.oci.image.manifest.v1+json",
+          "imagePushedAt": "2026-10-25T09:12:00Z"
+        },
+        {
+          "registryId": "111122223333",
+          "region": "us-east-1",
+          "repositoryName": "customer-api",
+          "imageDigest": "sha256:9d9ee29fe63f22431b15170b2ce29e50bd648cb9083b2a3348aadfb84b57a929",
+          "imageTags": [
+            "2.1.0"
+          ],
+          "imageManifestMediaType": "application/vnd.oci.image.manifest.v1+json",
+          "imagePushedAt": "2026-10-25T09:12:00Z"
+        },
+        {
+          "registryId": "111122223333",
+          "region": "us-east-1",
+          "repositoryName": "customer-api",
+          "imageDigest": "sha256:5d9d4d7f16a0bec62eba0e1da25918ef693712095f03c8d1ebc69ac8dbfb7532",
+          "imageTags": [
+            "2.0.0"
+          ],
+          "imageManifestMediaType": "application/vnd.oci.image.manifest.v1+json",
+          "imagePushedAt": "2026-10-25T09:12:00Z"
+        },
+        {
+          "registryId": "444455556666",
+          "region": "us-east-1",
+          "repositoryName": "customer-web",
+          "imageDigest": "sha256:6bcbadf224befa5f3910210561404cf46e45590127463dd089302ec939ef7453",
+          "imageTags": [
+            "3.3.0"
+          ],
+          "imageManifestMediaType": "application/vnd.oci.image.manifest.v1+json",
+          "imagePushedAt": "2026-10-25T09:12:00Z"
+        },
+        {
+          "registryId": "444455556666",
+          "region": "us-east-1",
+          "repositoryName": "customer-web",
+          "imageDigest": "sha256:531dba64b2c4dc15a7d7f96b299bab3ca6bb5c335eb0c17770a3b74b90930b22",
+          "imageTags": [
+            "3.2.0"
+          ],
+          "imageManifestMediaType": "application/vnd.oci.image.manifest.v1+json",
+          "imagePushedAt": "2026-10-25T09:12:00Z"
+        },
+        {
+          "registryId": "111122223333",
+          "region": "us-east-1",
+          "repositoryName": "customer-web",
+          "imageDigest": "sha256:28307f2bc7a19a5eebc8456038f879aa69c229b77a26e4e83bd5890d4eca5661",
+          "imageTags": [
+            "3.1.0"
+          ],
+          "imageManifestMediaType": "application/vnd.oci.image.manifest.v1+json",
+          "imagePushedAt": "2026-10-25T09:12:00Z"
+        },
+        {
+          "registryId": "111122223333",
+          "region": "us-east-1",
+          "repositoryName": "customer-web",
+          "imageDigest": "sha256:dc18e454a4c1ea29749f07f456424ab06b311307db61d67f0b61ce6805b58b0c",
+          "imageTags": [
+            "3.0.0"
+          ],
+          "imageManifestMediaType": "application/vnd.oci.image.manifest.v1+json",
+          "imagePushedAt": "2026-10-25T09:12:00Z"
+        },
+        {
+          "registryId": "444455556666",
+          "region": "us-east-1",
+          "repositoryName": "payment-gateway",
+          "imageDigest": "sha256:96cc22f048ff36f9a42398e18be71b192a05c74680020c994ac51a5aad2e568a",
+          "imageTags": [
+            "2.3.0"
+          ],
+          "imageManifestMediaType": "application/vnd.oci.image.manifest.v1+json",
+          "imagePushedAt": "2026-10-25T09:12:00Z"
+        },
+        {
+          "registryId": "444455556666",
+          "region": "us-east-1",
+          "repositoryName": "payment-gateway",
+          "imageDigest": "sha256:b933d626d13e4c1b093384d5026bf7ed58a51e7a5d63f418f47bbe1e8556d8eb",
+          "imageTags": [
+            "2.2.0"
+          ],
+          "imageManifestMediaType": "application/vnd.oci.image.manifest.v1+json",
+          "imagePushedAt": "2026-10-25T09:12:00Z"
+        },
+        {
+          "registryId": "111122223333",
+          "region": "us-east-1",
+          "repositoryName": "payment-gateway",
+          "imageDigest": "sha256:2d6527fe42418bb774b8829d0dca6750e43053e80f94c9c193d238454de9d582",
+          "imageTags": [
+            "2.1.0"
+          ],
+          "imageManifestMediaType": "application/vnd.oci.image.manifest.v1+json",
+          "imagePushedAt": "2026-10-25T09:12:00Z"
+        },
+        {
+          "registryId": "444455556666",
+          "region": "us-east-1",
+          "repositoryName": "settlement-worker",
+          "imageDigest": "sha256:4c153321c157dae6fd6c599b9714c63bb7a6094930613e835079796cd71b65f7",
+          "imageTags": [
+            "3.3.0"
+          ],
+          "imageManifestMediaType": "application/vnd.oci.image.manifest.v1+json",
+          "imagePushedAt": "2026-10-25T09:12:00Z"
+        },
+        {
+          "registryId": "444455556666",
+          "region": "us-east-1",
+          "repositoryName": "settlement-worker",
+          "imageDigest": "sha256:31c5ee8bc946d532f2f05504220a162cc071640237c785cbd2fecc380d1f6699",
+          "imageTags": [
+            "3.2.0"
+          ],
+          "imageManifestMediaType": "application/vnd.oci.image.manifest.v1+json",
+          "imagePushedAt": "2026-10-25T09:12:00Z"
+        },
+        {
+          "registryId": "111122223333",
+          "region": "us-east-1",
+          "repositoryName": "settlement-worker",
+          "imageDigest": "sha256:51fe20152fddb1009a7a52ef5d4d1f6dc9e40c0c81dcef8ff1d56c9319bb2c9c",
+          "imageTags": [
+            "3.1.0"
+          ],
+          "imageManifestMediaType": "application/vnd.oci.image.manifest.v1+json",
+          "imagePushedAt": "2026-10-25T09:12:00Z"
+        },
+        {
+          "registryId": "444455556666",
+          "region": "us-east-1",
+          "repositoryName": "event-ingestion",
+          "imageDigest": "sha256:a15fb5231b76821393c460256d29e09ee08a7a000616d8b1f433c3224392561d",
+          "imageTags": [
+            "2.3.0"
+          ],
+          "imageManifestMediaType": "application/vnd.oci.image.manifest.v1+json",
+          "imagePushedAt": "2026-10-25T09:12:00Z"
+        },
+        {
+          "registryId": "444455556666",
+          "region": "us-east-1",
+          "repositoryName": "event-ingestion",
+          "imageDigest": "sha256:854afa87db41a69d36f7d30b679bb50d403e13930358796d78bcc3cc674c32fa",
+          "imageTags": [
+            "2.2.0"
+          ],
+          "imageManifestMediaType": "application/vnd.oci.image.manifest.v1+json",
+          "imagePushedAt": "2026-10-25T09:12:00Z"
+        },
+        {
+          "registryId": "111122223333",
+          "region": "us-east-1",
+          "repositoryName": "event-ingestion",
+          "imageDigest": "sha256:98fa7c4227930e3cbf66b1df08f0893bfa6c6539e4d2448094e62e2f148fb39c",
+          "imageTags": [
+            "2.1.0"
+          ],
+          "imageManifestMediaType": "application/vnd.oci.image.manifest.v1+json",
+          "imagePushedAt": "2026-10-25T09:12:00Z"
+        },
+        {
+          "registryId": "444455556666",
+          "region": "us-east-1",
+          "repositoryName": "report-builder",
+          "imageDigest": "sha256:700fce563047872befd89832e3ae6d02d941793d9a5a529ccfd2035aa4dbc5da",
+          "imageTags": [
+            "3.3.0"
+          ],
+          "imageManifestMediaType": "application/vnd.oci.image.manifest.v1+json",
+          "imagePushedAt": "2026-10-25T09:12:00Z"
+        },
+        {
+          "registryId": "444455556666",
+          "region": "us-east-1",
+          "repositoryName": "report-builder",
+          "imageDigest": "sha256:4b4682e2d568a8091babe929b25d2e9e09d933b7b887d13413e93a0605827909",
+          "imageTags": [
+            "3.2.0"
+          ],
+          "imageManifestMediaType": "application/vnd.oci.image.manifest.v1+json",
+          "imagePushedAt": "2026-10-25T09:12:00Z"
+        },
+        {
+          "registryId": "111122223333",
+          "region": "us-east-1",
+          "repositoryName": "report-builder",
+          "imageDigest": "sha256:1e3dc42f9e86255be616f9f1f098713597dea4dfa1a543f3eb367f230d079d84",
+          "imageTags": [
+            "3.1.0"
+          ],
+          "imageManifestMediaType": "application/vnd.oci.image.manifest.v1+json",
+          "imagePushedAt": "2026-10-25T09:12:00Z"
+        },
+        {
+          "registryId": "444455556666",
+          "region": "us-east-1",
+          "repositoryName": "operations-portal",
+          "imageDigest": "sha256:0d4af28deb20197acef878a6f89bd19a374580c75c0c01762f7e37161bfba899",
+          "imageTags": [
+            "2.3.0"
+          ],
+          "imageManifestMediaType": "application/vnd.oci.image.manifest.v1+json",
+          "imagePushedAt": "2026-10-25T09:12:00Z"
+        },
+        {
+          "registryId": "111122223333",
+          "region": "us-east-1",
+          "repositoryName": "operations-portal",
+          "imageDigest": "sha256:6ff673620d89ef4fe7523d287df083b9acf71fedd101cb9087feb017bf2edf28",
+          "imageTags": [
+            "2.1.0"
+          ],
+          "imageManifestMediaType": "application/vnd.oci.image.manifest.v1+json",
+          "imagePushedAt": "2026-10-25T09:12:00Z"
+        },
+        {
+          "registryId": "111122223333",
+          "region": "us-east-1",
+          "repositoryName": "report-builder",
+          "imageDigest": "sha256:8eafee238a17c97ce5b51cb39e6a37d38fd2da613783ab55dc336ae225ff5a64",
+          "imageTags": [
+            "3.1.0"
+          ],
+          "imageManifestMediaType": "application/vnd.oci.image.manifest.v1+json",
+          "imagePushedAt": "2026-10-25T09:12:00Z"
+        }
+      ]
+    },
+    "lambda": {
+      "aliases": [
+        {
+          "AliasArn": "arn:aws:lambda:us-east-1:444455556666:function:notification-handler-dev:live",
+          "Name": "live",
+          "FunctionVersion": "12",
+          "RoutingConfig": {
+            "AdditionalVersionWeights": {}
+          }
+        },
+        {
+          "AliasArn": "arn:aws:lambda:us-east-1:444455556666:function:notification-handler-uat:live",
+          "Name": "live",
+          "FunctionVersion": "12",
+          "RoutingConfig": {
+            "AdditionalVersionWeights": {}
+          }
+        },
+        {
+          "AliasArn": "arn:aws:lambda:us-east-1:111122223333:function:notification-handler-prod:live",
+          "Name": "live",
+          "FunctionVersion": "12",
+          "RoutingConfig": {
+            "AdditionalVersionWeights": {}
+          }
+        }
+      ]
+    },
+    "workloadTagCaptures": [
+      {
+        "resourceId": "arn:aws:ecs:us-east-1:444455556666:task/dev-applications/b0b490bf1cbbb24109c059c85056ab8c",
+        "accountId": "444455556666",
+        "region": "us-east-1",
+        "kind": "ECS",
+        "captured_at": "2026-10-26T12:00:00Z",
+        "tags": {
+          "BusinessApplicationId": "7c82602500857aa6ed0cf38c4c3e4ec6",
+          "GitLabProjectId": "101",
+          "Environment": "development",
+          "Service": "customer-api",
+          "ApplicationServiceId": "7df3c2fd5c3bb930cc8551b620e8a7ca",
+          "CMDBService": "7df3c2fd5c3bb930cc8551b620e8a7ca"
+        },
+        "api": "ecs:ListTagsForResource"
+      },
+      {
+        "resourceId": "arn:aws:ecs:us-east-1:444455556666:task/uat-applications/7dc5035ed782cd73171ecf75cc5b9f07",
+        "accountId": "444455556666",
+        "region": "us-east-1",
+        "kind": "ECS",
+        "captured_at": "2026-10-26T12:00:00Z",
+        "tags": {
+          "BusinessApplicationId": "7c82602500857aa6ed0cf38c4c3e4ec6",
+          "GitLabProjectId": "101",
+          "Environment": "user-acceptance",
+          "Service": "customer-api",
+          "ApplicationServiceId": "2e86b06ba2978a91a22dedb36684daa4",
+          "CMDBService": "2e86b06ba2978a91a22dedb36684daa4"
+        },
+        "api": "ecs:ListTagsForResource"
+      },
+      {
+        "resourceId": "arn:aws:ecs:us-east-1:111122223333:task/prod-applications/efb14a2924cf26adea75621cebacad57",
+        "accountId": "111122223333",
+        "region": "us-east-1",
+        "kind": "ECS",
+        "captured_at": "2026-10-26T12:00:00Z",
+        "tags": {
+          "BusinessApplicationId": "7c82602500857aa6ed0cf38c4c3e4ec6",
+          "GitLabProjectId": "101",
+          "Environment": "production",
+          "Service": "customer-api",
+          "ApplicationServiceId": "025902e8ba7ee39ffb5c5c405299d406",
+          "CMDBService": "025902e8ba7ee39ffb5c5c405299d406"
+        },
+        "api": "ecs:ListTagsForResource"
+      },
+      {
+        "resourceId": "arn:aws:ecs:us-east-1:111122223333:task/prod-applications/26b30febcf55be1c8914d325f398f465",
+        "accountId": "111122223333",
+        "region": "us-east-1",
+        "kind": "ECS",
+        "captured_at": "2026-10-26T12:00:00Z",
+        "tags": {
+          "BusinessApplicationId": "7c82602500857aa6ed0cf38c4c3e4ec6",
+          "GitLabProjectId": "101",
+          "Environment": "production",
+          "Service": "customer-api",
+          "ApplicationServiceId": "025902e8ba7ee39ffb5c5c405299d406",
+          "CMDBService": "025902e8ba7ee39ffb5c5c405299d406"
+        },
+        "api": "ecs:ListTagsForResource"
+      },
+      {
+        "resourceId": "arn:aws:ecs:us-east-1:444455556666:task/dev-applications/155d40cd9cfcb047fd6a31b810deb820",
+        "accountId": "444455556666",
+        "region": "us-east-1",
+        "kind": "ECS",
+        "captured_at": "2026-10-26T12:00:00Z",
+        "tags": {
+          "BusinessApplicationId": "7c82602500857aa6ed0cf38c4c3e4ec6",
+          "GitLabProjectId": "102",
+          "Environment": "development",
+          "Service": "customer-web",
+          "ApplicationServiceId": "0eb4cf98682ae6ef6abf7b5a4f7518db",
+          "CMDBService": "0eb4cf98682ae6ef6abf7b5a4f7518db"
+        },
+        "api": "ecs:ListTagsForResource"
+      },
+      {
+        "resourceId": "arn:aws:ecs:us-east-1:444455556666:task/uat-applications/8e6cf7c7e85b16e7bb4b95de7115de97",
+        "accountId": "444455556666",
+        "region": "us-east-1",
+        "kind": "ECS",
+        "captured_at": "2026-10-26T12:00:00Z",
+        "tags": {
+          "BusinessApplicationId": "7c82602500857aa6ed0cf38c4c3e4ec6",
+          "GitLabProjectId": "102",
+          "Environment": "user-acceptance",
+          "Service": "customer-web",
+          "ApplicationServiceId": "02e5569e9df5f8f7045c5cec83a1910e",
+          "CMDBService": "02e5569e9df5f8f7045c5cec83a1910e"
+        },
+        "api": "ecs:ListTagsForResource"
+      },
+      {
+        "resourceId": "arn:aws:ecs:us-east-1:111122223333:task/prod-applications/f7c7773abf35cb043bed5d46b3f7b97e",
+        "accountId": "111122223333",
+        "region": "us-east-1",
+        "kind": "ECS",
+        "captured_at": "2026-10-26T12:00:00Z",
+        "tags": {
+          "BusinessApplicationId": "7c82602500857aa6ed0cf38c4c3e4ec6",
+          "GitLabProjectId": "102",
+          "Environment": "production",
+          "Service": "customer-web",
+          "ApplicationServiceId": "a85d77549b9c00411abf5417579ecac1",
+          "CMDBService": "a85d77549b9c00411abf5417579ecac1"
+        },
+        "api": "ecs:ListTagsForResource"
+      },
+      {
+        "resourceId": "arn:aws:ecs:us-east-1:111122223333:task/prod-applications/53789fe694f390da4725a34c5347a344",
+        "accountId": "111122223333",
+        "region": "us-east-1",
+        "kind": "ECS",
+        "captured_at": "2026-10-26T12:00:00Z",
+        "tags": {
+          "BusinessApplicationId": "7c82602500857aa6ed0cf38c4c3e4ec6",
+          "GitLabProjectId": "102",
+          "Environment": "production",
+          "Service": "customer-web",
+          "ApplicationServiceId": "a85d77549b9c00411abf5417579ecac1",
+          "CMDBService": "a85d77549b9c00411abf5417579ecac1"
+        },
+        "api": "ecs:ListTagsForResource"
+      },
+      {
+        "resourceId": "arn:aws:ecs:us-east-1:444455556666:task/dev-applications/42c88157eb447f64873b58781800700d",
+        "accountId": "444455556666",
+        "region": "us-east-1",
+        "kind": "ECS",
+        "captured_at": "2026-10-26T12:00:00Z",
+        "tags": {
+          "BusinessApplicationId": "b6c4ac412ac8822355239dd717c11ca5",
+          "GitLabProjectId": "201",
+          "Environment": "development",
+          "Service": "payment-gateway",
+          "ApplicationServiceId": "25ebec443d7a900c0c2df244e5c96f8d",
+          "CMDBService": "25ebec443d7a900c0c2df244e5c96f8d"
+        },
+        "api": "ecs:ListTagsForResource"
+      },
+      {
+        "resourceId": "arn:aws:ecs:us-east-1:444455556666:task/uat-applications/b51126a1de8c7c0f2d14bce500c6bc81",
+        "accountId": "444455556666",
+        "region": "us-east-1",
+        "kind": "ECS",
+        "captured_at": "2026-10-26T12:00:00Z",
+        "tags": {
+          "BusinessApplicationId": "b6c4ac412ac8822355239dd717c11ca5",
+          "GitLabProjectId": "201",
+          "Environment": "user-acceptance",
+          "Service": "payment-gateway",
+          "ApplicationServiceId": "dcc9192711bfcf3d22ce559770a72da5",
+          "CMDBService": "dcc9192711bfcf3d22ce559770a72da5"
+        },
+        "api": "ecs:ListTagsForResource"
+      },
+      {
+        "resourceId": "arn:aws:ecs:us-east-1:111122223333:task/prod-applications/0d1219e8c4ef2bce108e15efbeb47aea",
+        "accountId": "111122223333",
+        "region": "us-east-1",
+        "kind": "ECS",
+        "captured_at": "2026-10-26T12:00:00Z",
+        "tags": {
+          "BusinessApplicationId": "b6c4ac412ac8822355239dd717c11ca5",
+          "GitLabProjectId": "201",
+          "Environment": "production",
+          "Service": "payment-gateway",
+          "ApplicationServiceId": "e5cf89e3787764f839033a60dfb5e320",
+          "CMDBService": "e5cf89e3787764f839033a60dfb5e320"
+        },
+        "api": "ecs:ListTagsForResource"
+      },
+      {
+        "resourceId": "arn:aws:ecs:us-east-1:444455556666:task/dev-applications/9c72babe464386a24000bb6b22432316",
+        "accountId": "444455556666",
+        "region": "us-east-1",
+        "kind": "ECS",
+        "captured_at": "2026-10-26T12:00:00Z",
+        "tags": {
+          "BusinessApplicationId": "b6c4ac412ac8822355239dd717c11ca5",
+          "GitLabProjectId": "202",
+          "Environment": "development",
+          "Service": "settlement-worker",
+          "ApplicationServiceId": "b3c26a105d357ca58fd21910812a6250",
+          "CMDBService": "b3c26a105d357ca58fd21910812a6250"
+        },
+        "api": "ecs:ListTagsForResource"
+      },
+      {
+        "resourceId": "arn:aws:ecs:us-east-1:444455556666:task/uat-applications/19c600bca90c31c78dedb6a6dfee80cf",
+        "accountId": "444455556666",
+        "region": "us-east-1",
+        "kind": "ECS",
+        "captured_at": "2026-10-26T12:00:00Z",
+        "tags": {
+          "BusinessApplicationId": "b6c4ac412ac8822355239dd717c11ca5",
+          "GitLabProjectId": "202",
+          "Environment": "user-acceptance",
+          "Service": "settlement-worker",
+          "ApplicationServiceId": "7a1a3f7cdf2f2ec16c9e493b70f08a66",
+          "CMDBService": "7a1a3f7cdf2f2ec16c9e493b70f08a66"
+        },
+        "api": "ecs:ListTagsForResource"
+      },
+      {
+        "resourceId": "arn:aws:ecs:us-east-1:111122223333:task/prod-applications/d4b62be562b5421d46afc4e200ec6fea",
+        "accountId": "111122223333",
+        "region": "us-east-1",
+        "kind": "ECS",
+        "captured_at": "2026-10-26T12:00:00Z",
+        "tags": {
+          "BusinessApplicationId": "b6c4ac412ac8822355239dd717c11ca5",
+          "GitLabProjectId": "202",
+          "Environment": "production",
+          "Service": "settlement-worker",
+          "ApplicationServiceId": "e0d0d5c67a2f674d2e9b35a1787c5dbe",
+          "CMDBService": "e0d0d5c67a2f674d2e9b35a1787c5dbe"
+        },
+        "api": "ecs:ListTagsForResource"
+      },
+      {
+        "resourceId": "arn:aws:ecs:us-east-1:444455556666:task/dev-applications/776cdc073ee47b6cfc67a933568e166b",
+        "accountId": "444455556666",
+        "region": "us-east-1",
+        "kind": "ECS",
+        "captured_at": "2026-10-26T12:00:00Z",
+        "tags": {
+          "BusinessApplicationId": "8a62e967fcd6dfa5d75308c37808b466",
+          "GitLabProjectId": "301",
+          "Environment": "development",
+          "Service": "event-ingestion",
+          "ApplicationServiceId": "903958fca207194e1156ae85ee7e4449",
+          "CMDBService": "903958fca207194e1156ae85ee7e4449"
+        },
+        "api": "ecs:ListTagsForResource"
+      },
+      {
+        "resourceId": "arn:aws:ecs:us-east-1:444455556666:task/uat-applications/64fd170e1de65ab8a36635fc49c0eb6e",
+        "accountId": "444455556666",
+        "region": "us-east-1",
+        "kind": "ECS",
+        "captured_at": "2026-10-26T12:00:00Z",
+        "tags": {
+          "BusinessApplicationId": "8a62e967fcd6dfa5d75308c37808b466",
+          "GitLabProjectId": "301",
+          "Environment": "user-acceptance",
+          "Service": "event-ingestion",
+          "ApplicationServiceId": "9f64adcbfdbc649de680aff43edd5575",
+          "CMDBService": "9f64adcbfdbc649de680aff43edd5575"
+        },
+        "api": "ecs:ListTagsForResource"
+      },
+      {
+        "resourceId": "arn:aws:ecs:us-east-1:111122223333:task/prod-applications/8eeb376fcc1c4364acdf93d8100265ec",
+        "accountId": "111122223333",
+        "region": "us-east-1",
+        "kind": "ECS",
+        "captured_at": "2026-10-26T12:00:00Z",
+        "tags": {
+          "BusinessApplicationId": "8a62e967fcd6dfa5d75308c37808b466",
+          "GitLabProjectId": "301",
+          "Environment": "production",
+          "Service": "event-ingestion",
+          "ApplicationServiceId": "96dca21d44489398c4cc845f382319c5",
+          "CMDBService": "96dca21d44489398c4cc845f382319c5"
+        },
+        "api": "ecs:ListTagsForResource"
+      },
+      {
+        "resourceId": "arn:aws:ecs:us-east-1:444455556666:task/dev-applications/cc5e4c4a98e3501d7a39548bfd1bf52a",
+        "accountId": "444455556666",
+        "region": "us-east-1",
+        "kind": "ECS",
+        "captured_at": "2026-10-26T12:00:00Z",
+        "tags": {
+          "BusinessApplicationId": "8a62e967fcd6dfa5d75308c37808b466",
+          "GitLabProjectId": "302",
+          "Environment": "development",
+          "Service": "report-builder",
+          "ApplicationServiceId": "34e8b3d3d671f26302a2365f6c569e65",
+          "CMDBService": "34e8b3d3d671f26302a2365f6c569e65"
+        },
+        "api": "ecs:ListTagsForResource"
+      },
+      {
+        "resourceId": "arn:aws:ecs:us-east-1:444455556666:task/uat-applications/0d5969409271ac17141635bfb88cf2bf",
+        "accountId": "444455556666",
+        "region": "us-east-1",
+        "kind": "ECS",
+        "captured_at": "2026-10-26T12:00:00Z",
+        "tags": {
+          "BusinessApplicationId": "8a62e967fcd6dfa5d75308c37808b466",
+          "GitLabProjectId": "302",
+          "Environment": "user-acceptance",
+          "Service": "report-builder",
+          "ApplicationServiceId": "aca034d99cb97729326acb804761ff59",
+          "CMDBService": "aca034d99cb97729326acb804761ff59"
+        },
+        "api": "ecs:ListTagsForResource"
+      },
+      {
+        "resourceId": "arn:aws:ecs:us-east-1:111122223333:task/prod-applications/ee0563124ec475b22ea9ee048f218cce",
+        "accountId": "111122223333",
+        "region": "us-east-1",
+        "kind": "ECS",
+        "captured_at": "2026-10-26T12:00:00Z",
+        "tags": {
+          "BusinessApplicationId": "8a62e967fcd6dfa5d75308c37808b466",
+          "GitLabProjectId": "302",
+          "Environment": "production",
+          "Service": "report-builder",
+          "ApplicationServiceId": "1a6d51cfd65e816d1a5eeee3880ed70a",
+          "CMDBService": "1a6d51cfd65e816d1a5eeee3880ed70a"
+        },
+        "api": "ecs:ListTagsForResource"
+      },
+      {
+        "resourceId": "arn:aws:ecs:us-east-1:444455556666:task/dev-applications/e16d34429c0dc60366971d8ddf171f41",
+        "accountId": "444455556666",
+        "region": "us-east-1",
+        "kind": "ECS",
+        "captured_at": "2026-10-26T12:00:00Z",
+        "tags": {
+          "BusinessApplicationId": "7c82602500857aa6ed0cf38c4c3e4ec6",
+          "GitLabProjectId": "401",
+          "Environment": "development",
+          "Service": "operations-portal",
+          "ApplicationServiceId": "8c9e009f23211ae60e2c48551845ccc9",
+          "CMDBService": "8c9e009f23211ae60e2c48551845ccc9"
+        },
+        "api": "ecs:ListTagsForResource"
+      },
+      {
+        "resourceId": "arn:aws:ecs:us-east-1:444455556666:task/uat-applications/ecb215920c16680f800d97d622c8725d",
+        "accountId": "444455556666",
+        "region": "us-east-1",
+        "kind": "ECS",
+        "captured_at": "2026-10-26T12:00:00Z",
+        "tags": {
+          "BusinessApplicationId": "c1d64b2d4cb30f1be788cc4d246ddd9f",
+          "GitLabProjectId": "401",
+          "Environment": "user-acceptance",
+          "Service": "operations-portal",
+          "ApplicationServiceId": "a828dc9448f461a39a3459cb156f41bb",
+          "CMDBService": "a828dc9448f461a39a3459cb156f41bb"
+        },
+        "api": "ecs:ListTagsForResource"
+      },
+      {
+        "resourceId": "arn:aws:ecs:us-east-1:111122223333:task/prod-applications/135fe2a8273f5e9ee7f6ff50d20fe5ba",
+        "accountId": "111122223333",
+        "region": "us-east-1",
+        "kind": "ECS",
+        "captured_at": "2026-10-26T12:00:00Z",
+        "tags": {
+          "BusinessApplicationId": "c1d64b2d4cb30f1be788cc4d246ddd9f",
+          "GitLabProjectId": "401",
+          "Environment": "production",
+          "Service": "operations-portal",
+          "ApplicationServiceId": "c05d02bf5c0d1d967d2ffcd5d71538b6",
+          "CMDBService": "c05d02bf5c0d1d967d2ffcd5d71538b6"
+        },
+        "api": "ecs:ListTagsForResource"
+      },
+      {
+        "resourceId": "arn:aws:ecs:us-east-1:111122223333:task/prod-applications/df9753905410d4d977f6a30030409de5",
+        "accountId": "111122223333",
+        "region": "us-east-1",
+        "kind": "ECS",
+        "captured_at": "2026-10-26T12:00:00Z",
+        "tags": {
+          "BusinessApplicationId": "8a62e967fcd6dfa5d75308c37808b466",
+          "GitLabProjectId": "302",
+          "Environment": "production",
+          "Service": "report-builder",
+          "ApplicationServiceId": "1a6d51cfd65e816d1a5eeee3880ed70a",
+          "CMDBService": "1a6d51cfd65e816d1a5eeee3880ed70a"
+        },
+        "api": "ecs:ListTagsForResource"
+      },
+      {
+        "resourceId": "arn:aws:ecs:us-east-1:444455556666:task/dev-applications/88f6811ab5d8fc6d3177f9b7609ae0fc",
+        "accountId": "444455556666",
+        "region": "us-east-1",
+        "kind": "ECS",
+        "captured_at": "2026-10-26T12:00:00Z",
+        "tags": {
+          "Environment": "development",
+          "Service": "customer-api"
+        },
+        "api": "ecs:ListTagsForResource"
+      },
+      {
+        "resourceId": "arn:aws:ecs:us-east-1:444455556666:task/dev-applications/254ca8a5aa3088e83e1d502ebb8e3903",
+        "accountId": "444455556666",
+        "region": "us-east-1",
+        "kind": "ECS",
+        "captured_at": "2026-10-26T12:00:00Z",
+        "tags": {
+          "BusinessApplicationId": "7c82602500857aa6ed0cf38c4c3e4ec6",
+          "GitLabProjectId": "101",
+          "Environment": "development",
+          "Service": "customer-api",
+          "ApplicationServiceId": "7df3c2fd5c3bb930cc8551b620e8a7ca",
+          "CMDBService": "7df3c2fd5c3bb930cc8551b620e8a7ca"
+        },
+        "api": "ecs:ListTagsForResource"
+      },
+      {
+        "resourceId": "arn:aws:lambda:us-east-1:444455556666:function:notification-handler-dev:12",
+        "accountId": "444455556666",
+        "region": "us-east-1",
+        "kind": "Lambda",
+        "captured_at": "2026-10-26T12:00:00Z",
+        "tags": {
+          "BusinessApplicationId": "7c82602500857aa6ed0cf38c4c3e4ec6",
+          "GitLabProjectId": "103",
+          "Environment": "development",
+          "Service": "notification-handler",
+          "ApplicationServiceId": "442c98e1c6ada5917dae8d6189d2120e",
+          "CMDBService": "442c98e1c6ada5917dae8d6189d2120e"
+        },
+        "api": "lambda:ListTags"
+      },
+      {
+        "resourceId": "arn:aws:lambda:us-east-1:444455556666:function:notification-handler-uat:12",
+        "accountId": "444455556666",
+        "region": "us-east-1",
+        "kind": "Lambda",
+        "captured_at": "2026-10-26T12:00:00Z",
+        "tags": {
+          "BusinessApplicationId": "7c82602500857aa6ed0cf38c4c3e4ec6",
+          "GitLabProjectId": "103",
+          "Environment": "user-acceptance",
+          "Service": "notification-handler",
+          "ApplicationServiceId": "4d3d94a712950c77634eea195372a44a",
+          "CMDBService": "4d3d94a712950c77634eea195372a44a"
+        },
+        "api": "lambda:ListTags"
+      },
+      {
+        "resourceId": "arn:aws:lambda:us-east-1:111122223333:function:notification-handler-prod:12",
+        "accountId": "111122223333",
+        "region": "us-east-1",
+        "kind": "Lambda",
+        "captured_at": "2026-10-26T12:00:00Z",
+        "tags": {
+          "BusinessApplicationId": "7c82602500857aa6ed0cf38c4c3e4ec6",
+          "GitLabProjectId": "103",
+          "Environment": "production",
+          "Service": "notification-handler",
+          "ApplicationServiceId": "aa1b5ffc7cbd31e0eb4822967925d9ec",
+          "CMDBService": "aa1b5ffc7cbd31e0eb4822967925d9ec"
+        },
+        "api": "lambda:ListTags"
+      },
+      {
+        "resourceId": "i-fa88f12e5529db271",
+        "accountId": "444455556666",
+        "region": "us-east-1",
+        "kind": "EC2",
+        "captured_at": "2026-10-26T12:00:00Z",
+        "tags": {
+          "BusinessApplicationId": "c1d64b2d4cb30f1be788cc4d246ddd9f",
+          "GitLabProjectId": "402",
+          "Environment": "development",
+          "Service": "legacy-batch",
+          "ApplicationServiceId": "9874090ea7f433d22ea7e814376a81e5",
+          "CMDBService": "9874090ea7f433d22ea7e814376a81e5"
+        },
+        "api": "ec2:DescribeInstances"
+      },
+      {
+        "resourceId": "i-4b8ce9a489c9e2600",
+        "accountId": "444455556666",
+        "region": "us-east-1",
+        "kind": "EC2",
+        "captured_at": "2026-10-26T12:00:00Z",
+        "tags": {
+          "BusinessApplicationId": "c1d64b2d4cb30f1be788cc4d246ddd9f",
+          "GitLabProjectId": "402",
+          "Environment": "user-acceptance",
+          "Service": "legacy-batch",
+          "ApplicationServiceId": "d4caeccf869b58ee9a142d3bc95d5f0d",
+          "CMDBService": "d4caeccf869b58ee9a142d3bc95d5f0d"
+        },
+        "api": "ec2:DescribeInstances"
+      },
+      {
+        "resourceId": "i-decbc7cdd0e793715",
+        "accountId": "111122223333",
+        "region": "us-east-1",
+        "kind": "EC2",
+        "captured_at": "2026-10-26T12:00:00Z",
+        "tags": {
+          "BusinessApplicationId": "c1d64b2d4cb30f1be788cc4d246ddd9f",
+          "GitLabProjectId": "402",
+          "Environment": "production",
+          "Service": "legacy-batch",
+          "ApplicationServiceId": "3e98d469a6907c2da859a35d26474136",
+          "CMDBService": "3e98d469a6907c2da859a35d26474136"
+        },
+        "api": "ec2:DescribeInstances"
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "shared-service",
+      "description": "Meridian consumes the Atlas notification service. An explicit registry decision identifies its operating application; both CMDB links are retained."
+    },
+    {
+      "id": "mapping-conflict",
+      "description": "operations-portal DEV has an AWS application tag contradicting its CMDB service ownership. Its deployed version remains unresolved under the mapping profile."
+    },
+    {
+      "id": "alternate-profile",
+      "description": "Switch between cmdb_rel_ci ownership and a custom application reference with an alternate AWS tag. Equivalent primary mappings produce equivalent version results."
+    },
+    {
+      "id": "orphan",
+      "description": "The unmapped ECS worker has no application-service identity and is not joined by a similar name."
+    }
+  ]
+}

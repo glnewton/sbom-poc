@@ -1,0 +1,32 @@
+# Official API collection reference
+
+Generated from the same catalog as the POC **Official APIs & rules** view. These are official operations, not invented cross-vendor APIs. The [collection runbook](collection-runbook.md) supplies concrete request examples, ordering, credentials and operational handling. Live collection is not enabled in the public POC.
+
+| Provider | Operation | Request | Permission / authentication | Pagination / behavior | Official reference |
+| --- | --- | --- | --- | --- | --- |
+| ServiceNow | Business applications | GET /api/now/table/cmdb_ci_business_app | OAuth/user with table + field ACL read access | sysparm_limit/sysparm_offset; stable ordering and incremental overlap | [Documentation](https://www.servicenow.com/docs/r/api-reference/rest-apis/c_TableAPI.html) |
+| ServiceNow | Application services | GET /api/now/table/cmdb_ci_service_auto | Read configured class and referenced fields; validate subclass/CSDM model | sysparm_limit/sysparm_offset | [Documentation](https://www.servicenow.com/docs/r/api-reference/rest-apis/c_TableAPI.html) |
+| ServiceNow | CI relationships | GET /api/now/table/cmdb_rel_ci | Read relationship rows and endpoint CIs | sysparm_limit/sysparm_offset; batch scoped sys_id queries | [Documentation](https://www.servicenow.com/docs/r/api-reference/rest-apis/c_TableAPI.html) |
+| ServiceNow | Relationship types | GET /api/now/table/cmdb_rel_type | Read configured relation types | sysparm_limit/sysparm_offset | [Documentation](https://www.servicenow.com/docs/r/api-reference/rest-apis/c_TableAPI.html) |
+| GitLab | Project | GET /api/v4/projects/:id | read_api token and project membership | Single resource | [Documentation](https://docs.gitlab.com/api/projects/) |
+| GitLab | Pipelines | GET /api/v4/projects/:id/pipelines; /pipelines/:pipeline_id | read_api | Follow Link/X-Next-Page; fetch exact manifest pipeline | [Documentation](https://docs.gitlab.com/api/pipelines/) |
+| GitLab | Jobs | GET /api/v4/projects/:id/jobs/:job_id | read_api; job artifact access by project policy | Single job; lists follow pagination and include retried jobs as needed | [Documentation](https://docs.gitlab.com/api/jobs/) |
+| GitLab | Exact job artifact | GET /api/v4/projects/:id/jobs/:job_id/artifacts/:artifact_path | read_api or supported authorized job token | Redirects/expiration; 404 is missing artifact, not no components | [Documentation](https://docs.gitlab.com/api/job_artifacts/) |
+| GitLab | Environments | GET /api/v4/projects/:id/environments | read_api | Follow pagination | [Documentation](https://docs.gitlab.com/api/environments/) |
+| GitLab | Deployments | GET /api/v4/projects/:id/deployments | read_api | Follow pagination; retain successful and failed history/status | [Documentation](https://docs.gitlab.com/api/deployments/) |
+| GitLab | Commits | GET /api/v4/projects/:id/repository/commits/:sha | read_api | Exact complete SHA | [Documentation](https://docs.gitlab.com/api/commits/) |
+| GitLab | Repository tree | GET /api/v4/projects/:id/repository/tree?ref=:sha&recursive=true | read_api; supported repository token scopes | Follow pagination with same immutable ref | [Documentation](https://docs.gitlab.com/api/repositories/#list-repository-tree) |
+| GitLab | Repository file | GET /api/v4/projects/:id/repository/files/:encoded_path?ref=:sha | read_api or read_repository for file endpoint | Single file; large-file rate limits apply | [Documentation](https://docs.gitlab.com/api/repository_files/) |
+| AWS | Account identity | sts:GetCallerIdentity | Authenticated AWS principal; identifies selected account | Single response | [Documentation](https://docs.aws.amazon.com/STS/latest/APIReference/API_GetCallerIdentity.html) |
+| AWS | ECS clusters | ecs:ListClusters / ecs:DescribeClusters | ecs:ListClusters, ecs:DescribeClusters | nextToken on list; batch ARN descriptions | [Documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeClusters.html) |
+| AWS | ECS services | ecs:ListServices / ecs:DescribeServices | ecs:ListServices, ecs:DescribeServices | nextToken; describe up to API batch limit; retain failures | [Documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeServices.html) |
+| AWS | ECS tasks | ecs:ListTasks / ecs:DescribeTasks include=TAGS | ecs:ListTasks, ecs:DescribeTasks and tag-read permissions | nextToken; describe batches and returned failures | [Documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTasks.html) |
+| AWS | Task definition | ecs:DescribeTaskDefinition | ecs:DescribeTaskDefinition | Exact revision ARN; include tags if needed | [Documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTaskDefinition.html) |
+| AWS | ECS tags | ecs:ListTagsForResource | ecs:ListTagsForResource | Per-resource ARN | [Documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListTagsForResource.html) |
+| AWS | ECR images | ecr:DescribeImages | ecr:DescribeImages | nextToken on lists; exact imageDigest lookups | [Documentation](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_DescribeImages.html) |
+| AWS | Lambda functions/versions | lambda:ListFunctions / ListVersionsByFunction / GetFunction | Corresponding lambda read actions | Marker/NextMarker; get each qualified version in routing scope | [Documentation](https://docs.aws.amazon.com/lambda/latest/api/API_GetFunction.html) |
+| AWS | Lambda aliases | lambda:ListAliases / GetAlias | lambda:ListAliases, lambda:GetAlias | Marker/NextMarker; include additional weighted targets | [Documentation](https://docs.aws.amazon.com/lambda/latest/api/API_GetAlias.html) |
+| AWS | Lambda tags | lambda:ListTags | lambda:ListTags | Use unqualified resource ARN; attach to qualified captures with provenance | [Documentation](https://docs.aws.amazon.com/lambda/latest/api/API_ListTags.html) |
+| AWS | EC2 instances | ec2:DescribeInstances | ec2:DescribeInstances | NextToken; retain account/region context | [Documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html) |
+| AWS | Installed applications | ssm:ListInventoryEntries TypeName=AWS:Application | ssm:ListInventoryEntries; SSM Inventory configured on managed node | NextToken; retain CaptureTime and empty/error distinction | [Documentation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_ListInventoryEntries.html) |
+

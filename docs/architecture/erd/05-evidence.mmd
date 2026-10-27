@@ -1,0 +1,61 @@
+erDiagram
+  COMMIT {
+    string id PK
+    string project_key FK
+    string sha
+  }
+  SOURCE_FILE {
+    string id PK
+    string commit_key FK
+    string path
+    string content_hash
+    string last_commit_id
+  }
+  SBOM {
+    string id PK
+    string job_key FK
+    string path
+    string format
+    string document_version
+  }
+  COMPONENT {
+    string id PK
+    string sbom_key FK
+    string reference
+    string name
+    string purl
+  }
+  OBSERVATION {
+    string id PK
+    string component
+    string version
+    string precision
+    string scope
+    string locator
+    datetime captured_at
+  }
+  INVENTORY {
+    string id PK
+    string workload_key FK
+    string type_name
+    datetime captured_at
+  }
+  WORKLOAD {
+    string id PK
+    string account_key FK
+    string region_key FK
+    string application_service_key FK
+    string artifact_key FK
+    string resource_id
+    string kind
+    datetime observed_at
+    string mapping_status
+  }
+  COMMIT ||--o{ SOURCE_FILE : "commit_file"
+  SOURCE_FILE ||--o{ OBSERVATION : "file_observation"
+  SBOM ||--o{ COMPONENT : "sbom_component"
+  COMPONENT ||--o{ OBSERVATION : "component_observation"
+  COMPONENT }o--o{ COMPONENT : "component_dependency"
+  WORKLOAD ||--o{ INVENTORY : "workload_inventory"
+  INVENTORY ||--o{ OBSERVATION : "inventory_observation"
+  WORKLOAD ||--o{ OBSERVATION : "workload_observation"

@@ -1,12 +1,14 @@
 # Data mapping concepts
 
+Current implementation reference: [comprehensive architecture, ERDs, native field mappings and executable profiles](architecture/README.md). The Mapping workbench now applies the configured ownership/tag profiles to the portfolio and exports a canonical graph. Earlier design examples below remain illustrative where they exceed that implemented contract.
+
 For concrete authentication, endpoints, requests, and cross-system joins, see [Connecting through official APIs](official-api-integration-guide.md).
 
 The question is: **For a business application, which language/runtime and library versions are associated with the workloads observed in each environment, and what evidence supports that answer?**
 
 Real APIs provide the records, but an organization's fields, CMDB classes, tags, repository layout, and environment names determine how those records connect. Keep the business concepts stable while adapting their source representations.
 
-This document defines the conceptual model and proposed integration principles. The current application is a fixed synthetic simulation. It does not yet implement configurable mapping profiles, live collectors, a persistent canonical store, or the full relationship model below. See [the adapter design](data-mapping-adapters.md) for the implementation boundary and [the simulation model](simulated-data-model.md) for today's exact fields.
+This document defines the conceptual model and proposed integration principles. The current application is a fixed synthetic simulation. It now implements the two ownership/tag mapping profiles and an exportable canonical graph described in the architecture reference. Live collectors, historical storage and arbitrary profile authoring remain integration work. See [the adapter design](data-mapping-adapters.md) for the implementation boundary and [the simulation model](simulated-data-model.md) for today's exact fields.
 
 ## Conceptual chain
 

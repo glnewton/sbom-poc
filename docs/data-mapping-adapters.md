@@ -1,8 +1,10 @@
 # Data mapping adapter design
 
+Current implementation reference: [comprehensive architecture, ERDs, native field mappings and executable profiles](architecture/README.md). The Mapping workbench now applies the configured ownership/tag profiles to the portfolio and exports a canonical graph. Earlier design examples below remain illustrative where they exceed that implemented contract.
+
 For concrete authentication, endpoints, requests, and cross-system joins, see [Connecting through official APIs](official-api-integration-guide.md).
 
-This is technical design guidance for moving from the simulation to organization-specific integrations. **Mapping profiles and live API collectors described here are proposed, not implemented.** The current executable adapter is hard-coded in [`dist/enterprise/model.js`](../dist/enterprise/model.js) and accepts the fixture described in [Simulated data model](simulated-data-model.md).
+This is technical design guidance for moving from the simulation to organization-specific integrations. The executable ownership/tag profiles, canonical graph and SQLite exporter are documented in [the current architecture](architecture/README.md). The broader generic adapter contract and YAML example below are design guidance; they are not an implemented arbitrary-expression configuration engine. Live API collectors remain integration work. The current resolver is [`dist/mapping/resolve.mjs`](../dist/mapping/resolve.mjs), followed by artifact correlation in [`dist/enterprise/model.js`](../dist/enterprise/model.js).
 
 Read [Data mapping concepts](data-mapping-concepts.md) for entity meanings, cardinalities, evidence limits, and identity rules.
 
@@ -144,15 +146,15 @@ An acceptance fixture should include renamed fields, scalar and reference-object
 | Area | Implemented in the proof of concept | Additional integration work |
 | --- | --- | --- |
 | Collection | Bundled synthetic JSON snapshot | Authenticated native API collectors, pagination and coverage tracking |
-| Source identities | One simulated ServiceNow/GitLab context; AWS resource identities | Multi-instance scoped keys and collector-supplied account context |
-| Mapping | Fixed custom project field, tags, and environment alias dictionary | Versioned profiles, alternative CMDB relationships, approval registry |
+| Source identities | Scoped canonical keys; one simulated ServiceNow/GitLab context; AWS account/region context | Live multi-instance collection and reconciliation |
+| Mapping | Two executable CMDB relationship/reference and AWS-tag profiles; approved service/source registry | Arbitrary customer profile authoring and production approval workflow |
 | Correlation | Project + typed observed digest; build/job consistency and captured SBOM path checks | Native artifact retrieval, subject attestations where available, platform/layer bindings |
 | Evidence | Digest-linked SBOM, Lambda family, EC2 installed scope, explicit gaps | Configurable freshness and richer provenance/coverage dimensions |
-| Relationships | One application per asset; services largely grouped by project | Shared services, monorepo targets, many-to-many relationship assertions |
-| Environments | Fixed aliases; matrix columns dev/UAT/prod | Organization-specific environment identities and dynamic columns |
-| Validation | Synthetic model and version checks in `enterprise-checks.mjs` | Adapter contract fixtures and live integration verification per deployment |
+| Relationships | Shared consumers, explicit primary operator, source/build targets and typed many-to-many graph assertions | More than one primary build target per deployable-service instance |
+| Environments | Profile-controlled aliases and conflict checking; matrix columns dev/UAT/prod | Dynamic matrix columns and organization-wide environment catalog |
+| Validation | Model/version checks, mutation-based mapping tests and SQLite constraint tests | Live integration verification and temporal reconciliation tests |
 
-A future implementation can preserve existing views while replacing the extraction layer, but it will need richer normalized records and query semantics for the additional relationship and coverage cases. Renaming a few fixture keys alone does not implement this design.
+The Mapping workbench now drives the existing portfolio through the configured resolver. The architecture coverage matrix identifies the remaining platform, collection and historical-storage extensions.
 
 ## Related code and references
 
@@ -165,4 +167,4 @@ A future implementation can preserve existing views while replacing the extracti
 
 Add a source-files adapter after build correlation, using GitLab Repository Tree and Repository Files APIs at the full build commit. Its profile should specify source instance/project, service build targets and subdirectories, allowlisted files, inherited-config rules, supported parsers, byte/count limits, and missing/denied-file handling. Preserve native blob IDs/content hashes, requested revision, file-last-change revision, capture time, parser revision and collection completeness. Keep unsupported files visible.
 
-Normalize findings into version observations with `precision`, `scope`, `path`, and `locator`; keep source pins separate from SBOM, host and process observations. The POC implements local parsing plus simulated build-commit association, not live collection or configurable adapter profiles. See [the repository collection and derivation guide](repository-version-evidence.md) for official requests and the exact implementation boundary.
+Normalize findings into version observations with `precision`, `scope`, `path`, and `locator`; keep source pins separate from SBOM, host and process observations. The POC implements local parsing, simulated build-commit association and the ownership/tag profiles documented in the architecture reference. Live collection remains integration work. See [the repository collection and derivation guide](repository-version-evidence.md) for official requests and the exact implementation boundary.

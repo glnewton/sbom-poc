@@ -1,0 +1,62 @@
+erDiagram
+  APPLICATION {
+    string id PK
+    string sys_id
+    string number
+    string name
+    json application_manager
+    string business_criticality
+  }
+  APPLICATION_SERVICE {
+    string id PK
+    string sys_id
+    string sys_class_name
+    string name
+    string service_key FK
+    string environment_key FK
+  }
+  SERVICE {
+    string id PK
+    string name
+    string registry_namespace
+  }
+  SOURCE_BINDING {
+    string id PK
+    string service_key FK
+    string project_key FK
+    string path
+    string build_target
+    string role
+    datetime valid_from
+    datetime valid_to
+  }
+  PROJECT {
+    string id PK
+    string gitlab_instance
+    integer project_id
+    string path_with_namespace
+    string default_branch
+  }
+  ENVIRONMENT {
+    string id PK
+    string organization
+    string name
+  }
+  WORKLOAD {
+    string id PK
+    string account_key FK
+    string region_key FK
+    string application_service_key FK
+    string artifact_key FK
+    string resource_id
+    string kind
+    datetime observed_at
+    string mapping_status
+  }
+  APPLICATION }o--o{ APPLICATION_SERVICE : "application_uses_service"
+  APPLICATION_SERVICE }o--|| SERVICE : "service_instance"
+  APPLICATION_SERVICE }o--|| ENVIRONMENT : "service_environment"
+  SERVICE ||--o{ SOURCE_BINDING : "service_source"
+  SOURCE_BINDING }o--|| PROJECT : "binding_project"
+  WORKLOAD }o--|| APPLICATION_SERVICE : "workload_service"
+  WORKLOAD }o--|| ENVIRONMENT : "workload_environment"

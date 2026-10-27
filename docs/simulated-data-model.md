@@ -1,5 +1,7 @@
 # Simulated application deployment model
 
+Current implementation reference: [comprehensive architecture, ERDs, native field mappings and executable profiles](architecture/README.md). The Mapping workbench now applies the configured ownership/tag profiles to the portfolio and exports a canonical graph. Earlier design examples below remain illustrative where they exceed that implemented contract.
+
 For concrete authentication, endpoints, requests, and cross-system joins, see [Connecting through official APIs](official-api-integration-guide.md).
 
 This proof of concept uses only fictional data. There are no ServiceNow, GitLab, or AWS account connections. The browser fetches a bundled JSON fixture from the same static host. All joins and version queries run locally.
@@ -76,3 +78,5 @@ The source adapters and joins are in `dist/enterprise/model.js`. The UI is in `d
 ## Supplemental repository snapshots
 
 `dist/data/simulated-repositories.json` contains four synthetic source snapshots. `scripts/generate-repository-demo.mjs` derives three snapshot identities from the existing validated build commits; a fourth has a deliberately unbound newer revision. Files are analyzed at runtime by `dist/repository/analyzer.mjs`, rather than storing precomputed findings. The source findings never modify the enterprise snapshot or its deployed-version results. See [repository version evidence](repository-version-evidence.md) for scenarios, file formats, and correlation rules.
+
+The current EC2 captures retain native `Reservations.OwnerId`. SSM adapter envelopes now include `AccountId` and `Region` collection context alongside `Id` and inventory data; these are explicit envelope fields, not native ListInventoryEntries response properties. Profile-driven inventory lookup requires the same account, region and instance.

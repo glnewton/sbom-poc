@@ -1,0 +1,91 @@
+erDiagram
+  ACCOUNT {
+    string id PK
+    string partition
+    string account_id
+    string collector_principal
+  }
+  REGION {
+    string id PK
+    string partition
+    string region_name
+  }
+  CLUSTER {
+    string id PK
+    string cluster_arn
+    string cluster_name
+    string status
+  }
+  ECS_SERVICE {
+    string id PK
+    string cluster_key FK
+    string task_definition_key FK
+    string service_arn
+    string service_name
+    integer desired_count
+  }
+  TASK_DEFINITION {
+    string id PK
+    string task_definition_arn
+    string family
+    integer revision
+    json container_definitions
+  }
+  WORKLOAD {
+    string id PK
+    string account_key FK
+    string region_key FK
+    string application_service_key FK
+    string artifact_key FK
+    string resource_id
+    string kind
+    datetime observed_at
+    string mapping_status
+  }
+  ECR_IMAGE {
+    string id PK
+    string artifact_key FK
+    string registry_id
+    string region
+    string repository_name
+    string image_digest
+    json image_tags
+  }
+  ARTIFACT {
+    string id PK
+    string subject_type
+    string digest
+    string release
+  }
+  LAMBDA_FUNCTION {
+    string id PK
+    string unqualified_arn
+    string function_name
+  }
+  LAMBDA_ALIAS {
+    string id PK
+    string function_key FK
+    string alias_arn
+    string name
+    string primary_version
+    json additional_version_weights
+  }
+  INVENTORY {
+    string id PK
+    string workload_key FK
+    string type_name
+    datetime captured_at
+  }
+  ACCOUNT ||--o{ WORKLOAD : "account_workload"
+  REGION ||--o{ WORKLOAD : "region_workload"
+  CLUSTER ||--o{ ECS_SERVICE : "cluster_service"
+  ECS_SERVICE }o--|| TASK_DEFINITION : "ecs_desired_definition"
+  CLUSTER ||--o{ WORKLOAD : "cluster_workload"
+  ECS_SERVICE ||--o{ WORKLOAD : "ecs_service_workload"
+  WORKLOAD }o--|| TASK_DEFINITION : "workload_definition"
+  ECR_IMAGE }o--|| ARTIFACT : "registry_artifact"
+  LAMBDA_FUNCTION ||--o{ WORKLOAD : "function_version"
+  LAMBDA_FUNCTION ||--o{ LAMBDA_ALIAS : "function_alias"
+  LAMBDA_ALIAS }o--o{ WORKLOAD : "alias_version"
+  WORKLOAD }o--|| ARTIFACT : "workload_artifact"
+  WORKLOAD ||--o{ INVENTORY : "workload_inventory"

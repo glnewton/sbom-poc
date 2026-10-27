@@ -1,0 +1,67 @@
+erDiagram
+  PROJECT {
+    string id PK
+    string gitlab_instance
+    integer project_id
+    string path_with_namespace
+    string default_branch
+  }
+  COMMIT {
+    string id PK
+    string project_key FK
+    string sha
+  }
+  PIPELINE {
+    string id PK
+    string project_key FK
+    string commit_key FK
+    integer pipeline_id
+    string status
+    datetime created_at
+  }
+  JOB {
+    string id PK
+    string pipeline_key FK
+    integer job_id
+    string name
+    string stage
+    string status
+  }
+  ARTIFACT {
+    string id PK
+    string subject_type
+    string digest
+    string release
+  }
+  SBOM {
+    string id PK
+    string job_key FK
+    string path
+    string format
+    string document_version
+  }
+  GITLAB_ENVIRONMENT {
+    string id PK
+    string project_key FK
+    string environment_key FK
+    integer environment_id
+    string name
+    string tier
+  }
+  DEPLOYMENT {
+    string id PK
+    string gitlab_environment_key FK
+    string commit_key FK
+    integer deployment_id
+    string status
+    datetime updated_at
+  }
+  PROJECT ||--o{ COMMIT : "project_commit"
+  COMMIT ||--o{ PIPELINE : "commit_pipeline"
+  PIPELINE ||--o{ JOB : "pipeline_job"
+  JOB }o--o{ ARTIFACT : "job_artifact"
+  JOB ||--o{ SBOM : "job_sbom"
+  ARTIFACT }o--o{ SBOM : "artifact_sbom"
+  PROJECT ||--o{ GITLAB_ENVIRONMENT : "project_environment"
+  GITLAB_ENVIRONMENT ||--o{ DEPLOYMENT : "environment_deployment"
+  DEPLOYMENT }o--|| COMMIT : "deployment_commit"

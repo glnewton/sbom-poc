@@ -1,3 +1,4 @@
+import {resolveAssetMapping,validateMappingInput} from '../mapping/resolve.mjs';
 import {normalize} from '../engine.mjs';
 import {runtimes,searchVersions} from '../version-search.mjs';
 
@@ -10,8 +11,9 @@ const tags=(value,upper=false)=>Array.isArray(value)?Object.fromEntries(value.ma
 const runtimeFor=c=>runtimes.find(r=>r.pattern.test(c.name))?.id||'';
 const manifestKey=(project,type,digest)=>`${project}|${type}|${digest}`;
 
-export function buildPortfolio(snapshot){
+export function buildPortfolio(snapshot,{mappingInput=null,profileId='cmdb-relationships'}={}){
   if(!snapshot||snapshot.schema_version!==1||snapshot.simulated!==true)throw Error('Expected a version 1 simulated enterprise snapshot.');
+  if(mappingInput)validateMappingInput(mappingInput);
   const apps=snapshot.servicenow.businessApplications.result.map(raw=>({id:raw.sys_id,number:raw.number,name:raw.name,owner:raw.application_manager?.display_value||'Unassigned',criticality:raw.business_criticality,description:raw.short_description,projectIds:String(raw.u_gitlab_project_ids||'').split(',').filter(Boolean).map(Number),raw}));
   const appMap=new Map(apps.map(a=>[a.id,a]));
   const projectMap=new Map(snapshot.gitlab.projects.map(p=>[p.id,p]));
@@ -19,18 +21,22 @@ export function buildPortfolio(snapshot){
   for(const m of snapshot.buildManifests){const k=manifestKey(m.project_id,m.subject.type,m.subject.digest);if(!manifests.has(k))manifests.set(k,[]);manifests.get(k).push(m);}
   const assets=[];
   function add(base){
-    const values=base.tags,app=appMap.get(values.BusinessApplicationId)||null;
-    const project=projectMap.get(Number(values.GitLabProjectId))||null;
-    const asset={...base,app,project,environment:normalizeEnvironment(values.Environment),originalEnvironment:values.Environment||'',service:values.Service||base.service,issues:[],components:[],manifest:null,bom:null,coverage:'gap'};
+    const mapping=mappingInput?resolveAssetMapping(base,snapshot,mappingInput,profileId):null;
+    const values=base.tags,app=appMap.get(mapping?mapping.applicationId:values.BusinessApplicationId)||null;
+    const project=projectMap.get(Number(mapping?mapping.projectId:values.GitLabProjectId))||null;
+    const asset={...base,mapping,app,project,environment:mapping?mapping.environment:normalizeEnvironment(values.Environment),originalEnvironment:values.Environment||'',service:values.Service||base.service,issues:[],components:[],manifest:null,bom:null,coverage:'gap'};
+    if(mapping)asset.issues.push(...mapping.issues.map(i=>i.message));
     if(!app)asset.issues.push('Application mapping missing');
     if(!project)asset.issues.push('GitLab project mapping missing');
-    if(app&&project&&!app.projectIds.includes(project.id))asset.issues.push('Application/project mapping conflict');
+    if(!mapping&&app&&project&&!app.projectIds.includes(project.id))asset.issues.push('Application/project mapping conflict');
     if(!values.Environment)asset.issues.push('Environment tag missing');
     if(base.kind==='EC2'){
-      const inventory=snapshot.aws.ssm.Entities.find(i=>i.Id===base.instanceId)?.Data?.['AWS:Application'];
+      const inventories=snapshot.aws.ssm.Entities.filter(i=>i.Id===base.instanceId&&(!mappingInput||i.AccountId===base.account&&i.Region===base.region));
+      const inventory=inventories.length===1?inventories[0].Data?.['AWS:Application']:null;
+      if(inventories.length>1)asset.issues.push('SSM inventory ambiguous');
       if(inventory){asset.inventory=inventory;asset.observedAt=inventory.CaptureTime;asset.coverage='host';asset.components=inventory.Content.map((c,i)=>({id:`installed-${i}`,name:c.Name,version:c.Version||'',purl:'',group:'',type:'library',licenses:[],hashes:[],raw:c,precision:'exact',origin:'AWS SSM installed software',runtime:runtimeFor({name:c.Name})}));}
       else asset.issues.push('SSM inventory missing');
-    }else if(project&&app&&app.projectIds.includes(project.id)){
+    }else if(project&&app&&(mapping?.status==='resolved'||app.projectIds.includes(project.id))){
       if(!base.digest)asset.issues.push('Observed artifact digest missing');
       else {
         const found=manifests.get(manifestKey(project.id,base.subjectType,base.digest))||[];
@@ -69,8 +75,9 @@ export function buildPortfolio(snapshot){
     for(const container of task.containers){if(container.lastStatus!=='RUNNING')continue;add({id:task.taskArn+'#'+container.name,kind:'ECS',resourceId:task.taskArn,service:container.name,tags:tags(task.tags),region:task.taskArn.split(':')[3],account:task.taskArn.split(':')[4],digest:container.imageDigest||'',subjectType:'container-image',image:container.image,observedAt:snapshot.aws.captured_at,raw:{task,container}});}
   }
   for(const fn of snapshot.aws.lambda.functions){if(fn.Configuration.State!=='Active')continue;const c=fn.Configuration;add({id:c.FunctionArn,kind:'Lambda',resourceId:c.FunctionArn,service:c.FunctionName,tags:tags(fn.Tags),region:c.FunctionArn.split(':')[3],account:c.FunctionArn.split(':')[4],digest:c.CodeSha256||'',subjectType:'lambda-code-sha256',runtime:c.Runtime,observedAt:snapshot.aws.captured_at,raw:fn});}
-  for(const reservation of snapshot.aws.ec2.Reservations)for(const i of reservation.Instances){if(i.State.Name!=='running')continue;add({id:i.InstanceId,kind:'EC2',instanceId:i.InstanceId,resourceId:i.InstanceId,service:i.InstanceId,tags:tags(i.Tags,true),region:i.Placement.AvailabilityZone.slice(0,-1),account:'Not supplied by DescribeInstances',digest:'',observedAt:snapshot.aws.captured_at,raw:i});}
-  return {snapshot,apps,appMap,projectMap,assets};
+  for(const reservation of snapshot.aws.ec2.Reservations)for(const i of reservation.Instances){if(i.State.Name!=='running')continue;add({id:i.InstanceId,kind:'EC2',instanceId:i.InstanceId,resourceId:i.InstanceId,service:i.InstanceId,tags:tags(i.Tags,true),region:i.Placement.AvailabilityZone.slice(0,-1),account:reservation.OwnerId||'Account capture missing',digest:'',observedAt:snapshot.aws.captured_at,raw:i});}
+  if(mappingInput)for(const app of apps)app.projectIds=[...new Set(assets.filter(a=>a.app?.id===app.id&&a.project).map(a=>a.project.id))];
+  return {snapshot,apps,appMap,projectMap,assets,mappingInput,profileId};
 }
 export function selectAssets(fleet,{appId='all',environment='all',projectId='all',kindFilter='all'}={}){
   return fleet.assets.filter(a=>(appId==='all'||(appId==='unassigned'?!a.app:a.app?.id===appId))&&(environment==='all'||a.environment===environment)&&(projectId==='all'||String(a.project?.id)===String(projectId))&&(kindFilter==='all'||a.kind===kindFilter));

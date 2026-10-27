@@ -65,8 +65,8 @@ for(const spec of specs){
   }
   if(spec.type==='EC2'){
    const instanceId='i-'+hash(`${spec.id}/${environment}`).slice(0,17),values=tags(spec,environment);
-   portfolio.aws.ec2.Reservations.push({Instances:[{InstanceId:instanceId,ImageId:'ami-'+hash('base-image').slice(0,17),State:{Name:'running',Code:16},Placement:{AvailabilityZone:'us-east-1a'},Tags:Object.entries(values).map(([Key,Value])=>({Key,Value})),LaunchTime:'2026-10-20T08:00:00Z'}]});
-   portfolio.aws.ssm.Entities.push({Id:instanceId,Data:{'AWS:Application':{TypeName:'AWS:Application',SchemaVersion:'1.1',CaptureTime:'2026-10-26T11:30:00Z',Content:[{Name:'python3',Version:spec.versions[index],ApplicationType:'System'},...spec.libs.map(([Name,versions])=>({Name,Version:versions[index],ApplicationType:'Package'}))]}}});
+   portfolio.aws.ec2.Reservations.push({OwnerId:environment==='prod'?'111122223333':'444455556666',Instances:[{InstanceId:instanceId,ImageId:'ami-'+hash('base-image').slice(0,17),State:{Name:'running',Code:16},Placement:{AvailabilityZone:'us-east-1a'},Tags:Object.entries(values).map(([Key,Value])=>({Key,Value})),LaunchTime:'2026-10-20T08:00:00Z'}]});
+   portfolio.aws.ssm.Entities.push({Id:instanceId,AccountId:environment==='prod'?'111122223333':'444455556666',Region:'us-east-1',Data:{'AWS:Application':{TypeName:'AWS:Application',SchemaVersion:'1.1',CaptureTime:'2026-10-26T11:30:00Z',Content:[{Name:'python3',Version:spec.versions[index],ApplicationType:'System'},...spec.libs.map(([Name,versions])=>({Name,Version:versions[index],ApplicationType:'Package'}))]}}});
   }
  });
  if(spec.id===101||spec.id===102){const old=build(spec,3,'old-prod');ecsTask(spec,'prod',old,'old');}

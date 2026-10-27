@@ -1,5 +1,7 @@
 # Connecting ServiceNow, GitLab, and AWS through official APIs
 
+Current implementation reference: [comprehensive architecture, ERDs, native field mappings and executable profiles](architecture/README.md). The Mapping workbench now applies the configured ownership/tag profiles to the portfolio and exports a canonical graph. Earlier design examples below remain illustrative where they exceed that implemented contract.
+
 This guide explains how to collect and connect real source records to answer: **Which runtime/library version is recorded for this business application's deployed workloads in dev, UAT, or prod?**
 
 The commands are integration examples for an authorized collector. They have not been executed against customer accounts. The published proof of concept still uses synthetic data; it does not have live connectors or a mapping-profile interpreter. Follow the native APIs below, then adapt their responses using [the mapping concepts](data-mapping-concepts.md) and [adapter design](data-mapping-adapters.md).
@@ -313,7 +315,7 @@ For a future adapter, the native response-to-bundle translation points are:
 
 | Native source | Current fixture location | Translation required |
 | --- | --- | --- |
-| ServiceNow Table API `result` | `servicenow.businessApplications.result` | Retain IDs, normalize reference representation, and map the approved project associations; today's field is hard-coded |
+| ServiceNow Table API `result` | `servicenow.businessApplications.result` | Retain IDs and reference values; combine with application-service relationships and approved source bindings using the active mapping profile |
 | GitLab project-scoped endpoints | `gitlab.projects/pipelines/jobs/environments/deployments` | Attach collection project/instance context; complete all pages |
 | GitLab job artifact manifest | `buildManifests` | Parse the integration-owned manifest, preserving exact subject and build/job binding |
 | GitLab SBOM job response | `sbomArtifacts[].response` | Wrap the body with exact project, job, and artifact path |
@@ -333,4 +335,4 @@ The proposed canonical adapter design is preferable for multiple source instance
 5. Test missing tags, expired artifacts, denied reads, unknown digests, absent SSM inventory, and family-only runtime evidence. These must produce incomplete/unknown coverage rather than clean results.
 6. Compare against a sanitized fixture in automated adapter tests. Retain the mapping revision so results are reproducible.
 
-No customer endpoint connectivity or permissions have been verified by this documentation-only change. The examples describe official API operations; production collection, scheduling, persistence, and full error handling remain implementation work.
+No customer endpoint connectivity or permissions have been verified. The POC implements simulated adapters, canonical mapping and a SQLite export/import path. Production collection, scheduling, historical persistence and complete operational error handling remain integration work.

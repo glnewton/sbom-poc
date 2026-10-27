@@ -1,0 +1,289 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BOMscope canonical simulated evidence graph",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "simulated": {
+      "const": true
+    },
+    "capturedAt": {
+      "type": "string"
+    },
+    "profileId": {
+      "type": "string"
+    },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "enum": [
+              "application",
+              "application_service",
+              "service",
+              "source_binding",
+              "project",
+              "commit",
+              "source_file",
+              "pipeline",
+              "job",
+              "artifact",
+              "sbom",
+              "component",
+              "observation",
+              "environment",
+              "gitlab_environment",
+              "deployment",
+              "account",
+              "region",
+              "cluster",
+              "ecs_service",
+              "task_definition",
+              "ecr_image",
+              "lambda_function",
+              "lambda_alias",
+              "workload",
+              "inventory"
+            ]
+          },
+          "label": {
+            "type": "string"
+          },
+          "attributes": {
+            "type": "object"
+          },
+          "provenance": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "source": {
+                  "enum": [
+                    "snapshot",
+                    "capture",
+                    "repositories"
+                  ]
+                },
+                "pointer": {
+                  "type": "string"
+                },
+                "meaning": {
+                  "type": "string"
+                },
+                "capturedAt": {
+                  "type": "string"
+                },
+                "simulated": {
+                  "const": true
+                }
+              },
+              "required": [
+                "source",
+                "pointer"
+              ]
+            }
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "label",
+          "attributes",
+          "provenance"
+        ]
+      }
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "enum": [
+              "application_uses_service",
+              "service_instance",
+              "service_environment",
+              "service_source",
+              "binding_project",
+              "project_commit",
+              "commit_file",
+              "file_observation",
+              "commit_pipeline",
+              "pipeline_job",
+              "job_artifact",
+              "job_sbom",
+              "artifact_sbom",
+              "sbom_component",
+              "component_observation",
+              "component_dependency",
+              "project_environment",
+              "environment_alias",
+              "environment_deployment",
+              "deployment_commit",
+              "account_workload",
+              "region_workload",
+              "cluster_service",
+              "ecs_desired_definition",
+              "cluster_workload",
+              "ecs_service_workload",
+              "workload_definition",
+              "registry_artifact",
+              "function_version",
+              "function_alias",
+              "alias_version",
+              "workload_service",
+              "workload_environment",
+              "workload_artifact",
+              "workload_inventory",
+              "inventory_observation",
+              "workload_observation"
+            ]
+          },
+          "from": {
+            "type": "string"
+          },
+          "to": {
+            "type": "string"
+          },
+          "rule": {
+            "enum": [
+              "MAP-01",
+              "MAP-02",
+              "MAP-03",
+              "MAP-04",
+              "BUILD-01",
+              "BUILD-02",
+              "SBOM-01",
+              "SBOM-02",
+              "DEPLOY-01",
+              "AWS-01",
+              "AWS-02",
+              "AWS-03",
+              "AWS-04",
+              "AWS-05",
+              "REPO-01",
+              "VERSION-01"
+            ]
+          },
+          "attributes": {
+            "type": "object"
+          },
+          "provenance": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "source": {
+                  "enum": [
+                    "snapshot",
+                    "capture",
+                    "repositories"
+                  ]
+                },
+                "pointer": {
+                  "type": "string"
+                },
+                "meaning": {
+                  "type": "string"
+                },
+                "capturedAt": {
+                  "type": "string"
+                },
+                "simulated": {
+                  "const": true
+                }
+              },
+              "required": [
+                "source",
+                "pointer"
+              ]
+            }
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "from",
+          "to",
+          "rule",
+          "attributes",
+          "provenance"
+        ]
+      }
+    },
+    "issues": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "subject": {
+            "type": "string"
+          },
+          "assetId": {
+            "type": "string"
+          },
+          "provenance": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "source": {
+                  "enum": [
+                    "snapshot",
+                    "capture",
+                    "repositories"
+                  ]
+                },
+                "pointer": {
+                  "type": "string"
+                },
+                "meaning": {
+                  "type": "string"
+                },
+                "capturedAt": {
+                  "type": "string"
+                },
+                "simulated": {
+                  "const": true
+                }
+              },
+              "required": [
+                "source",
+                "pointer"
+              ]
+            }
+          }
+        },
+        "required": [
+          "code",
+          "message"
+        ]
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "simulated",
+    "capturedAt",
+    "profileId",
+    "nodes",
+    "edges",
+    "issues"
+  ]
+}

@@ -1,0 +1,11 @@
+import {readFileSync,writeFileSync} from 'node:fs';
+import {buildPortfolio} from '../dist/enterprise/model.js';
+import {buildMappingGraph} from '../dist/mapping/model.mjs';
+const read=name=>JSON.parse(readFileSync(new URL('../dist/data/'+name,import.meta.url),'utf8'));
+const output=process.argv[2],profileId=process.argv[3]||'cmdb-relationships';
+if(!output)throw Error('Usage: node scripts/export-mapping.mjs OUTPUT.json [cmdb-relationships|custom-reference]');
+const snapshot=read('simulated-enterprise.json'),capture=read('simulated-mapping-input.json'),repositories=read('simulated-repositories.json');
+const fleet=buildPortfolio(snapshot,{mappingInput:capture,profileId});
+const graph=buildMappingGraph(fleet,capture,repositories);
+writeFileSync(output,JSON.stringify({...graph,sources:{snapshot,capture,repositories}},null,2)+'\n');
+console.log(`Exported ${graph.nodes.length} entities, ${graph.edges.length} relationships, ${graph.issues.length} issues with source captures.`);
