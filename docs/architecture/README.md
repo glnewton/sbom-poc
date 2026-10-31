@@ -14,6 +14,8 @@ This is the implementation reference for the **Mapping workbench**, not a future
 8. [Physical persistence ERD and SQL](physical-model.md): runnable SQLite schema and queries over exported records and evidence.
 9. [Coverage and extension matrix](coverage.md): what is implemented, tested, modeled, or still required for another deployment platform.
 
+10. [Cartography assessment](cartography-assessment.md): source-reviewed overlap, missing ServiceNow/build evidence, entity crosswalk and proposed integration boundary.
+
 ## Central relationship
 
 ```mermaid
